@@ -22,7 +22,7 @@ export const GlobalStyles = createGlobalStyle`
         --font-weight-400: 700; 
 
         // WIDTH
-        --max-container: 69.4375rem;
+        --max-container: 69.437rem;
         --center-container: 0 auto;
 
         //BORDER
