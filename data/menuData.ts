@@ -10,18 +10,22 @@ export const menuData = {
     {
       title: "home",
       link: "/",
+      active: false,
     },
     {
       title: "headphones",
       link: "/headphones",
+      active: false,
     },
     {
       title: "speakers",
       link: "/speakers",
+      active: false,
     },
     {
       title: "earphones",
       link: "/earphones",
+      active: false,
     },
   ],
   footer: {
