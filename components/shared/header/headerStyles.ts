@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { QUERIES } from "helpers/mediaQueries";
 
 export const HeaderContainer = styled.header`
   max-width: 100%;
@@ -36,10 +35,10 @@ export const HeaderLogoWrap = styled.div`
   }
 
   @media screen and (max-width: 576px) {
-    /* flex: 1; */
     justify-content: center;
   }
 `;
+
 export const HeaderLogo = styled.div`
   img {
     display: none;
@@ -50,8 +49,8 @@ export const HeaderLogo = styled.div`
     }
   }
 `;
+
 export const HeaderMenu = styled.nav`
-  /* background-color: green; */
   flex: 3;
   justify-content: center;
 
@@ -59,9 +58,9 @@ export const HeaderMenu = styled.nav`
     display: none;
   }
 `;
+
 export const MenuWrap = styled.ul`
   min-width: 26.8125rem;
-  /* background-color: red; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -70,11 +69,12 @@ export const MenuWrap = styled.ul`
     min-width: 22.8125rem;
   }
 `;
+
 export const MenuWrapItem = styled.li`
   text-transform: uppercase;
 `;
+
 export const CartWrap = styled.div`
-  background-color: black;
   justify-content: flex-end;
 
   img {
@@ -88,9 +88,8 @@ export const Cart = styled.button`
   background-color: transparent;
 `;
 
-export const MobileNav = styled.div`
+export const MobileNav = styled.nav`
   display: none;
-  /* background-color: pink; */
 
   @media screen and (max-width: 786px) {
     display: flex;
@@ -102,6 +101,6 @@ export const MobileToggle = styled.button`
 
   i {
     color: var(--color-pry-300);
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 `;

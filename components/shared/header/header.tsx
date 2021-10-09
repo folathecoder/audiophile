@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -42,13 +43,27 @@ interface HeaderProps {
 }
 
 const Header = ({ data }: HeaderProps): JSX.Element => {
+  //TODO: Destructure the "data" object
   const { logo, menu, cart } = data;
+
+  //TODO: Manage the dropdown menu toggle
+  const [menuToggle, setMenuToggle] = useState(false);
+
+  //TODO: Event => Add click event to toggle the dropdown menu button
+  const handleMenuToggle = () => {
+    setMenuToggle(!menuToggle);
+  };
+
   return (
     <HeaderContainer>
       <HeaderWrap>
         <MobileNav>
-          <MobileToggle>
-            <i className="fas fa-bars" />
+          <MobileToggle onClick={handleMenuToggle}>
+            {menuToggle ? (
+              <i className="fas fa-times"></i>
+            ) : (
+              <i className="fas fa-bars" />
+            )}
           </MobileToggle>
         </MobileNav>
 
