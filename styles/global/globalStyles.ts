@@ -22,7 +22,7 @@ export const GlobalStyles = createGlobalStyle`
         --font-weight-400: 700; 
 
         // WIDTH
-        --max-container: 69.437rem;
+        --max-container: 69.375rem;
         --center-container: 0 auto;
 
         //BORDER
@@ -43,9 +43,6 @@ export const GlobalStyles = createGlobalStyle`
         max-width: 100%;
         height: auto;
     }
-    a {
-        text-decoration: none;
-    }
     li {
         list-style: none;
     }
@@ -60,6 +57,26 @@ export const GlobalStyles = createGlobalStyle`
     }
     ///////////////////////////////////////////////////////
     //TODO: TYPOGRAPHY
+
+    a {
+        text-decoration: none;
+        color: var(--color-pry-300);
+        font-size: 0.8125rem;
+        line-height: 1.5625rem;
+        letter-spacing: 0.1rem;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            transition: var(--transition);
+            color: var(--color-pry-100);
+        }
+
+        &:active {
+            transition: var(--transition);
+            color: var(--color-pry-100);
+        }
+    }
     
 `;
 
