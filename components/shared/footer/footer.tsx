@@ -24,6 +24,7 @@ import {
   FooterCopyright,
   FooterSocialMobile,
 } from "components/shared/footer/footerStyles";
+export {}
 
 interface FooterProps {
   data: {

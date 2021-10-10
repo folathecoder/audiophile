@@ -14,6 +14,7 @@ import {
   CartWrap,
   Cart,
 } from "components/shared/header/headerStyles";
+export {}
 
 interface HeaderProps {
   data: {
