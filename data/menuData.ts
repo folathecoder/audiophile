@@ -1,28 +1,6 @@
 import audiophile from "../public/images/shared/audiophile-logo.svg";
 import cart from "../public/images/shared/icon-cart.svg";
 
-// interface EnforceTypes {
-//   logo: {
-//     image: string;
-//     imageAlt: string;
-//     link: string;
-//   };
-//   menu: {
-//     title: string;
-//     link: string;
-//     active: boolean;
-//   }[];
-//   footer: {
-//     information: string | number;
-//     copyright: string | number;
-//   };
-//   socials: {
-//     icon: string;
-//     label: string;
-//     link: string;
-//   }[];
-// }
-
 export const menuData = {
   logo: {
     image: audiophile,
@@ -58,6 +36,7 @@ export const menuData = {
   },
   cart: {
     icon: cart,
+    iconAlt: "cart icon notification",
   },
   socials: [
     {

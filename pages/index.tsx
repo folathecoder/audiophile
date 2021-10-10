@@ -1,8 +1,10 @@
+import {Main} from "styles/global/globalStyles";
+
 const index = () => {
     return (
-        <div>
+        <Main>
             <h1>Home Page Test</h1>
-        </div>
+        </Main>
     )
 }
 

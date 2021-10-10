@@ -27,12 +27,9 @@ interface HeaderProps {
       link: string;
       active: boolean;
     }[];
-    footer: {
-      information: string | number;
-      copyright: string | number;
-    };
     cart: {
       icon: string;
+      iconAlt: string;
     };
     socials: {
       icon: string;
@@ -66,7 +63,6 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
             )}
           </MobileToggle>
         </MobileNav>
-
         <HeaderLogoWrap>
           <HeaderLogo>
             <Link href={logo.link}>
@@ -89,7 +85,7 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
         </HeaderMenu>
         <CartWrap>
           <Cart>
-            <Image src={cart.icon} alt={logo.imageAlt} />
+            <Image src={cart.icon} alt={cart.iconAlt} />
           </Cart>
         </CartWrap>
       </HeaderWrap>

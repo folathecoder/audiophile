@@ -80,20 +80,14 @@ export const GlobalStyles = createGlobalStyle`
     
 `;
 
-// export const Main = styled.main`
-//   @media ${QUERIES.tablet} {
-//     background-repeat: no-repeat;
-//     background-position: 0rem 20rem;
-//     ${({ adjustBg }) =>
-//       adjustBg &&
-//       css`
-//         background-position: 0rem 8rem;
-//       `}
-//   }
-//   @media ${QUERIES.megaDesktop} {
-//     background-image: none;
-//   }
-// `;
+export const Main = styled.main`
+  background-color: var(--color-pry-200);
+  padding-top: 5rem; 
+  color: white;
+  text-align: center;
+  min-height: 200vh;
+  max-width: 100%;
+`;
 
 export const HiddenHeader = styled.h1`
   border: 0 !important;
