@@ -13,6 +13,8 @@ export const GlobalStyles = createGlobalStyle`
         --color-sec-100: hsl(21, 94%, 75%);
         --color-sec-200: hsl(0, 0%, 100%);
         --color-sec-300: hsl(0, 0%, 0%);
+        --color-sec-400: hsl(0, 0%, 19%);
+        --color-sec-500: hsl(0, 0%, 59%);
 
         // FONTS
         --font-pry-100: 'Manrope', sans-serif;
@@ -77,15 +79,22 @@ export const GlobalStyles = createGlobalStyle`
             color: var(--color-pry-100);
         }
     }
+
+    p {
+        font-size: 0.9375rem;
+        line-height: 1.5625rem;
+        font-weight: var(--font-weight-100);
+
+    }
     
 `;
 
 export const Main = styled.main`
-  background-color: var(--color-pry-200);
-  padding-top: 5rem; 
+  background-color: red;
+  padding-top: 5rem;
   color: white;
   text-align: center;
-  min-height: 200vh;
+  min-height: 100vh;
   max-width: 100%;
 `;
 

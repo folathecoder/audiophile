@@ -31,11 +31,6 @@ interface HeaderProps {
       icon: string;
       iconAlt: string;
     };
-    socials: {
-      icon: string;
-      label: string;
-      link: string;
-    }[];
   };
 }
 
