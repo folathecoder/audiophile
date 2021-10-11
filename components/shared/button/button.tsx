@@ -8,7 +8,7 @@ interface ButtonProps {
 
 const Button = ({ children, link }: ButtonProps): JSX.Element => {
   return (
-    <Link href={link}>
+    <Link href={link} passHref>
       <ButtonContainer>{children}</ButtonContainer>
     </Link>
   );

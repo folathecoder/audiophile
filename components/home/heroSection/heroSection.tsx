@@ -39,7 +39,7 @@ const HeroSection = ({ data }: HeroProps): JSX.Element => {
           <HeroHeading>{hero.heading}</HeroHeading>
           <HeroDescription>{hero.description}</HeroDescription>
           <HeroButton>
-            <Button children={hero.button.title} link={hero.button.link} />
+            <Button link={hero.button.link}>{hero.button.title}</Button>
           </HeroButton>
         </HeroContent>
         <HeroEmpty />

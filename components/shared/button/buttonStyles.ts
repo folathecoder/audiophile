@@ -13,7 +13,7 @@ export const ButtonContainer = styled.a`
   font-size: 0.8125rem;
 
   &:hover {
-      transition: var(--transition);
+    transition: var(--transition);
     background-color: var(--color-sec-100);
     color: var(--color-sec-200);
   }
