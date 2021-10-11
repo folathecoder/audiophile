@@ -86,6 +86,13 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: var(--font-weight-100);
 
     }
+
+    h1 {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+        font-weight: var(--font-weight-400);
+        letter-spacing: 0.080625rem;
+    }
     
 `;
 
