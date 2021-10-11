@@ -1,5 +1,5 @@
 import heroMobileImage from "public/images/home/mobile/image-header.png";
-import heroTabletImage from "public/images/home/tablet/image-header.jpg";
+import heroTabletImage from "public/images/home/tablet/image-header.png";
 import heroDesktopImage from "public/images/home/desktop/image-hero.jpg";
 
 export const homeData = {

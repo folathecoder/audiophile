@@ -11,7 +11,7 @@ export const HeroContainer = styled.section`
 
 export const HeroWrap = styled.section`
   max-width: var(--max-container);
-  height: 31.9375rem;
+  min-height: 31.9375rem;
   margin: var(--center-container);
   padding: 0rem 1rem;
   background-color: var(--color-sec-300);
@@ -24,7 +24,35 @@ export const HeroWrap = styled.section`
   background-image: url("images/home/mobile/image-header.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 0rem -2rem;
+  background-position: auto;
+
+  @media screen and (min-width: 430px) {
+    /* background-size: contain; */
+    background-position: auto;
+    background-position: 0px -8rem;
+    /* min-height: 40rem; */
+  }
+
+  @media screen and (min-width: 490px) {
+    /* background-size: contain; */
+    background-position: auto;
+    background-position: 0px -9rem;
+    /* min-height: 40rem; */
+  }
+
+  @media screen and (min-width: 572px) {
+    /* background-size: contain; */
+    background-position: auto;
+    background-position: 0px -15rem;
+    /* min-height: 40rem; */
+  }
+
+  @media screen and (min-width: 726px) {
+    background-image: url("images/home/tablet/image-header.png");
+    /* background-size: contain; */
+    background-position: 0rem;
+    min-height: 40rem;
+  }
 
   /* & > * {
     flex: 1;
@@ -48,9 +76,18 @@ export const HeroSubHeading = styled.p`
 export const HeroHeading = styled.h1`
   text-transform: uppercase;
   margin: 1rem 0rem;
+
+  @media screen and (min-width: 726px) {
+    margin: 2rem 0rem;
+  }
 `;
 export const HeroDescription = styled.p`
-  margin-bottom: 1.3rem;
+  max-width: 25rem;
+  margin: 0rem auto 1.3rem auto;
+
+  @media screen and (min-width: 726px) {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const HeroButton = styled.div`
