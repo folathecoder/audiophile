@@ -13,13 +13,15 @@ export const FooterContainer = styled.footer`
 
 export const FooterWrap = styled.div`
   max-width: var(--max-container);
-  /* min-height: 22.8125rem; */
   min-height: 40.875rem;
   margin: var(--center-container);
-  /* background-color: black; */
 
   @media ${QUERIES.tabletMini} {
     min-height: 25rem;
+  }
+
+  @media ${QUERIES.tablet} {
+    min-height: 22.8125rem;
   }
 
   & > * {
@@ -33,6 +35,7 @@ export const FooterWrap = styled.div`
     }
   }
 `;
+
 export const FooterDesignWrap = styled.div`
   @media ${QUERIES.tabletMini} {
     flex-direction: column;
@@ -47,7 +50,12 @@ export const FooterDesign = styled.div`
 `;
 
 export const FooterContentOne = styled.div`
-  /* background-color: blue; */
+
+  @media ${QUERIES.tablet} {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
 
   & > * {
     display: flex;
@@ -55,7 +63,6 @@ export const FooterContentOne = styled.div`
   }
 `;
 export const FooterLogoWrap = styled.div`
-  /* background-color: pink; */
   min-height: 6.25rem;
 
   @media ${QUERIES.tabletMini} {
@@ -63,10 +70,10 @@ export const FooterLogoWrap = styled.div`
     align-items: flex-end;
   }
 `;
+
 export const FooterLogo = styled.div``;
-export const FooterMenu = styled.div`
-  /* background-color: red; */
-`;
+export const FooterMenu = styled.div``;
+
 export const MenuWrap = styled.ul`
   text-align: center;
   display: flex;
@@ -74,7 +81,6 @@ export const MenuWrap = styled.ul`
   justify-content: space-around;
   align-items: center;
   min-height: 11.875rem;
-  /* background-color: green; */
 
   @media ${QUERIES.tabletMini} {
     flex-direction: row;
@@ -82,16 +88,28 @@ export const MenuWrap = styled.ul`
     width: 26.6875rem;
     justify-content: space-between;
   }
+  @media ${QUERIES.tablet} {
+    min-height: 0rem;
+  }
 `;
+
 export const MenuWrapItem = styled.li`
   text-transform: uppercase;
 `;
 
 export const FooterContentTwo = styled.div`
-  /* background-color: green; */
+
+  @media ${QUERIES.tablet} {
+    flex-direction: row;
+    align-items: flex-end;
+
+    & > * {
+      flex: 1;
+    }
+  }
 `;
+
 export const FooterInfoWrap = styled.div`
-  /* background-color: yellow; */
   display: flex;
   align-items: center;
   min-height: 12.5rem;
@@ -99,7 +117,13 @@ export const FooterInfoWrap = styled.div`
   @media ${QUERIES.tabletMini} {
     min-height: 6.25rem;
   }
+
+  @media ${QUERIES.tablet} {
+    min-height: 8.25rem;
+    align-items: flex-end;
+  }
 `;
+
 export const FooterInfo = styled.p`
   text-align: center;
   color: var(--color-sec-500);
@@ -108,19 +132,26 @@ export const FooterInfo = styled.p`
     text-align: left;
   }
 `;
-export const FooterSocialWrap = styled.div``;
+
+export const FooterSocialWrap = styled.div`
+  @media ${QUERIES.tablet} {
+    display: flex;
+    justify-content: flex-end;
+  }
+`;
+
 export const FooterSocial = styled.ul`
   justify-content: space-between;
   width: 6.5625rem;
-  /* background-color: red; */
   display: none;
 
-  /* @media ${QUERIES.tabletMini} {
+  @media ${QUERIES.tablet} {
     display: flex;
-  } */
+  }
 `;
 export const FooterSocialItem = styled.li``;
 export const SocialLink = styled.a``;
+
 export const Social = styled.i`
   font-size: 1.5rem;
 `;
@@ -128,11 +159,11 @@ export const Social = styled.i`
 export const FooterContentThree = styled.div`
   @media ${QUERIES.tabletMini} {
     flex-direction: row;
-    /* background-color: orange; */
     justify-content: space-between;
     align-items: flex-end;
     min-height: 5.625rem;
   }
+
   & > * {
     display: flex;
     align-items: center;
@@ -144,9 +175,8 @@ export const FooterContentThree = styled.div`
   }
 `;
 
-export const FooterCopyrightWrap = styled.div`
-  /* background-color: red; */
-`;
+export const FooterCopyrightWrap = styled.div``;
+
 export const FooterCopyright = styled.p`
   font-weight: var(--font-weight-400);
   min-height: 4.5rem;
@@ -157,14 +187,14 @@ export const FooterCopyright = styled.p`
     align-items: flex-end;
   }
 `;
+
 export const FooterSocialMobile = styled.ul`
-  /* background-color: pink; */
   display: flex;
   justify-content: space-between;
   width: 6.5625rem;
   min-height: 4.5rem;
 
-  /* @media ${QUERIES.tabletMini} {
+  @media ${QUERIES.tablet} {
     display: none;
-  } */
+  }
 `;
