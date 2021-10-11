@@ -34,6 +34,16 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+          <meta name="theme-color" content="#D87D4A" />
+          <meta
+            property="og:url"
+            content="https://designo-agency.netlify.app/"
+          />
+          <meta property="og:image" content="%PUBLIC_URL%/designo.jpg" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+          <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
           <link
             href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;700&display=swap"
             rel="stylesheet"
