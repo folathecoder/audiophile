@@ -21,10 +21,10 @@ import {
   SocialLink,
   Social,
   FooterContentThree,
+  FooterCopyrightWrap,
   FooterCopyright,
   FooterSocialMobile,
 } from "components/shared/footer/footerStyles";
-export {}
 
 interface FooterProps {
   data: {
@@ -101,7 +101,9 @@ const Footer = ({ data }: FooterProps): JSX.Element => {
           </FooterSocialWrap>
         </FooterContentTwo>
         <FooterContentThree>
-          <FooterCopyright>{footer.copyright}</FooterCopyright>
+          <FooterCopyrightWrap>
+            <FooterCopyright>{footer.copyright}</FooterCopyright>
+          </FooterCopyrightWrap>
           <FooterSocialMobile>
             {socials.map((social, index) => {
               return (
