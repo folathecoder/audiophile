@@ -35,10 +35,7 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
           <meta name="theme-color" content="#D87D4A" />
-          <meta
-            property="og:url"
-            content="https://designo-agency.netlify.app/"
-          />
+          <meta property="og:url" content="https://audiophilic.vercel.app/" />
           <meta property="og:image" content="%PUBLIC_URL%/designo.jpg" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />

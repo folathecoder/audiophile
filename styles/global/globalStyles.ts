@@ -90,12 +90,7 @@ export const GlobalStyles = createGlobalStyle`
 `;
 
 export const Main = styled.main`
-  background-color: red;
-  padding-top: 5rem;
-  color: white;
-  text-align: center;
   min-height: 100vh;
-  max-width: 100%;
 `;
 
 export const HiddenHeader = styled.h1`

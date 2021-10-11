@@ -1,9 +1,10 @@
 import {Main} from "styles/global/globalStyles";
+import HeroSection from "components/home/heroSection/heroSection";
 
-const index = () => {
+const index = ():JSX.Element => {
     return (
         <Main>
-            <h1>Home Page Test</h1>
+            <HeroSection data="folarin"/>
         </Main>
     )
 }
