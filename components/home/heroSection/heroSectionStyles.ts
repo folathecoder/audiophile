@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
-import heroMobileImage from "public/images/home/mobile/image-header.jpg";
-import heroTabletImage from "public/images/home/tablet/image-header.jpg";
-import heroDesktopImage from "public/images/home/desktop/image-hero.jpg";
 
 export const HeroContainer = styled.section`
   max-width: 100%;
-  background-color: red;
+  background-color: var(--color-sec-300);
+
+  @media ${QUERIES.tablet} {
+    padding: 0rem 2rem;
+  }
 `;
 
 export const HeroWrap = styled.section`
@@ -14,7 +15,7 @@ export const HeroWrap = styled.section`
   min-height: 31.9375rem;
   margin: var(--center-container);
   padding: 0rem 1rem;
-  background-color: var(--color-sec-300);
+  /* background-color: var(--color-sec-300); */
   color: white;
   display: flex;
   flex-direction: column;
@@ -54,9 +55,19 @@ export const HeroWrap = styled.section`
     min-height: 40rem;
   }
 
-  /* & > * {
-    flex: 1;
-  } */
+  @media ${QUERIES.tablet} {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    min-height: 39.5625rem;
+    padding: 0rem;
+    background-image: none;
+
+    & > * {
+      flex: 1;
+    }
+  }
 `;
 
 export const HeroContent = styled.div`
@@ -65,6 +76,11 @@ export const HeroContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media ${QUERIES.tablet} {
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
   }
 `;
 
@@ -78,7 +94,14 @@ export const HeroHeading = styled.h1`
   margin: 1rem 0rem;
 
   @media screen and (min-width: 726px) {
+    font-size: 3.5rem;
+    line-height: 3.625rem;
     margin: 2rem 0rem;
+    max-width: 24.75rem;
+  }
+
+  @media ${QUERIES.tablet} {
+    margin: 1.3125rem 0rem 2.0625rem 0rem;
   }
 `;
 export const HeroDescription = styled.p`
@@ -88,12 +111,27 @@ export const HeroDescription = styled.p`
   @media screen and (min-width: 726px) {
     margin-bottom: 2rem;
   }
+
+  @media ${QUERIES.tablet} {
+    margin: 0rem 0rem 2.5rem 0rem;
+    max-width: 23rem;
+    font-size: 0.9375rem;
+    letter-spacing: 0.05rem;
+  }
 `;
 
 export const HeroButton = styled.div`
 
-`
+
+`;
 export const HeroEmpty = styled.div`
   display: none;
-  background-color: indigo;
+
+  @media ${QUERIES.tablet} {
+    min-height: 40rem;
+    display: flex;
+    background-image: url("images/home/desktop/headphone-hero-image.png");
+    background-repeat: no-repeat;
+    background-position: 0rem 3rem;
+  }
 `;

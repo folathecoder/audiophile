@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
         --color-sec-100: hsl(21, 94%, 75%);
         --color-sec-200: hsl(0, 0%, 100%);
         --color-sec-300: hsl(0, 0%, 0%);
-        --color-sec-400: hsl(0, 0%, 19%);
+        --color-sec-400: hsl(0, 0%, 10%);
         --color-sec-500: hsl(0, 0%, 59%);
 
         // FONTS
@@ -92,6 +92,15 @@ export const GlobalStyles = createGlobalStyle`
         line-height: 2.5rem;
         font-weight: var(--font-weight-400);
         letter-spacing: 0.080625rem;
+
+        @media ${QUERIES.tabletMini} {
+            font-size: 3.5rem;
+            line-height: 3.625rem;
+        }
+
+        @media ${QUERIES.tablet} {
+            letter-spacing: 0.125rem;
+        }
     }
     
 `;
