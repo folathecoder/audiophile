@@ -16,9 +16,6 @@ interface HeroProps {
       heading: string;
       subHeading: string;
       description: string;
-      imageMobile: any;
-      imageTablet: any;
-      imageDesktop: any;
       button: {
         title: string;
         link: string;

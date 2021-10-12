@@ -84,6 +84,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: 0.9375rem;
         line-height: 1.5625rem;
         font-weight: var(--font-weight-100);
+        letter-spacing: 0.05rem;
 
     }
 
@@ -101,6 +102,11 @@ export const GlobalStyles = createGlobalStyle`
         @media ${QUERIES.tablet} {
             letter-spacing: 0.125rem;
         }
+    }
+
+    h2 {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
     }
     
 `;

@@ -15,8 +15,6 @@ export const HeroWrap = styled.section`
   min-height: 31.9375rem;
   margin: var(--center-container);
   padding: 0rem 1rem;
-  /* background-color: var(--color-sec-300); */
-  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,29 +26,22 @@ export const HeroWrap = styled.section`
   background-position: auto;
 
   @media screen and (min-width: 430px) {
-    /* background-size: contain; */
     background-position: auto;
     background-position: 0px -8rem;
-    /* min-height: 40rem; */
   }
 
   @media screen and (min-width: 490px) {
-    /* background-size: contain; */
     background-position: auto;
     background-position: 0px -9rem;
-    /* min-height: 40rem; */
   }
 
   @media screen and (min-width: 572px) {
-    /* background-size: contain; */
     background-position: auto;
     background-position: 0px -15rem;
-    /* min-height: 40rem; */
   }
 
   @media screen and (min-width: 726px) {
     background-image: url("images/home/tablet/image-header.png");
-    /* background-size: contain; */
     background-position: 0rem;
     min-height: 40rem;
   }
@@ -88,10 +79,12 @@ export const HeroSubHeading = styled.p`
   text-transform: uppercase;
   letter-spacing: 0.625rem;
   font-size: 0.875rem;
+  color: var(--color-pry-300);
 `;
 export const HeroHeading = styled.h1`
   text-transform: uppercase;
   margin: 1rem 0rem;
+  color: var(--color-sec-200);
 
   @media screen and (min-width: 726px) {
     font-size: 3.5rem;
@@ -104,7 +97,9 @@ export const HeroHeading = styled.h1`
     margin: 1.3125rem 0rem 2.0625rem 0rem;
   }
 `;
+
 export const HeroDescription = styled.p`
+  color: var(--color-pry-300);
   max-width: 25rem;
   margin: 0rem auto 1.3rem auto;
 
@@ -116,14 +111,11 @@ export const HeroDescription = styled.p`
     margin: 0rem 0rem 2.5rem 0rem;
     max-width: 23rem;
     font-size: 0.9375rem;
-    letter-spacing: 0.05rem;
   }
 `;
 
-export const HeroButton = styled.div`
+export const HeroButton = styled.div``;
 
-
-`;
 export const HeroEmpty = styled.div`
   display: none;
 

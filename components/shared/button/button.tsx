@@ -4,12 +4,13 @@ import { ButtonContainer } from "components/shared/button/buttonStyles";
 interface ButtonProps {
   children: string | number;
   link: string;
+  dark?: boolean;
 }
 
-const Button = ({ children, link }: ButtonProps): JSX.Element => {
+const Button = ({ children, link, dark }: ButtonProps): JSX.Element => {
   return (
     <Link href={link} passHref>
-      <ButtonContainer>{children}</ButtonContainer>
+      <ButtonContainer dark={dark}>{children}</ButtonContainer>
     </Link>
   );
 };

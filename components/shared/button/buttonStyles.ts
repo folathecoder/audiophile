@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ButtonContainer = styled.a`
   cursor: pointer;
@@ -17,4 +17,14 @@ export const ButtonContainer = styled.a`
     background-color: var(--color-sec-100);
     color: var(--color-sec-200);
   }
+
+  ${({ dark }) =>
+    dark &&
+    css`
+      background-color: var(--color-sec-300);
+
+      &:hover {
+        background-color: var(--color-pry-200);
+      }
+    `}
 `;
