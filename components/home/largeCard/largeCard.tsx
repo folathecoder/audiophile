@@ -6,6 +6,7 @@ import {
   CardImageWrap,
   CardImage,
   CardContentWrap,
+  CardContent,
   CardHeading,
   CardDescription,
   CardButton,
@@ -36,9 +37,9 @@ const LargeCard = ({ data }: LargeCardProps): JSX.Element => {
   const { sectionTwo } = data;
 
   //TODO: Manage screen-size state
-  const [size, setSize] = useState<number | null>(null);
+  const [size, setSize] = useState<number>(0);
 
-  //TODO: Function that monitors screen size (used to responsively render images)
+  //TODO: Function that pushes the window width value to the state
   const checkSize = () => {
     setSize(window.innerWidth);
   };
@@ -56,18 +57,27 @@ const LargeCard = ({ data }: LargeCardProps): JSX.Element => {
       <CardWrap>
         <CardImageWrap>
           <CardImage>
-            <Image src={sectionTwo.image.mobile} alt={sectionTwo.image.alt} />
+            {size >= 992 ? (
+              <Image
+                src={sectionTwo.image.desktop}
+                alt={sectionTwo.image.alt}
+              />
+            ) : (
+              <Image src={sectionTwo.image.mobile} alt={sectionTwo.image.alt} />
+            )}
           </CardImage>
         </CardImageWrap>
 
         <CardContentWrap>
-          <CardHeading>{sectionTwo.heading}</CardHeading>
-          <CardDescription>{sectionTwo.description}</CardDescription>
-          <CardButton>
-            <Button link={sectionTwo.button.link} dark>
-              {sectionTwo.button.title}
-            </Button>
-          </CardButton>
+          <CardContent>
+            <CardHeading>{sectionTwo.heading}</CardHeading>
+            <CardDescription>{sectionTwo.description}</CardDescription>
+            <CardButton>
+              <Button link={sectionTwo.button.link} dark>
+                {sectionTwo.button.title}
+              </Button>
+            </CardButton>
+          </CardContent>
         </CardContentWrap>
       </CardWrap>
     </CardContainer>
