@@ -3,7 +3,6 @@ import { QUERIES } from "helpers/mediaQueries";
 
 export const CardContainer = styled.section`
   max-width: 100%;
-  /* background-color: red; */
   padding: 0.75rem 1rem 0.75rem 1rem;
 
   @media ${QUERIES.mobile} {
@@ -19,10 +18,9 @@ export const CardWrap = styled.div`
   flex-direction: column;
   border-radius: var(--border-radius);
   background-image: url("images/home/desktop/pattern-circles.svg");
-  background-size: 35rem auto;;
+  background-size: 35rem auto;
   background-repeat: no-repeat;
   background-position: center -7rem;
-  /* background-position: -8rem -8rem; */
 
   @media ${QUERIES.mobile} {
     min-height: 45rem;
@@ -45,12 +43,9 @@ export const CardWrap = styled.div`
     align-items: center;
   }
 `;
-export const CardImageWrap = styled.div`
-  /* background-color: green; */
-`;
+export const CardImageWrap = styled.div``;
 
 export const CardImage = styled.div`
-  /* background-color: blue; */
   @media ${QUERIES.tablet} {
     transform: translateY(3.55rem);
   }
@@ -92,8 +87,8 @@ export const CardContent = styled.div`
     align-items: flex-start;
   }
 `;
+
 export const CardHeading = styled.h2`
-  /* background-color: hotpink; */
   text-transform: uppercase;
   max-width: 12rem;
 
@@ -101,6 +96,7 @@ export const CardHeading = styled.h2`
     max-width: 15rem;
   }
 `;
+
 export const CardDescription = styled.p`
   margin: 1rem;
   max-width: 21.8125rem;
@@ -108,9 +104,9 @@ export const CardDescription = styled.p`
   @media ${QUERIES.mobile} {
     margin: 2rem 1rem;
   }
-
   @media ${QUERIES.tablet} {
     margin: 2rem 0rem;
   }
 `;
+
 export const CardButton = styled.div``;

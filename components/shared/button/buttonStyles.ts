@@ -27,4 +27,17 @@ export const ButtonContainer = styled.a`
         background-color: var(--color-pry-200);
       }
     `}
+
+  ${({ outline }) =>
+    outline &&
+    css`
+      background-color: transparent;
+      border: 0.1rem solid var(--color-sec-300);
+      color: var(--color-sec-300);
+
+      &:hover {
+        background-color: var(--color-sec-300);
+        color: var(--color-sec-200);
+      }
+    `}
 `;

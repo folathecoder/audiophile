@@ -28,4 +28,11 @@ export const homeData = {
       alt: "zx9 speaker",
     },
   },
+  sectionThree: {
+    heading: "zx7 speaker",
+    button: {
+      title: "see product",
+      link: "/temp",
+    },
+  },
 };
