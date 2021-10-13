@@ -6,12 +6,12 @@ import {
   CardContent,
   CardHeading,
   CardButton,
-} from "components/home/singleCard/singleCardStyles";
+} from "components/home/doubleCard/doubleCardStyles";
 import Button from "components/shared/button/button";
 
-interface LargeCardProps {
+interface DoubleCardProps {
   data: {
-    sectionThree: {
+    sectionFour: {
       heading: string;
       button: {
         title: string;
@@ -21,27 +21,27 @@ interface LargeCardProps {
   };
 }
 
-const SingleCard = ({ data }: LargeCardProps): JSX.Element => {
+const DoubleCard = ({ data }: DoubleCardProps): JSX.Element => {
   //TODO: Destructure data object
-  const { sectionThree } = data;
+  const { sectionFour } = data;
 
   return (
     <CardContainer>
       <CardWrap>
+        <CardImageWrap></CardImageWrap>
         <CardContentWrap>
           <CardContent>
-            <CardHeading>{sectionThree.heading}</CardHeading>
+            <CardHeading>{sectionFour.heading}</CardHeading>
             <CardButton>
-              <Button link={sectionThree.button.link} dark outline>
-                {sectionThree.button.title}
+              <Button link={sectionFour.button.link} outline>
+                {sectionFour.button.title}
               </Button>
             </CardButton>
           </CardContent>
         </CardContentWrap>
-        <CardImageWrap></CardImageWrap>
       </CardWrap>
     </CardContainer>
   );
 };
 
-export default SingleCard;
+export default DoubleCard;

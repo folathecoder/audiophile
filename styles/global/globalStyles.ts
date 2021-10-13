@@ -107,6 +107,7 @@ export const GlobalStyles = createGlobalStyle`
     h2 {
         font-size: 2.25rem;
         line-height: 2.5rem;
+        letter-spacing: 0.1rem;
 
         @media ${QUERIES.mobile} {
             font-size: 3.5rem;

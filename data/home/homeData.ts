@@ -35,4 +35,11 @@ export const homeData = {
       link: "/temp",
     },
   },
+  sectionFour: {
+    heading: "yx1 earphones",
+    button: {
+      title: "see product",
+      link: "/temp",
+    },
+  },
 };

@@ -36,11 +36,6 @@ const LargeCard = ({ data }: LargeCardProps): JSX.Element => {
   //TODO: Destructure data object
   const { sectionTwo } = data;
 
-  // useEffect(() => {
-  //   const intialSize = window.innerWidth;
-  //   return intialSize
-  // });
-
   //TODO: Manage screen-size state
   const [size, setSize] = useState<number>(1000);
 
