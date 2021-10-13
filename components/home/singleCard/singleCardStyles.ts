@@ -10,7 +10,6 @@ export const CardContainer = styled.section`
   }
 `;
 export const CardWrap = styled.div`
-  background-color: red;
   min-height: 20rem;
   max-width: var(--max-container);
   margin: var(--center-container);
@@ -21,20 +20,38 @@ export const CardWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media ${QUERIES.mobile} {
+    background-image: url("images/home/tablet/image-speaker-zx7.jpg");
+  }
+
+  @media ${QUERIES.tablet} {
+    background-image: url("images/home/desktop/image-speaker-zx7.jpg");
+  }
 `;
 export const CardImageWrap = styled.div`
   display: none;
 `;
 
 export const CardContentWrap = styled.div`
-  /* background-color: red; */
   margin: 0rem 1.5rem;
+
+  @media ${QUERIES.tabletMini} {
+    margin-left: 3.75rem;
+  }
+
+  @media ${QUERIES.tablet} {
+    margin-left: 5.875rem;
+  }
 `;
 
 export const CardContent = styled.div``;
 
 export const CardHeading = styled.h2`
+  font-size: 1.75rem;
+  line-height: 2rem;
   margin-bottom: 1.5rem;
+  text-transform: uppercase;
 `;
 
 export const CardButton = styled.div``;

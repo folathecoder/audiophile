@@ -36,19 +36,23 @@ const LargeCard = ({ data }: LargeCardProps): JSX.Element => {
   //TODO: Destructure data object
   const { sectionTwo } = data;
 
-  //TODO: Manage screen-size state
-  const [size, setSize] = useState<number>(0);
+  // useEffect(() => {
+  //   const intialSize = window.innerWidth;
+  //   return intialSize
+  // });
 
-  //TODO: Function that pushes the window width value to the state
-  const checkSize = () => {
-    setSize(window.innerWidth);
-  };
+  //TODO: Manage screen-size state
+  const [size, setSize] = useState<number>(1000);
 
   //TODO: Monitor the screen size to enable image responsiveness
   useEffect(() => {
-    window.addEventListener("resize", checkSize);
+    window.addEventListener("resize", (e) => {
+      setSize(window.innerWidth);
+    });
     return () => {
-      window.removeEventListener("resize", checkSize);
+      window.removeEventListener("resize", (e) => {
+        setSize(window.innerWidth);
+      });
     };
   });
 
@@ -57,7 +61,7 @@ const LargeCard = ({ data }: LargeCardProps): JSX.Element => {
       <CardWrap>
         <CardImageWrap>
           <CardImage>
-            {size >= 992 ? (
+            {size > 992 ? (
               <Image
                 src={sectionTwo.image.desktop}
                 alt={sectionTwo.image.alt}
