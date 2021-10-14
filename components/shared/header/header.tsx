@@ -6,6 +6,7 @@ import {
   HeaderWrap,
   MobileNav,
   MobileToggle,
+  MobileMenu,
   HeaderLogoWrap,
   HeaderLogo,
   HeaderMenu,
@@ -14,6 +15,8 @@ import {
   CartWrap,
   Cart,
 } from "components/shared/header/headerStyles";
+import MenuCard from "components/shared/menuCard/menuCard";
+import Overlay from "components/shared/overlay/overlay";
 
 interface HeaderProps {
   data: {
@@ -26,6 +29,11 @@ interface HeaderProps {
       title: string;
       link: string;
       active: boolean;
+      cta: string;
+      image: {
+        src: any;
+        alt: string;
+      };
     }[];
     cart: {
       icon: string;
@@ -57,6 +65,13 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
               <i className="fas fa-bars" />
             )}
           </MobileToggle>
+          {menuToggle && (
+            <MobileMenu>
+              {menu.slice(1, 4).map((menuItem, index) => {
+                return <MenuCard key={index} data={menuItem} />;
+              })}
+            </MobileMenu>
+          )}
         </MobileNav>
         <HeaderLogoWrap>
           <HeaderLogo>
@@ -84,6 +99,8 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
           </Cart>
         </CartWrap>
       </HeaderWrap>
+      <Overlay />
+      {/* {menuToggle && <Overlay />} */}
     </HeaderContainer>
   );
 };

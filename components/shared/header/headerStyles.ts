@@ -1,14 +1,16 @@
 import styled from "styled-components";
+import { QUERIES } from "helpers/mediaQueries";
 
 export const HeaderContainer = styled.header`
   max-width: 100%;
   background-color: var(--color-sec-300);
   padding: 0rem 2rem;
-  position: sticky;
+  /* position: sticky;
   top: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   z-index: 1000;
+  position: relative;
 
   @media screen and (max-width: 576px) {
     padding: 0rem 1rem;
@@ -22,6 +24,9 @@ export const HeaderWrap = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 0.1rem solid var(--color-sec-400);
+  background-color: var(--color-sec-300);
+  /* z-index: 1000;
+  position: relative; */
 
   @media screen and (max-width: 786px) {
     min-height: 5rem;
@@ -108,5 +113,36 @@ export const MobileToggle = styled.button`
   i {
     color: var(--color-pry-300);
     font-size: 1.2rem;
+  }
+`;
+
+export const MobileMenu = styled.div`
+  position: absolute;
+  background-color: var(--color-sec-200);
+  width: 100%;
+  min-height: 5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-top: 5rem;
+  padding: 1rem;
+
+  /* width: var(--max-container);
+  margin: var(--center-container); */
+  flex-direction: column;
+  /* z-index: 1000; */
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+  gap: 1rem;
+
+  @media screen and (min-width: 650px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 10rem;
+  }
+
+  & > * {
+    flex: 1;
+    margin: 4.25rem auto 0rem auto;
   }
 `;

@@ -11,6 +11,7 @@ export const MenuContainer = styled.section`
 
   @media ${QUERIES.tabletMini} {
     min-height: 25rem;
+    padding: 0rem 2rem;
   }
 
   @media ${QUERIES.tablet} {
@@ -28,6 +29,7 @@ export const MenuWrap = styled.div`
     flex-direction: row;
     justify-content: space-between;
     min-height: 10rem;
+    gap: 1rem
   }
 
   & > * {
