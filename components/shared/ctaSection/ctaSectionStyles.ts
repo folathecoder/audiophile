@@ -10,16 +10,26 @@ export const CtaContainer = styled.section`
   justify-content: center;
 
   @media ${QUERIES.mobile} {
+    min-height: 50rem;
     padding: 1rem 2rem 1rem 2rem;
+  }
+
+  @media ${QUERIES.tablet} {
+    min-height: 60rem;
   }
 `;
 
 export const CtaWrap = styled.div`
-  /* background-color: pink; */
-  max-width: var(--max-container);
+  width: var(--max-container);
   margin: var(--center-container);
   display: flex;
   flex-direction: column-reverse;
+
+  @media ${QUERIES.tablet} {
+    flex-direction: row;
+    min-height: 36.75rem;
+    width: var(--max-container);
+  }
 
   & > * {
     flex: 1;
@@ -28,14 +38,8 @@ export const CtaWrap = styled.div`
 
 export const CtaImageWrap = styled.div`
   min-height: 18.75rem;
-  /* width: 100%; */
-  /* background-color: black; */
   border-radius: var(--border-radius);
-  /* display: block; */
   position: relative;
-  /* background-image: url("images/shared/man-headerphone.png");
-  background-repeat: no-repeat;
-  background-size: cover; */
 
   img {
     object-fit: cover;
@@ -44,22 +48,43 @@ export const CtaImageWrap = styled.div`
 `;
 
 export const CtaContentWrap = styled.div`
-  /* background-color: green; */
-  /* min-height: 26.75rem; */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding-top: 3rem;
+
+  @media ${QUERIES.tablet} {
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+  }
 `;
-export const CtaContent = styled.div``;
+export const CtaContent = styled.div`
+
+  @media ${QUERIES.tablet} {
+    max-width: 27rem;
+  }
+`;
 export const CtaHeading = styled.h2`
   text-transform: uppercase;
   font-size: 1.75rem;
   line-height: 2rem;
   margin-bottom: 1rem;
+
+  @media ${QUERIES.tabletMini} {
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+    margin-bottom: 2rem;
+    max-width: 35.25rem;
+    margin: 0rem auto 2rem auto;
+  }
 `;
 export const CtaHeadingHighlight = styled.span`
   color: var(--color-pry-100);
 `;
-export const CtaDescription = styled.p``;
+export const CtaDescription = styled.p`
+  @media ${QUERIES.tabletMini} {
+    max-width: 35.25rem;
+  }
+`;
