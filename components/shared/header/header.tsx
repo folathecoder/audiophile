@@ -54,54 +54,59 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
     setMenuToggle(!menuToggle);
   };
 
+  // if (menuToggle) {
+  //   document.body.style.overflow = "hidden";
+  // }
+
   return (
-    <HeaderContainer>
-      <HeaderWrap>
-        <MobileNav>
-          <MobileToggle onClick={handleMenuToggle}>
-            {menuToggle ? (
-              <i className="fas fa-times"></i>
-            ) : (
-              <i className="fas fa-bars" />
+    <>
+      <HeaderContainer>
+        <HeaderWrap>
+          <MobileNav>
+            <MobileToggle onClick={handleMenuToggle}>
+              {menuToggle ? (
+                <i className="fas fa-times"></i>
+              ) : (
+                <i className="fas fa-bars" />
+              )}
+            </MobileToggle>
+            {menuToggle && (
+              <MobileMenu>
+                {menu.slice(1, 4).map((menuItem, index) => {
+                  return <MenuCard key={index} data={menuItem} />;
+                })}
+              </MobileMenu>
             )}
-          </MobileToggle>
-          {menuToggle && (
-            <MobileMenu>
-              {menu.slice(1, 4).map((menuItem, index) => {
-                return <MenuCard key={index} data={menuItem} />;
+          </MobileNav>
+          <HeaderLogoWrap>
+            <HeaderLogo>
+              <Link href={logo.link}>
+                <a>
+                  <Image src={logo.image} alt={logo.imageAlt} />
+                </a>
+              </Link>
+            </HeaderLogo>
+          </HeaderLogoWrap>
+          <HeaderMenu>
+            <MenuWrap>
+              {menu.map((menuItem, index) => {
+                return (
+                  <MenuWrapItem key={index}>
+                    <Link href={menuItem.link}>{menuItem.title}</Link>
+                  </MenuWrapItem>
+                );
               })}
-            </MobileMenu>
-          )}
-        </MobileNav>
-        <HeaderLogoWrap>
-          <HeaderLogo>
-            <Link href={logo.link}>
-              <a>
-                <Image src={logo.image} alt={logo.imageAlt} />
-              </a>
-            </Link>
-          </HeaderLogo>
-        </HeaderLogoWrap>
-        <HeaderMenu>
-          <MenuWrap>
-            {menu.map((menuItem, index) => {
-              return (
-                <MenuWrapItem key={index}>
-                  <Link href={menuItem.link}>{menuItem.title}</Link>
-                </MenuWrapItem>
-              );
-            })}
-          </MenuWrap>
-        </HeaderMenu>
-        <CartWrap>
-          <Cart>
-            <Image src={cart.icon} alt={cart.iconAlt} />
-          </Cart>
-        </CartWrap>
-      </HeaderWrap>
-      <Overlay />
-      {/* {menuToggle && <Overlay />} */}
-    </HeaderContainer>
+            </MenuWrap>
+          </HeaderMenu>
+          <CartWrap>
+            <Cart>
+              <Image src={cart.icon} alt={cart.iconAlt} />
+            </Cart>
+          </CartWrap>
+        </HeaderWrap>
+      </HeaderContainer>
+      {menuToggle && <Overlay />}
+    </>
   );
 };
 

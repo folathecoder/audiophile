@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { QUERIES } from "helpers/mediaQueries";
+// import { QUERIES } from "helpers/mediaQueries";
 
 export const HeaderContainer = styled.header`
   max-width: 100%;
@@ -25,8 +25,8 @@ export const HeaderWrap = styled.div`
   align-items: center;
   border-bottom: 0.1rem solid var(--color-sec-400);
   background-color: var(--color-sec-300);
-  /* z-index: 1000;
-  position: relative; */
+  z-index: 1000;
+  position: relative;
 
   @media screen and (max-width: 786px) {
     min-height: 5rem;
@@ -120,17 +120,13 @@ export const MobileMenu = styled.div`
   position: absolute;
   background-color: var(--color-sec-200);
   width: 100%;
-  min-height: 5rem;
+  min-height: 100%;
   top: 0;
   left: 0;
   right: 0;
   margin-top: 5rem;
   padding: 1rem;
-
-  /* width: var(--max-container);
-  margin: var(--center-container); */
   flex-direction: column;
-  /* z-index: 1000; */
   border-radius: 0rem 0rem 0.5rem 0.5rem;
   gap: 1rem;
 
