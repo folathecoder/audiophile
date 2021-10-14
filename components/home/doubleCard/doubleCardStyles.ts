@@ -43,7 +43,7 @@ export const CardContentWrap = styled.div`
   border-radius: var(--border-radius);
   display: flex;
   align-items: center;
-  background-color: hsl(0, 0%, 89%);
+  background-color: var(--color-pry-500);
 
   @media ${QUERIES.tabletMini} {
     margin-top: 0rem;

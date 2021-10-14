@@ -1,5 +1,8 @@
 import audiophile from "public/images/shared/audiophile-logo.svg";
 import cart from "public/images/shared/icon-cart.svg";
+import headphones from "public/images/shared/headphones.png";
+import speakers from "public/images/shared/speakers.png";
+import earphones from "public/images/shared/earphones.png";
 
 export const menuData = {
   logo: {
@@ -12,21 +15,41 @@ export const menuData = {
       title: "home",
       link: "/",
       active: false,
+      cta: "shop",
+      image: {
+        src: headphones,
+        alt: "headphone",
+      },
     },
     {
       title: "headphones",
       link: "/headphones",
       active: false,
+      cta: "shop",
+      image: {
+        src: headphones,
+        alt: "headphone",
+      },
     },
     {
       title: "speakers",
       link: "/speakers",
       active: false,
+      cta: "shop",
+      image: {
+        src: speakers,
+        alt: "speaker",
+      },
     },
     {
       title: "earphones",
       link: "/earphones",
       active: false,
+      cta: "shop",
+      image: {
+        src: earphones,
+        alt: "earphones",
+      },
     },
   ],
   footer: {

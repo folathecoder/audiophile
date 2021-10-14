@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
         --color-pry-200: hsl(0, 0%, 6%);
         --color-pry-300: hsl(0, 0%, 95%);
         --color-pry-400: hsl(0, 0%, 98%);
+        --color-pry-500: hsl(0, 0%, 89%);
         --color-sec-100: hsl(21, 94%, 75%);
         --color-sec-200: hsl(0, 0%, 100%);
         --color-sec-300: hsl(0, 0%, 0%);
@@ -112,6 +113,18 @@ export const GlobalStyles = createGlobalStyle`
         @media ${QUERIES.mobile} {
             font-size: 3.5rem;
             line-height: 3.625rem;
+        }
+    }
+
+    
+    h3 {
+        font-size: 0.9375rem;
+        line-height: 1.2rem;
+        letter-spacing: 0.1rem;
+
+        @media ${QUERIES.tablet} {
+            font-size: 1.125rem;
+            line-height: 1.5rem;
         }
     }
     
