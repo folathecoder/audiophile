@@ -1,5 +1,5 @@
-import audiophile from "../public/images/shared/audiophile-logo.svg";
-import cart from "../public/images/shared/icon-cart.svg";
+import audiophile from "public/images/shared/audiophile-logo.svg";
+import cart from "public/images/shared/icon-cart.svg";
 
 export const menuData = {
   logo: {

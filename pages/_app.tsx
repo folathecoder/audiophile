@@ -1,6 +1,6 @@
 import type { AppProps /*, AppContext */ } from "next/app";
 import { GlobalStyles } from "styles/global/globalStyles";
-import { menuData } from "data/menuData";
+import { menuData } from "data/shared/menuData";
 import Header from "components/shared/header/header";
 import Footer from "components/shared/footer/footer";
 import ScrollToTop from "components/shared/scrollToTop/scrollToTop";
