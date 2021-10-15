@@ -5,6 +5,7 @@ import HeroSection from "components/category/hero/heroSection";
 import MenuCards from "components/shared/menuCards/menuCards";
 import { menuData } from "data/shared/menuData";
 import CtaSection from "components/shared/ctaSection/ctaSection";
+import ProductViews from "components/category/productViews/productViews";
 import { ctaData } from "data/shared/ctaData";
 
 const ProductCategory = (): JSX.Element => {
@@ -23,8 +24,9 @@ const ProductCategory = (): JSX.Element => {
 
       <Main>
         <HeroSection />
-        <MenuCards data={menuData} trimHeight/>
-        <CtaSection data={ctaData} trimHeight/>
+        <ProductViews />
+        <MenuCards data={menuData} trimHeight />
+        <CtaSection data={ctaData} trimHeight />
       </Main>
     </>
   );
