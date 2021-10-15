@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-// import { QUERIES } from "helpers/mediaQueries";
 
 export const HeaderContainer = styled.header`
   max-width: 100%;

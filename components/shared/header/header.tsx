@@ -54,6 +54,7 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
     setMenuToggle(!menuToggle);
   };
 
+  //TODO: Event => Remove overlay and close menu dropdown onClick
   const handleRemove = () => {
     setMenuToggle(false);
   };
@@ -105,7 +106,7 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
           </CartWrap>
         </HeaderWrap>
       </HeaderContainer>
-      {menuToggle && <Overlay event={handleRemove} />}
+      {menuToggle && <Overlay event={handleRemove} menuOption/>}
     </>
   );
 };

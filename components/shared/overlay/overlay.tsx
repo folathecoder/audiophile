@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const OverlayContainer = styled.div`
   background-color: hsla(0, 0%, 0%, 0.616);
@@ -10,14 +10,23 @@ const OverlayContainer = styled.div`
   z-index: 500;
   transition: 0.5s ease-in-out;
   z-index: 500;
+
+  @media screen and (min-width: 787px) {
+    ${({ menuOption }) =>
+      menuOption &&
+      css`
+        display: none;
+      `}
+  }
 `;
 
 interface OverlayProps {
-  event: () => void;
+  event?: () => void;
+  menuOption?: boolean;
 }
 
-const Overlay = ({ event }: OverlayProps): JSX.Element => {
-  return <OverlayContainer onClick={event} />;
+const Overlay = ({ event, menuOption }: OverlayProps): JSX.Element => {
+  return <OverlayContainer onClick={event} menuOption={menuOption} />;
 };
 
 export default Overlay;
