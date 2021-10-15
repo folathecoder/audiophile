@@ -12,8 +12,12 @@ const OverlayContainer = styled.div`
   z-index: 500;
 `;
 
-const Overlay = (): JSX.Element => {
-  return <OverlayContainer />;
+interface OverlayProps {
+  event: () => void;
+}
+
+const Overlay = ({ event }: OverlayProps): JSX.Element => {
+  return <OverlayContainer onClick={event} />;
 };
 
 export default Overlay;

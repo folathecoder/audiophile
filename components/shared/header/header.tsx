@@ -54,9 +54,9 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
     setMenuToggle(!menuToggle);
   };
 
-  // if (menuToggle) {
-  //   document.body.style.overflow = "hidden";
-  // }
+  const handleRemove = () => {
+    setMenuToggle(false);
+  };
 
   return (
     <>
@@ -105,7 +105,7 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
           </CartWrap>
         </HeaderWrap>
       </HeaderContainer>
-      {menuToggle && <Overlay />}
+      {menuToggle && <Overlay event={handleRemove} />}
     </>
   );
 };
