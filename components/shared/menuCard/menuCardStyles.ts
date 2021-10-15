@@ -11,6 +11,8 @@ export const CardContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   padding-bottom: 1rem;
+  cursor: pointer;
+  z-index: 10;
 
   @media ${QUERIES.tabletMini} {
     margin: 0rem 0.5rem;
@@ -27,9 +29,22 @@ export const CardContainer = styled.div`
       transition: var(--transition);
       color: var(--color-pry-100);
     }
+
     i {
       transition: var(--transition);
       transform: translateX(0.3rem);
+    }
+
+    @media ${QUERIES.tablet} {
+      .card-image {
+        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transform: translateY(-1rem);
+      }
+      .card-shadow {
+        transition: var(--transition);
+        min-height: 2rem;
+        width: 7rem;
+      }
     }
   }
 `;

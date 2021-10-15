@@ -8,6 +8,7 @@ export const MenuContainer = styled.section`
   align-items: center;
   justify-content: center;
   padding: 0rem 1rem;
+  position: relative;
 
   @media ${QUERIES.tabletMini} {
     min-height: 25rem;
@@ -28,12 +29,17 @@ export const MenuWrap = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     min-height: 10rem;
-    gap: 1rem
+    gap: 1rem;
   }
 
   & > * {
     flex: 1;
     margin: 4.25rem auto 0rem auto;
+
+    @media ${QUERIES.tablet} {
+      margin: 0rem auto;
+    }
   }
 `;

@@ -26,10 +26,10 @@ const MenuCard = ({ data }: MenuCardProps): JSX.Element => {
   return (
     <Link href={data.link}>
       <CardContainer>
-        <CardImage>
+        <CardImage className="card-image">
           <Image src={data.image.src} alt={data.image.alt} />
         </CardImage>
-        <CardShadow>
+        <CardShadow className="card-shadow">
           <Image src="/images/shared/shadow.png" layout="fill" />
         </CardShadow>
         <CardHeading>{data.title}</CardHeading>
