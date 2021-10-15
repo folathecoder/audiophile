@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
 
 export const MenuContainer = styled.section`
@@ -8,15 +8,27 @@ export const MenuContainer = styled.section`
   align-items: center;
   justify-content: center;
   padding: 0rem 1rem;
-  position: relative;
+  position: relative; 
 
   @media ${QUERIES.tabletMini} {
     min-height: 25rem;
     padding: 0rem 2rem;
+
+    ${({ trimHeight }) =>
+      trimHeight &&
+      css`
+        min-height: 20rem;
+      `}
   }
 
   @media ${QUERIES.tablet} {
     min-height: 34rem;
+
+    ${({ trimHeight }) =>
+      trimHeight &&
+      css`
+        min-height: 30rem;
+      `}
   }
 `;
 

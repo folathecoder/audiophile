@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
 
 export const CtaContainer = styled.section`
@@ -17,6 +17,21 @@ export const CtaContainer = styled.section`
   @media ${QUERIES.tablet} {
     min-height: 60rem;
   }
+
+  ${({ trimHeight }) =>
+    trimHeight &&
+    css`
+      min-height: 50rem;
+
+      @media ${QUERIES.mobile} {
+        min-height: 45rem;
+      }
+
+      @media ${QUERIES.tablet} {
+        min-height: 0rem;
+        padding-bottom: 9.75rem;
+      }
+    `}
 `;
 
 export const CtaWrap = styled.div`

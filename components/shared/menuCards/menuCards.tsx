@@ -10,23 +10,24 @@ interface MenuCardsProps {
       title: string;
       link: string;
       active: boolean;
-      cta: string,
+      cta: string;
       image: {
         src: any;
         alt: string;
       };
     }[];
   };
+  trimHeight?: boolean;
 }
 
-const MenuCards = ({ data }: MenuCardsProps): JSX.Element => {
+const MenuCards = ({ data, trimHeight }: MenuCardsProps): JSX.Element => {
   //TODO: Destructure data object
   const { menu } = data;
   return (
-    <MenuContainer>
+    <MenuContainer trimHeight={trimHeight}>
       <MenuWrap>
         {menu.slice(1, 4).map((menuItem, index) => {
-          return <MenuCard key={index} data={menuItem}/>;
+          return <MenuCard key={index} data={menuItem} />;
         })}
       </MenuWrap>
     </MenuContainer>

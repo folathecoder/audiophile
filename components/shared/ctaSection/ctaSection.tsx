@@ -23,19 +23,20 @@ interface CtaSectionProps {
       alt: string;
     };
   };
+  trimHeight?: boolean;
 }
 
-const CtaSection = ({ data }: CtaSectionProps): JSX.Element => {
+const CtaSection = ({ data, trimHeight }: CtaSectionProps): JSX.Element => {
   //TODO: Destructure data object
   const { heading, description, image } = data;
-   
-     const ctaImage = {
-       objectFit: "cover",
-     };
-   
-  return ( 
+
+  // const ctaImage = {
+  //   objectFit: "cover",
+  // };
+
+  return (
     <div>
-      <CtaContainer>
+      <CtaContainer trimHeight={trimHeight}>
         <CtaWrap>
           <CtaContentWrap>
             <CtaContent>
@@ -48,11 +49,7 @@ const CtaSection = ({ data }: CtaSectionProps): JSX.Element => {
             </CtaContent>
           </CtaContentWrap>
           <CtaImageWrap>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              layout='fill'
-            />
+            <Image src={image.src} alt={image.alt} layout="fill" />
           </CtaImageWrap>
         </CtaWrap>
       </CtaContainer>
