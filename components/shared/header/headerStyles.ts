@@ -1,19 +1,35 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 // import { QUERIES } from "helpers/mediaQueries";
 
 export const HeaderContainer = styled.header`
   max-width: 100%;
   background-color: var(--color-sec-300);
   padding: 0rem 2rem;
-  /* position: sticky;
+  position: sticky;
   top: 0;
   left: 0;
-  right: 0; */
+  right: 0;
   z-index: 1000;
-  position: relative;
 
-  @media screen and (max-width: 576px) {
-    padding: 0rem 1rem;
+  @media screen and (max-width: 786px) {
+    padding: 0rem;
+  }
+
+  @media screen and (max-width: 650px) {
+    ${({ menuToggle }) =>
+      menuToggle
+        ? css`
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
+          `
+        : css`
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+          `}
   }
 `;
 
@@ -30,6 +46,7 @@ export const HeaderWrap = styled.div`
 
   @media screen and (max-width: 786px) {
     min-height: 5rem;
+    padding: 0rem 1rem;
   }
 
   & > * {

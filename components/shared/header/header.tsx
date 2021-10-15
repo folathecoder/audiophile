@@ -60,7 +60,7 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
 
   return (
     <>
-      <HeaderContainer>
+      <HeaderContainer menuToggle={menuToggle}>
         <HeaderWrap>
           <MobileNav>
             <MobileToggle onClick={handleMenuToggle}>
