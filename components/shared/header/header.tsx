@@ -17,6 +17,7 @@ import {
 } from "components/shared/header/headerStyles";
 import MenuCard from "components/shared/menuCard/menuCard";
 import Overlay from "components/shared/overlay/overlay";
+import scrollTop from "helpers/scrollTop";
 
 interface HeaderProps {
   data: {
@@ -52,11 +53,13 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
   //TODO: Event => Add click event to toggle the dropdown menu button
   const handleMenuToggle = () => {
     setMenuToggle(!menuToggle);
+    scrollTop();
   };
 
   //TODO: Event => Remove overlay and close menu dropdown onClick
   const handleRemove = () => {
     setMenuToggle(false);
+    scrollTop();
   };
 
   return (
@@ -106,7 +109,7 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
           </CartWrap>
         </HeaderWrap>
       </HeaderContainer>
-      {menuToggle && <Overlay event={handleRemove} menuOption/>}
+      {menuToggle && <Overlay event={handleRemove} menuOption />}
     </>
   );
 };

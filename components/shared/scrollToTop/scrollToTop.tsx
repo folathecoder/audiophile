@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
+import scrollTop from "helpers/scrollTop";
 
 const Scroll = styled.button`
   border: none;
@@ -34,7 +35,7 @@ const Scroll = styled.button`
 //TODO: Event => Jump to the top of the page when clicked
 const ScrollToTop = () => {
   const handleScroll = () => {
-    document.getElementById("__next").scrollIntoView({ behavior: "smooth" });
+    scrollTop();
   };
 
   return (

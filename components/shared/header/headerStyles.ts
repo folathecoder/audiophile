@@ -128,7 +128,7 @@ export const MobileToggle = styled.button`
 
   i {
     color: var(--color-pry-300);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 `;
 
