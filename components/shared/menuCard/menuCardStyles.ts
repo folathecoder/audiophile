@@ -23,6 +23,10 @@ export const CardContainer = styled.div`
   }
 
   &:hover {
+    a {
+      transition: var(--transition);
+      color: var(--color-pry-100);
+    }
     i {
       transition: var(--transition);
       transform: translateX(0.3rem);
