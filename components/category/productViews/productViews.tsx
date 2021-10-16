@@ -5,13 +5,18 @@ import {
 } from "components/category/productViews/productViewsStyles";
 import ProductView from "../productView/productView";
 
-const ProductViews = (): JSX.Element => {
+interface ProductViewsProps {
+  data: [];
+}
+
+const ProductViews = ({ data }: ProductViewsProps): JSX.Element => {
   return (
     <ProductContainer>
       <ProductWrap>
-        <ProductView />
-        <ProductView flip />
-        <ProductView/>
+        {data.map((product, index) => {
+          console.log(product)
+          return <ProductView key={index} data={product} />;
+        })}
       </ProductWrap>
     </ProductContainer>
   );

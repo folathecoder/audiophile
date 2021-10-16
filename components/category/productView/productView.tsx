@@ -16,10 +16,24 @@ import {
 
 interface ProductViewProps {
   flip?: boolean;
+  data: {
+    id: number;
+    slug: string;
+    name: string;
+    category: string;
+    categoryImage: {
+      mobile: any;
+      tablet: any;
+      desktop: any;
+    };
+    new: boolean;
+    description: string;
+  };
 }
 
-const ProductView = ({flip}: ProductViewProps): JSX.Element => {
-  console.log(flip)
+const ProductView = ({ flip, data }: ProductViewProps): JSX.Element => {
+  // const {id, slug, name, category, categoryImage, new, description} = data;
+
   //TODO: Manage screen-size state
   const [size, setSize] = useState<number>(1000);
 
@@ -65,13 +79,9 @@ const ProductView = ({flip}: ProductViewProps): JSX.Element => {
         </ProductImageWrap>
         <ProductContentWrap>
           <ProductContent flip={flip}>
-            <ProductSubHeading>new product</ProductSubHeading>
-            <ProductHeading>xx99 mark ii headphones</ProductHeading>
-            <ProductDescription>
-              The new XX99 Mark II headphones is the pinnacle of pristine audio.
-              It redefines your premium headphone experience by reproducing the
-              balanced depth and precision of studio-quality sound.
-            </ProductDescription>
+            {/* {data.new && <ProductSubHeading>new product</ProductSubHeading>} */}
+            <ProductHeading>{data.name}</ProductHeading>
+            <ProductDescription>{data.description}</ProductDescription>
             <ProductButton>
               <Button link="/">see product</Button>
             </ProductButton>

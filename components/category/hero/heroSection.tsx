@@ -31,10 +31,14 @@ const HeroHeading = styled.h1`
   }
 `;
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  data: string
+}
+
+const HeroSection = ({data}: HeroSectionProps): JSX.Element => {
   return (
     <HeroContainer>
-      <HeroHeading>headphones</HeroHeading>
+      <HeroHeading>{data}</HeroHeading>
     </HeroContainer>
   );
 };
