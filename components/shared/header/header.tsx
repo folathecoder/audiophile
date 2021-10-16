@@ -62,6 +62,11 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
     scrollTop();
   };
 
+  //TODO: Event => Close menu dropdown onClick
+  const handleMenuClose = () => {
+    setMenuToggle(false);
+  };
+
   return (
     <>
       <HeaderContainer menuToggle={menuToggle}>
@@ -77,7 +82,13 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
             {menuToggle && (
               <MobileMenu>
                 {menu.slice(1, 4).map((menuItem, index) => {
-                  return <MenuCard key={index} data={menuItem} />;
+                  return (
+                    <MenuCard
+                      key={index}
+                      data={menuItem}
+                      event={handleMenuClose}
+                    />
+                  );
                 })}
               </MobileMenu>
             )}

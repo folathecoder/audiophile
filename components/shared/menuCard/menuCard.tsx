@@ -20,12 +20,13 @@ interface MenuCardProps {
       alt: string;
     };
   };
+  event?: () => void;
 }
 
-const MenuCard = ({ data }: MenuCardProps): JSX.Element => {
+const MenuCard = ({ data, event }: MenuCardProps): JSX.Element => {
   return (
     <Link href={data.link}>
-      <CardContainer>
+      <CardContainer onClick={event}>
         <CardImage className="card-image">
           <Image src={data.image.src} alt={data.image.alt} />
         </CardImage>
