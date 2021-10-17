@@ -14,8 +14,14 @@ const ProductViews = ({ data }: ProductViewsProps): JSX.Element => {
     <ProductContainer>
       <ProductWrap>
         {data.map((product, index) => {
-          console.log(product)
-          return <ProductView key={index} data={product} />;
+          console.log(index);
+          return (
+            <ProductView
+              key={index}
+              data={product}
+              flip={index % 2 !== 0 ? true : false}
+            />
+          );
         })}
       </ProductWrap>
     </ProductContainer>

@@ -55,35 +55,23 @@ const ProductView = ({ flip, data }: ProductViewProps): JSX.Element => {
         <ProductImageWrap>
           <ProductImage>
             {size >= 992 && (
-              <Image
-                src="/images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg"
-                alt=""
-                layout="fill"
-              />
+              <Image src={data.categoryImage.desktop} alt={data.name} layout="fill" />
             )}
             {size < 992 && size > 576 && (
-              <Image
-                src="/images/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg"
-                alt=""
-                layout="fill"
-              />
+              <Image src={data.categoryImage.tablet} alt={data.name} layout="fill" />
             )}
             {size <= 576 && (
-              <Image
-                src="/images/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg"
-                alt=""
-                layout="fill"
-              />
+              <Image src={data.categoryImage.mobile} alt={data.name} layout="fill" />
             )}
           </ProductImage>
         </ProductImageWrap>
         <ProductContentWrap>
           <ProductContent flip={flip}>
-            {/* {data.new && <ProductSubHeading>new product</ProductSubHeading>} */}
+            {data.new && <ProductSubHeading>new product</ProductSubHeading>}
             <ProductHeading>{data.name}</ProductHeading>
             <ProductDescription>{data.description}</ProductDescription>
             <ProductButton>
-              <Button link="/">see product</Button>
+              <Button link={`/${data.slug}`}>see product</Button>
             </ProductButton>
           </ProductContent>
         </ProductContentWrap>
