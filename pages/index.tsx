@@ -10,13 +10,7 @@ import { homeData } from "data/home/homeData";
 import { ctaData } from "data/shared/ctaData";
 import { menuData } from "data/shared/menuData";
 
-import { getProductsByCategory, getCategory } from "helpers/productFilter";
-
-const index = ({ products }): JSX.Element => {
-  const tempo = getProductsByCategory("headphones", products);
-  const temp = getCategory(products);
-  console.log(temp, tempo);
-
+const index = (): JSX.Element => {
   return (
     <>
       <Head>
@@ -39,17 +33,3 @@ const index = ({ products }): JSX.Element => {
 };
 
 export default index;
-
-export const getStaticProps = async (context) => {
-  // const { params } = context;
-  // console.log(params);
-  const response = await fetch("https://audiophile-api.herokuapp.com/products");
-  if (response.ok) {
-    const data = await response.json();
-    return {
-      props: {
-        products: data,
-      },
-    };
-  }
-};

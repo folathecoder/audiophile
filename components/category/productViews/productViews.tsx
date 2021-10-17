@@ -14,7 +14,6 @@ const ProductViews = ({ data }: ProductViewsProps): JSX.Element => {
     <ProductContainer>
       <ProductWrap>
         {data.map((product, index) => {
-          console.log(index);
           return (
             <ProductView
               key={index}

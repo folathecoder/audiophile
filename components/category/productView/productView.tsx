@@ -32,7 +32,6 @@ interface ProductViewProps {
 }
 
 const ProductView = ({ flip, data }: ProductViewProps): JSX.Element => {
-  // const {id, slug, name, category, categoryImage, new, description} = data;
 
   //TODO: Manage screen-size state
   const [size, setSize] = useState<number>(1000);
