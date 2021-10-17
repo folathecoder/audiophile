@@ -42,10 +42,14 @@ export const ProductImageWrap = styled.div`
   min-height: 22rem;
 `;
 export const ProductImage = styled.div`
+  border-radius: 10rem;
 
   img {
     object-fit: contain;
-    border-radius: var(--border-radius);
+
+    & > * {
+      border-radius: var(--border-radius);
+    }
   }
 `;
 export const ProductContentWrap = styled.div`
@@ -92,9 +96,11 @@ export const ProductSubHeading = styled.p`
 export const ProductHeading = styled.h2`
   text-transform: uppercase;
   font-size: 1.75rem;
-  max-width: 20rem;
+  line-height: 1.95rem;
+  max-width: 15rem;
 
   @media ${QUERIES.tabletMini} {
+    max-width: 20rem;
     font-size: 2.5rem;
     line-height: 2.75rem;
   }

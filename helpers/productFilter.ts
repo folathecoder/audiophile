@@ -7,7 +7,7 @@ const removeDuplicates = (data: []) => {
 export const getProductsByCategory = (categoryName: string | string[], products) => {
   return products.filter(
     (productItems) => productItems.category === categoryName
-  );
+  ).reverse();
 };
 
 //TODO: Filter all categories from the product object

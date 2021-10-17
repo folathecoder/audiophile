@@ -15,7 +15,7 @@ export const GlobalStyles = createGlobalStyle`
         --color-sec-200: hsl(0, 0%, 100%);
         --color-sec-300: hsl(0, 0%, 0%);
         --color-sec-400: hsl(0, 0%, 10%);
-        --color-sec-500: hsl(0, 0%, 59%);
+        --color-sec-500: hsl(0, 0%, 95%);
 
         // FONTS
         --font-pry-100: 'Manrope', sans-serif;
@@ -59,7 +59,7 @@ export const GlobalStyles = createGlobalStyle`
         max-width: 100%;
         font-family: var(--font-pry-100);
         font-weight: var(--font-weight-400);
-        background-color: var(--color-pry-300);
+        background-color: var(--color-sec-200);
         color: var(--color-pry-200);
     }
     ///////////////////////////////////////////////////////
