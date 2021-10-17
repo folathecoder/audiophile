@@ -36,7 +36,10 @@ export default class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
           <meta name="theme-color" content="#D87D4A" />
           <meta property="og:url" content="https://audiophilic.vercel.app/" />
-          <meta property="og:image" content="/audiophile-og.png" />
+          <meta
+            property="og:image"
+            content="https://audiophilic.vercel.app/audiophile-og.png"
+          />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
           <link rel="apple-touch-icon" href="/favicon.png" />
