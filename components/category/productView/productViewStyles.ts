@@ -46,7 +46,6 @@ export const ProductImage = styled.div`
   img {
     object-fit: contain;
     border-radius: var(--border-radius);
-    background-color: #f1f1f1;
   }
 `;
 export const ProductContentWrap = styled.div`

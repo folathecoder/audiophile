@@ -24,6 +24,16 @@ const ProductCategory = ({ products, category }): JSX.Element => {
           name="description"
           content={`Shop for the latest ${category} in the market. Let Audiophile be your reliable ${category} plug.`}
         />
+        <meta
+          property="og:title"
+          content={`${customCategory} | Shop for ${customCategory}`}
+          key="ogtitle"
+        />
+        <meta
+          property="og:description"
+          content={`Shop for the latest ${category} in the market. Let Audiophile be your reliable ${category} plug.`}
+          key="ogdesc"
+        />
       </Head>
       <Main>
         <HeroSection data={category} />
