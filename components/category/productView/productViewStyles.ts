@@ -42,11 +42,11 @@ export const ProductImageWrap = styled.div`
   min-height: 22rem;
 `;
 export const ProductImage = styled.div`
-  border-radius: var(--border-radius);
 
   img {
     object-fit: contain;
     border-radius: var(--border-radius);
+    background-color: #f1f1f1;
   }
 `;
 export const ProductContentWrap = styled.div`

@@ -13,7 +13,9 @@ const ProductCategory = ({ products, category }): JSX.Element => {
   return (
     <>
       <Head>
-        <title>{category} - Buy Cool {category}</title>
+        <title>
+          {category} - Buy Cool {category}
+        </title>
         <meta
           name="description"
           content="Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast."
@@ -22,7 +24,7 @@ const ProductCategory = ({ products, category }): JSX.Element => {
 
       <Main>
         <HeroSection data={category} />
-        <ProductViews data={products}/>
+        <ProductViews data={products} />
         <MenuCards data={menuData} trimHeight />
         <CtaSection data={ctaData} trimHeight />
       </Main>
@@ -32,21 +34,31 @@ const ProductCategory = ({ products, category }): JSX.Element => {
 
 export default ProductCategory;
 
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [
-      {
-        params: { categoryId: "headphones" },
-      },
-      {
-        params: { categoryId: "earphones" },
-      },
-      {
-        params: { categoryId: "speakers" },
-      },
-    ],
-    fallback: false,
-  };
+  //* STEP A => Fetch all products data from the Heroku server
+  const response = await fetch("https://audiophile-api.herokuapp.com/products");
+
+  //* STEP B=> Confirm if the endpoint is active
+  if (response.ok) {
+    //* STEP C => Convert fetched data to JSON
+    const data = await response.json();
+
+    //* STEP D => Extract all category value in the products object and avoid repeated value using getCategory function
+    const paths = getCategory(data).map((category) => {
+      console.log(category);
+      return {
+        params: {
+          categoryId: `${category}`,
+        },
+      };
+    });
+
+    return {
+      paths,
+      fallback: false,
+    };
+  }
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
