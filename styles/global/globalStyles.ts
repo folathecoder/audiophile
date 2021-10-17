@@ -49,6 +49,10 @@ export const GlobalStyles = createGlobalStyle`
     li {
         list-style: none;
     }
+
+    title {
+        text-transform: capitalize;
+    }
     ///////////////////////////////////////////////////////
     //TODO: BASE STYLES
     body {

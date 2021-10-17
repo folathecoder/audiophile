@@ -14,7 +14,7 @@ const index = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Audiophile - Audio Gadgets Store</title>
+        <title>Audiophile | Audio Gadgets Store</title>
         <meta
           name="description"
           content="Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast."

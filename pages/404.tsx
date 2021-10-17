@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import { QUERIES } from "helpers/mediaQueries";
 import styled from "styled-components";
 
@@ -61,20 +62,26 @@ const Text = styled.p`
   }
 `;
 
-const PageNotFound = () => {
+const PageNotFound = (): JSX.Element => {
   return (
-    <main>
-      <Container>
-        <Wrap>
-          <Header>404</Header>
-          <SubHeader>page not found!</SubHeader>
-          <Text>
-            Go back to the
-            <Link href="/">Homepage</Link>
-          </Text>
-        </Wrap>
-      </Container>
-    </main>
+    <>
+      <Head>
+        <title>404 | Page Not Found</title>
+        <meta name="description" content="Page Not Found!" />
+      </Head>
+      <main>
+        <Container>
+          <Wrap>
+            <Header>404</Header>
+            <SubHeader>page not found!</SubHeader>
+            <Text>
+              Go back to the
+              <Link href="/">Homepage</Link>
+            </Text>
+          </Wrap>
+        </Container>
+      </main>
+    </>
   );
 };
 

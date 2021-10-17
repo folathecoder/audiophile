@@ -8,20 +8,23 @@ import CtaSection from "components/shared/ctaSection/ctaSection";
 import ProductViews from "components/category/productViews/productViews";
 import { ctaData } from "data/shared/ctaData";
 import { getProductsByCategory, getCategory } from "helpers/productFilter";
+import { convertToUpperCase } from "helpers/textFormating";
 
 const ProductCategory = ({ products, category }): JSX.Element => {
+  //TODO: Format "category" text
+  const customCategory = convertToUpperCase(category);
+
   return (
     <>
       <Head>
         <title>
-          {category} - Buy Cool {category}
+          {customCategory} | Shop for {customCategory}
         </title>
         <meta
           name="description"
-          content="Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast."
+          content={`Shop for the latest ${category} in the market. Let Audiophile be your reliable ${category} plug.`}
         />
       </Head>
-
       <Main>
         <HeroSection data={category} />
         <ProductViews data={products} />
@@ -33,7 +36,6 @@ const ProductCategory = ({ products, category }): JSX.Element => {
 };
 
 export default ProductCategory;
-
 
 export const getStaticPaths: GetStaticPaths = async () => {
   //* STEP A => Fetch all products data from the Heroku server
