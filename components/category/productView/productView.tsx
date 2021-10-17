@@ -70,7 +70,7 @@ const ProductView = ({ flip, data }: ProductViewProps): JSX.Element => {
             <ProductHeading>{data.name}</ProductHeading>
             <ProductDescription>{data.description}</ProductDescription>
             <ProductButton>
-              <Button link={`/${data.slug}`}>see product</Button>
+              <Button link={`/product/${data.slug}`}>see product</Button>
             </ProductButton>
           </ProductContent>
         </ProductContentWrap>

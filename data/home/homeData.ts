@@ -10,7 +10,7 @@ export const homeData = {
       "Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
     button: {
       title: "see product",
-      link: "/temp",
+      link: "/product/xx99-mark-two-headphones",
     },
   },
   sectionTwo: {
@@ -19,7 +19,7 @@ export const homeData = {
       "Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.",
     button: {
       title: "see product",
-      link: "/temp",
+      link: "/product/zx9-speaker",
     },
     image: {
       mobile: zx9Mobile,
@@ -32,14 +32,14 @@ export const homeData = {
     heading: "zx7 speaker",
     button: {
       title: "see product",
-      link: "/temp",
+      link: "/product/zx7-speaker",
     },
   },
   sectionFour: {
     heading: "yx1 earphones",
     button: {
       title: "see product",
-      link: "/temp",
+      link: "/product/yx1-earphones",
     },
   },
 };

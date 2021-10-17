@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Head from "next/head";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { QUERIES } from "helpers/mediaQueries";
 import styled from "styled-components";
 
@@ -63,6 +65,15 @@ const Text = styled.p`
 `;
 
 const PageNotFound = (): JSX.Element => {
+  const router = useRouter();
+
+  //TODO: Redirect to homepage after 3 seconds of inactivity
+  useEffect(() => {
+    setTimeout(() => {
+      router.push("/");
+    }, 10000);
+  }, []);
+
   return (
     <>
       <Head>
@@ -78,6 +89,7 @@ const PageNotFound = (): JSX.Element => {
               Go back to the
               <Link href="/">Homepage</Link>
             </Text>
+            <Text>(Redirects to homepage after 10 seconds)</Text>
           </Wrap>
         </Container>
       </main>

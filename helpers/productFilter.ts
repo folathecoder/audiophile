@@ -14,3 +14,15 @@ export const getProductsByCategory = (categoryName: string | string[], products)
 export const getCategory = (products) => {
   return removeDuplicates(products.map((product) => product.category));
 };
+
+//TODO: Exract a product by slug
+export const getProductsBySlug = (slug: string | string[], products) => {
+    return products.filter(
+      (productItems) => productItems.slug === slug
+    );
+};
+
+//TODO: Extract all slugs from the product object
+export const getSlugs = (products) => {
+    return removeDuplicates(products.map((product) => product.slug));
+}

@@ -58,7 +58,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     //* STEP D => Extract all category value in the products object and avoid repeated value using getCategory function
     const paths = getCategory(data).map((category) => {
-      console.log(category);
       return {
         params: {
           categoryId: `${category}`,
