@@ -2,16 +2,18 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Main } from "styles/global/globalStyles";
 import MenuCards from "components/shared/menuCards/menuCards";
+import ProductHero from "components/product/productHero/productHero";
 import { menuData } from "data/shared/menuData";
 import CtaSection from "components/shared/ctaSection/ctaSection";
 import { ctaData } from "data/shared/ctaData";
 import { getProductsBySlug, getSlugs } from "helpers/productFilter";
 
 const ProductDetails = ({ product }): JSX.Element => {
-
+  console.log(product)
   return (
     <>
       <Main>
+        <ProductHero data={product}/>
         <MenuCards data={menuData} trimHeight />
         <CtaSection data={ctaData} trimHeight />
       </Main>

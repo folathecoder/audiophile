@@ -13,6 +13,7 @@ import {
   ProductDescription,
   ProductButton,
 } from "components/category/productView/productViewStyles";
+import {PRODUCT_TYPE} from "helpers/constants";
 
 interface ProductViewProps {
   flip?: boolean;
@@ -32,7 +33,6 @@ interface ProductViewProps {
 }
 
 const ProductView = ({ flip, data }: ProductViewProps): JSX.Element => {
-
   //TODO: Manage screen-size state
   const [size, setSize] = useState<number>(1000);
 
@@ -54,19 +54,31 @@ const ProductView = ({ flip, data }: ProductViewProps): JSX.Element => {
         <ProductImageWrap>
           <ProductImage>
             {size >= 992 && (
-              <Image src={data.categoryImage.desktop} alt={data.name} layout="fill" />
+              <Image
+                src={data.categoryImage.desktop}
+                alt={data.name}
+                layout="fill"
+              />
             )}
             {size < 992 && size > 576 && (
-              <Image src={data.categoryImage.tablet} alt={data.name} layout="fill" />
+              <Image
+                src={data.categoryImage.tablet}
+                alt={data.name}
+                layout="fill"
+              />
             )}
             {size <= 576 && (
-              <Image src={data.categoryImage.mobile} alt={data.name} layout="fill" />
+              <Image
+                src={data.categoryImage.mobile}
+                alt={data.name}
+                layout="fill"
+              />
             )}
           </ProductImage>
         </ProductImageWrap>
         <ProductContentWrap>
           <ProductContent flip={flip}>
-            {data.new && <ProductSubHeading>new product</ProductSubHeading>}
+            {data.new && <ProductSubHeading>{PRODUCT_TYPE}</ProductSubHeading>}
             <ProductHeading>{data.name}</ProductHeading>
             <ProductDescription>{data.description}</ProductDescription>
             <ProductButton>
