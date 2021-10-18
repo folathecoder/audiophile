@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
 import { useRouter } from "next/router";
+import scrollTop from "helpers/scrollTop";
 
 const NavigatorContainer = styled.section`
   max-width: 100%;
@@ -47,6 +48,7 @@ const Navigator = (): JSX.Element => {
   //TODO: Handle => Navigate to previous page
   const handleNavigator = () => {
     router.back();
+    scrollTop();
   };
   return (
     <NavigatorContainer>
