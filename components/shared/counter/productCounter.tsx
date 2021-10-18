@@ -20,7 +20,7 @@ const ProductCounter = () => {
   });
 
   //TODO: Manage product number state
-  const [productNumber, setProductNumber] = useState(0);
+  const [productNumber, setProductNumber] = useState(1);
 
   //TODO: Handle => Extract the form input value(s)
   const handleFormChange = (e) => {
@@ -36,9 +36,11 @@ const ProductCounter = () => {
     if (
       formInputs &&
       Number.isInteger(formInputs.productNumber) &&
-      formInputs.productNumber >= 0
+      formInputs.productNumber >= 1
     ) {
       setProductNumber(formInputs.productNumber);
+      // const productCountInput = document.getElementById("productNumber") as HTMLInputElement;
+      // productCountInput.valueAsNumber = productNumber
     }
   };
 
@@ -51,7 +53,7 @@ const ProductCounter = () => {
 
   //TODO: Handle => Decrease product number onClick
   const handleDecrease = () => {
-    if (productNumber >= 1) {
+    if (productNumber > 1) {
       setProductNumber((prevPoductNumber) => {
         return prevPoductNumber - 1;
       });
@@ -74,8 +76,7 @@ const ProductCounter = () => {
           <input
             type="number"
             name="productNumber"
-            id="order"
-            className="counter"
+            id="productNumber"
             value={productNumber}
             onChange={handleFormChange}
           />
