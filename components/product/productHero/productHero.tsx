@@ -59,10 +59,10 @@ const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
             {size >= 992 && (
               <Image src={image.desktop} alt={name} layout="fill" />
             )}
-            {size < 992 && size > 576 && (
+            {size < 992 && size >= 786 && (
               <Image src={image.tablet} alt={name} layout="fill" />
             )}
-            {size <= 576 && (
+            {size < 786 && (
               <Image src={image.mobile} alt={name} layout="fill" />
             )}
           </ProductImage>
@@ -75,7 +75,7 @@ const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
             <ProductHeading>{name}</ProductHeading>
             <ProductDescription>{description}</ProductDescription>
             <ProductPrice>
-              {CURRENCY_SYMBOL}
+              {CURRENCY_SYMBOL}{" "}
               {price}
             </ProductPrice>
             <ProductOrderWrap>

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Form = styled.form`
   display: flex;
-  gap: 1rem;
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
@@ -61,9 +60,12 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
+    transition: var(--transition);
+    background-color: var(--color-sec-600);
+
     i {
       transition: var(--transition);
-      color: var(--color-sec-600);
+      color: var(--color-pry-100);
     }
   }
 
@@ -87,6 +89,7 @@ export const CounterButton = styled.button`
   font-size: 0.8125rem;
   border: none;
   letter-spacing: 0.0625rem;
+  margin-left: 1rem;
 
   &:hover {
     transition: var(--transition);

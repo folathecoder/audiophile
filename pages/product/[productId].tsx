@@ -3,6 +3,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { Main } from "styles/global/globalStyles";
 import MenuCards from "components/shared/menuCards/menuCards";
 import ProductHero from "components/product/productHero/productHero";
+import Navigator from "components/shared/navigator/navigator";
 import { menuData } from "data/shared/menuData";
 import CtaSection from "components/shared/ctaSection/ctaSection";
 import { ctaData } from "data/shared/ctaData";
@@ -13,6 +14,7 @@ const ProductDetails = ({ product }): JSX.Element => {
   return (
     <>
       <Main>
+        <Navigator />
         <ProductHero data={product}/>
         <MenuCards data={menuData} trimHeight />
         <CtaSection data={ctaData} trimHeight />
