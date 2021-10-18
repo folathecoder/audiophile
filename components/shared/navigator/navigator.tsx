@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
+import { useRouter } from "next/router";
 
 const NavigatorContainer = styled.section`
   max-width: 100%;
@@ -13,7 +14,6 @@ const NavigatorWrap = styled.div`
   min-height: 2.1875rem;
   max-width: var(--max-container);
   margin: var(--center-container);
-  /* background-color: red; */
   display: flex;
   align-items: flex-end;
 
@@ -41,11 +41,17 @@ const Navigate = styled.button`
   }
 `;
 
-const Navigator = () => {
+const Navigator = (): JSX.Element => {
+  const router = useRouter();
+
+  //TODO: Handle => Navigate to previous page
+  const handleNavigator = () => {
+    router.back();
+  };
   return (
     <NavigatorContainer>
       <NavigatorWrap>
-        <Navigate>go back</Navigate>
+        <Navigate onClick={handleNavigator}>go back</Navigate>
       </NavigatorWrap>
     </NavigatorContainer>
   );
