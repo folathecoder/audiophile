@@ -72,7 +72,7 @@ const PageNotFound = (): JSX.Element => {
     setTimeout(() => {
       router.push("/");
     }, 10000);
-  }, []);
+  }, [router]);
 
   return (
     <>

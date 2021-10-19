@@ -17,7 +17,7 @@ const ProductDetails = ({ product }): JSX.Element => {
   const [productData] = product;
 
   //TODO: Destructure the product object and extract required SEO values
-  const { name, description, category } = productData;
+  const {id, name, description, category } = productData;
 
   //TODO: Format specific texts needed for SEO display
   const customProductName = convertToUpperCase(name);
@@ -36,11 +36,12 @@ const ProductDetails = ({ product }): JSX.Element => {
         <meta name="description" content={description} />
         <meta property="og:title" content={description} key="ogtitle" />
         <meta property="og:description" content={description} key="ogdesc" />
-        <Script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-        />
       </Head>
+      <Script
+        id={id}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <Main>
         <Navigator />
         <ProductHero data={product} />

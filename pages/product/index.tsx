@@ -12,7 +12,7 @@ const Product = () => {
   //TODO: Redirect to homepage after 3 seconds of inactivity
   useEffect(() => {
     router.push("/");
-  }, []);
+  }, [router]);
 
   return (
     <Main>

@@ -25,13 +25,13 @@ interface MenuCardProps {
 
 const MenuCard = ({ data, event }: MenuCardProps): JSX.Element => {
   return (
-    <Link href={data.link}>
+    <Link href={data.link} passHref>
       <CardContainer onClick={event}>
         <CardImage className="card-image">
           <Image src={data.image.src} alt={data.image.alt} />
         </CardImage>
         <CardShadow className="card-shadow">
-          <Image src="/images/shared/shadow.png" layout="fill" />
+          <Image src="/images/shared/shadow.png" alt=" " layout="fill" />
         </CardShadow>
         <CardHeading>{data.title}</CardHeading>
         <CardLinkWrap>
