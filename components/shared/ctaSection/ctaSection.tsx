@@ -30,10 +30,6 @@ const CtaSection = ({ data, trimHeight }: CtaSectionProps): JSX.Element => {
   //TODO: Destructure data object
   const { heading, description, image } = data;
 
-  // const ctaImage = {
-  //   objectFit: "cover",
-  // };
-
   return (
     <div>
       <CtaContainer trimHeight={trimHeight}>

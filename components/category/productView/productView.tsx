@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import useWindow from "hooks/useWindow";
 import Button from "components/shared/button/button";
 import {
   ProductContainer,
@@ -13,7 +13,7 @@ import {
   ProductDescription,
   ProductButton,
 } from "components/category/productView/productViewStyles";
-import {PRODUCT_TYPE} from "helpers/constants";
+import { PRODUCT_TYPE } from "helpers/constants";
 
 interface ProductViewProps {
   flip?: boolean;
@@ -33,20 +33,8 @@ interface ProductViewProps {
 }
 
 const ProductView = ({ flip, data }: ProductViewProps): JSX.Element => {
-  //TODO: Manage screen-size state
-  const [size, setSize] = useState<number>(1000);
-
-  //TODO: Monitor the screen size to enable image responsiveness
-  useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      setSize(window.innerWidth);
-    });
-    return () => {
-      window.removeEventListener("resize", (e) => {
-        setSize(window.innerWidth);
-      });
-    };
-  });
+  //TODO: Custom Hook => useWindow hook monitors the screen size and returns the screen "size" value
+  const { size } = useWindow();
 
   return (
     <ProductContainer>

@@ -74,8 +74,18 @@ export const ProductContent = styled.div`
   @media ${QUERIES.tablet} {
     align-items: flex-start;
     text-align: left;
-    transform: translateX(6rem);
+    transform: translateX(2rem);
     padding: 0rem;
+
+    ${({ flip }) =>
+      flip &&
+      css`
+        transform: translateX(0rem);
+      `}
+  }
+
+  @media ${QUERIES.desktop} {
+    transform: translateX(6rem);
 
     ${({ flip }) =>
       flip &&

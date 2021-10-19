@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import useWindow from "hooks/useWindow";
 import {
   ProductContainer,
   ProductWrap,
@@ -36,20 +36,8 @@ const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
   const [productData] = data;
   const { name, image, price, description } = productData;
 
-  //TODO: Manage screen-size state
-  const [size, setSize] = useState<number>(1000);
-
-  //TODO: Monitor the screen size to enable image responsiveness
-  useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      setSize(window.innerWidth);
-    });
-    return () => {
-      window.removeEventListener("resize", (e) => {
-        setSize(window.innerWidth);
-      });
-    };
-  });
+  //TODO: Custom Hook => useWindow hook monitors the screen size and returns the screen "size" value
+  const { size } = useWindow();
 
   return (
     <ProductContainer>
@@ -75,8 +63,7 @@ const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
             <ProductHeading>{name}</ProductHeading>
             <ProductDescription>{description}</ProductDescription>
             <ProductPrice>
-              {CURRENCY_SYMBOL}{" "}
-              {price}
+              {CURRENCY_SYMBOL} {price}
             </ProductPrice>
             <ProductOrderWrap>
               <ProductOrder>

@@ -48,8 +48,8 @@ const Navigator = (): JSX.Element => {
   //TODO: Handle => Navigate to previous page
   const handleNavigator = () => {
     router.back();
-    scrollTop();
   };
+  
   return (
     <NavigatorContainer>
       <NavigatorWrap>
