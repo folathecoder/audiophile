@@ -50,7 +50,6 @@ export const ProductImage = styled.div`
 export const ProductContentWrap = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 1rem 0rem;
   min-height: 0rem;
 
@@ -100,10 +99,10 @@ export const ProductHeading = styled.h2`
 
 export const ProductDescription = styled.p`
   margin: 1.5rem 0rem 2rem 0rem;
-  max-width: 35rem;
 
   @media ${QUERIES.tablet} {
     max-width: 28rem;
+    max-width: 35rem;
   }
 `;
 

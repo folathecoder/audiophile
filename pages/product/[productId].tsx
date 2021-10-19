@@ -1,23 +1,24 @@
 import Head from "next/head";
 import Script from "next/script";
-import { GetStaticProps, GetStaticPaths } from "next";
-import { Main } from "styles/global/globalStyles";
-import MenuCards from "components/shared/menuCards/menuCards";
-import ProductHero from "components/product/productHero/productHero";
 import Navigator from "components/shared/navigator/navigator";
-import { menuData } from "data/shared/menuData";
+import ProductHero from "components/product/productHero/productHero";
+import ProductFeature from "components/product/productFeature/productFeature";
+import MenuCards from "components/shared/menuCards/menuCards";
 import CtaSection from "components/shared/ctaSection/ctaSection";
+import { menuData } from "data/shared/menuData";
 import { ctaData } from "data/shared/ctaData";
 import { getProductsBySlug, getSlugs } from "helpers/productFilter";
 import { convertToUpperCase } from "helpers/textFormating";
-import {productSchemaGenerator} from "helpers/schemaGenerator";
+import { productSchemaGenerator } from "helpers/schemaGenerator";
+import { Main } from "styles/global/globalStyles";
+import { GetStaticProps, GetStaticPaths } from "next";
 
 const ProductDetails = ({ product }): JSX.Element => {
   //TODO: Destructure the product array
   const [productData] = product;
 
   //TODO: Destructure the product object and extract required SEO values
-  const {id, name, description, category } = productData;
+  const { id, name, description, category } = productData;
 
   //TODO: Format specific texts needed for SEO display
   const customProductName = convertToUpperCase(name);
@@ -44,7 +45,8 @@ const ProductDetails = ({ product }): JSX.Element => {
       />
       <Main>
         <Navigator />
-        <ProductHero data={product} />
+        <ProductHero data={productData} />
+        <ProductFeature data={productData} />
         <MenuCards data={menuData} trimHeight />
         <CtaSection data={ctaData} trimHeight />
       </Main>

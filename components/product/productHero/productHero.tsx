@@ -28,13 +28,12 @@ interface ProductHeroProps {
     new: boolean;
     price: number;
     description: string;
-  }[];
+  };
 }
 
 const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
-  //TODO: Destructure data array
-  const [productData] = data;
-  const { name, image, price, description } = productData;
+  //TODO: Destructure data object
+  const { name, image, price, description } = data;
 
   //TODO: Custom Hook => useWindow hook monitors the screen size and returns the screen "size" value
   const { size } = useWindow();
@@ -57,7 +56,7 @@ const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
         </ProductImageWrap>
         <ProductContentWrap>
           <ProductContent>
-            {productData.new && (
+            {data.new && (
               <ProductSubHeading>{PRODUCT_TYPE}</ProductSubHeading>
             )}
             <ProductHeading>{name}</ProductHeading>
