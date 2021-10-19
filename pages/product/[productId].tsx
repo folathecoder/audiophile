@@ -1,4 +1,5 @@
-// import Head from "next/head";
+import Head from "next/head";
+import Script from "next/script";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Main } from "styles/global/globalStyles";
 import MenuCards from "components/shared/menuCards/menuCards";
@@ -8,13 +9,41 @@ import { menuData } from "data/shared/menuData";
 import CtaSection from "components/shared/ctaSection/ctaSection";
 import { ctaData } from "data/shared/ctaData";
 import { getProductsBySlug, getSlugs } from "helpers/productFilter";
+import { convertToUpperCase } from "helpers/textFormating";
+import {productSchemaGenerator} from "helpers/schemaGenerator";
 
 const ProductDetails = ({ product }): JSX.Element => {
+  //TODO: Destructure the product array
+  const [productData] = product;
+
+  //TODO: Destructure the product object and extract required SEO values
+  const { name, description, category } = productData;
+
+  //TODO: Format specific texts needed for SEO display
+  const customProductName = convertToUpperCase(name);
+  const customProductDescription = convertToUpperCase(category);
+
+  //TODO: Dynamically generate schema markup for product
+  const productSchema = productSchemaGenerator(productData);
+
   return (
     <>
+      <Head>
+        <title>
+          {customProductName} | {customProductDescription} | Shop for{" "}
+          {customProductName}
+        </title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={description} key="ogtitle" />
+        <meta property="og:description" content={description} key="ogdesc" />
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        />
+      </Head>
       <Main>
         <Navigator />
-        <ProductHero data={product}/>
+        <ProductHero data={product} />
         <MenuCards data={menuData} trimHeight />
         <CtaSection data={ctaData} trimHeight />
       </Main>
