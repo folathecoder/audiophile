@@ -12,6 +12,7 @@ import { convertToUpperCase } from "helpers/textFormating";
 import { productSchemaGenerator } from "helpers/schemaGenerator";
 import { Main } from "styles/global/globalStyles";
 import { GetStaticProps, GetStaticPaths } from "next";
+import ProductGallery from "components/product/productGallery/productGallery";
 
 const ProductDetails = ({ product }): JSX.Element => {
   //TODO: Destructure the product array
@@ -38,6 +39,7 @@ const ProductDetails = ({ product }): JSX.Element => {
         <meta property="og:title" content={description} key="ogtitle" />
         <meta property="og:description" content={description} key="ogdesc" />
       </Head>
+
       <Script
         id={id}
         type="application/ld+json"
@@ -47,6 +49,7 @@ const ProductDetails = ({ product }): JSX.Element => {
         <Navigator />
         <ProductHero data={productData} />
         <ProductFeature data={productData} />
+        <ProductGallery data={productData} />
         <MenuCards data={menuData} trimHeight />
         <CtaSection data={ctaData} trimHeight />
       </Main>

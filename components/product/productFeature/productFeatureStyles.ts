@@ -3,7 +3,6 @@ import { QUERIES } from "helpers/mediaQueries";
 
 export const FeatureContainer = styled.section`
   max-width: 100%;
-  /* background-color: red; */
   padding: 0rem 1rem;
 
   @media ${QUERIES.tabletMini} {

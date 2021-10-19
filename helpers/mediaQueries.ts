@@ -1,4 +1,4 @@
-const BREAKPOINTS = {
+ const BREAKPOINTS = {
   xs: 300,
   s: 576,
   md: 786,

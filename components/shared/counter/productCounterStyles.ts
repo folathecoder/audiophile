@@ -16,7 +16,8 @@ export const Form = styled.form`
     background-color: var(--color-sec-500);
     -moz-appearance: textfield;
     text-align: center;
-    font-weight: var(--font-weight-300);
+    font-weight: var(--font-weight-400);
+    font-family: var(--font-pry-100);
 
     &:active,
     &:hover,
