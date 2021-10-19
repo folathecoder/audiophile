@@ -15,6 +15,7 @@ const Scroll = styled.button`
   background-color: var(--color-pry-100);
   display: grid;
   place-items: center;
+  transition: var(--transition);
 
   @media ${QUERIES.tablet} {
     margin: 0rem 2rem 2rem 0rem;

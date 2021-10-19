@@ -33,7 +33,7 @@ export const GlobalStyles = createGlobalStyle`
         --border-radius: 0.5rem;
 
         //ANIMATION 
-        --transition: 0.25s ease-in-out;
+        --transition: all 0.5s;
     }
     ///////////////////////////////////////////////////////
     //TODO: DEFAULT STYLE RESETS
@@ -74,6 +74,7 @@ export const GlobalStyles = createGlobalStyle`
         letter-spacing: 0.1rem;
         display: flex;
         align-items: center;
+        transition: var(--transition);
 
         &:hover {
             transition: var(--transition);

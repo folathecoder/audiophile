@@ -10,7 +10,6 @@ import { ctaData } from "data/shared/ctaData";
 import { getProductsBySlug, getSlugs } from "helpers/productFilter";
 
 const ProductDetails = ({ product }): JSX.Element => {
-  console.log(product)
   return (
     <>
       <Main>

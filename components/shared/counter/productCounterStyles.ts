@@ -58,6 +58,7 @@ export const Button = styled.button`
   background-color: var(--color-sec-500);
   font-weight: var(--font-weight-400);
   cursor: pointer;
+  transition: var(--transition);
 
   &:hover {
     transition: var(--transition);
@@ -90,6 +91,7 @@ export const CounterButton = styled.button`
   border: none;
   letter-spacing: 0.0625rem;
   margin-left: 1rem;
+  transition: var(--transition);
 
   &:hover {
     transition: var(--transition);

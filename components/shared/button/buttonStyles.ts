@@ -11,6 +11,7 @@ export const ButtonContainer = styled.a`
   justify-content: center;
   align-items: center;
   font-size: 0.8125rem;
+  transition: var(--transition);
 
   &:hover {
     transition: var(--transition);

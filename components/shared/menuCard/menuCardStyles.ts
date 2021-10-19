@@ -37,8 +37,8 @@ export const CardContainer = styled.div`
 
     @media ${QUERIES.tablet} {
       .card-image {
-        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
         transform: translateY(-1rem);
+        transition: var(--transition);
       }
       .card-shadow {
         transition: var(--transition);
@@ -50,6 +50,7 @@ export const CardContainer = styled.div`
 `;
 export const CardImage = styled.div`
   background-color: transparent;
+  transition: var(--transition);
 
   img {
     height: 6.5rem;
@@ -62,6 +63,7 @@ export const CardImage = styled.div`
   }
 `;
 export const CardShadow = styled.div`
+  transition: var(--transition);
   min-height: 2rem;
   width: 7rem;
   position: relative;
