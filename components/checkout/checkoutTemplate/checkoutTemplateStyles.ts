@@ -2,28 +2,23 @@ import styled from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
 
 export const CheckoutContainer = styled.section`
-  background-color: red;
   max-width: 100%;
   padding: 0rem 1rem;
   margin: 2rem 0rem;
-
-  @media ${QUERIES.mobileMini} {
+  @media ${QUERIES.tabletMini} {
     padding: 0rem 2rem;
   }
 `;
 export const CheckoutWrap = styled.div`
-  background-color: blue;
   max-width: var(--max-container);
   margin: var(--center-container);
   min-height: 10rem;
   display: grid;
   grid-gap: 1.875rem;
   grid-template-columns: 100%;
-
   @media ${QUERIES.tablet} {
     grid-template-columns: 66% 34%;
   }
-
   & > * {
     flex: 1;
     width: 100%;
@@ -34,5 +29,11 @@ export const CheckoutFormWrap = styled.div`
   background-color: var(--color-sec-200);
 `;
 export const CheckoutSummaryWrap = styled.div`
-  background-color: yellow;
+  background-color: var(--color-sec-200);
+`;
+
+export const CheckoutHeading = styled.h2`
+  font-size: 2rem;
+  margin: 2rem 2.7rem;
+  text-transform: uppercase;
 `;

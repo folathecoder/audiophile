@@ -4,6 +4,7 @@ import {
   CheckoutWrap,
   CheckoutFormWrap,
   CheckoutSummaryWrap,
+  CheckoutHeading,
 } from "components/checkout/checkoutTemplate/checkoutTemplateStyles";
 
 const CheckoutTemplate = () => {
@@ -11,9 +12,10 @@ const CheckoutTemplate = () => {
     <CheckoutContainer>
       <CheckoutWrap>
         <CheckoutFormWrap>
+          <CheckoutHeading>checkout</CheckoutHeading>
           <CheckoutForm />
         </CheckoutFormWrap>
-        <CheckoutSummaryWrap></CheckoutSummaryWrap>
+        <CheckoutSummaryWrap>Summary</CheckoutSummaryWrap>
       </CheckoutWrap>
     </CheckoutContainer>
   );
