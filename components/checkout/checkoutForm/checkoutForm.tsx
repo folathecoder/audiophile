@@ -4,7 +4,9 @@ import {
   FormSectionHeading,
   FormInputWrap,
   FormInput,
-  FormBreak
+  FormLabel,
+  FormError,
+  FormBreak,
 } from "components/checkout/checkoutForm/checkoutFormStyles";
 
 const CheckoutForm = () => {
@@ -15,7 +17,10 @@ const CheckoutForm = () => {
         <FormInputWrap>
           <FormBreak>
             <FormInput>
-              <label htmlFor="name">name</label>
+              <FormLabel>
+                <label htmlFor="name">name</label>
+                <FormError>Enter your name!</FormError>
+              </FormLabel>
               <input
                 type="text"
                 name="name"
@@ -26,7 +31,10 @@ const CheckoutForm = () => {
           </FormBreak>
           <FormBreak>
             <FormInput>
-              <label htmlFor="email">email address</label>
+              <FormLabel>
+                <label htmlFor="email">email address</label>
+                <FormError>Wrong email format!</FormError>
+              </FormLabel>
               <input
                 type="email"
                 name="email"
@@ -37,7 +45,10 @@ const CheckoutForm = () => {
           </FormBreak>
           <FormBreak>
             <FormInput>
-              <label htmlFor="phone">phone number</label>
+              <FormLabel>
+                <label htmlFor="phone">phone number</label>
+                <FormError>Enter your phone number!</FormError>
+              </FormLabel>
               <input
                 type="text"
                 name="phone"
@@ -52,7 +63,10 @@ const CheckoutForm = () => {
         <FormSectionHeading>shipping info</FormSectionHeading>
         <FormInputWrap>
           <FormInput>
-            <label htmlFor="address">address</label>
+            <FormLabel>
+              <label htmlFor="address">address</label>
+              <FormError>Enter your address!</FormError>
+            </FormLabel>
             <input
               type="text"
               name="address"
@@ -62,7 +76,10 @@ const CheckoutForm = () => {
           </FormInput>
           <FormBreak>
             <FormInput>
-              <label htmlFor="zipCode">zip code</label>
+              <FormLabel>
+                <label htmlFor="zipCode">zip code</label>
+                <FormError>Enter your zip code!</FormError>
+              </FormLabel>
               <input
                 type="text"
                 name="zipCode"
@@ -73,13 +90,19 @@ const CheckoutForm = () => {
           </FormBreak>
           <FormBreak>
             <FormInput>
-              <label htmlFor="city">city</label>
+              <FormLabel>
+                <label htmlFor="city">city</label>
+                <FormError>Enter your city!</FormError>
+              </FormLabel>
               <input type="text" name="city" id="city" placeholder="new york" />
             </FormInput>
           </FormBreak>
           <FormBreak>
             <FormInput>
-              <label htmlFor="country">country</label>
+              <FormLabel>
+                <label htmlFor="country">country</label>
+                <FormError>Enter your country!</FormError>
+              </FormLabel>
               <input
                 type="text"
                 name="country"

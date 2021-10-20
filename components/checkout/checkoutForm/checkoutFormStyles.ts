@@ -4,7 +4,11 @@ import { QUERIES } from "helpers/mediaQueries";
 export const Form = styled.form`
   /* background-color: orange; */
   width: 100%;
-  padding: 0rem 2.9rem;
+  padding: 0rem 1.5rem;
+
+  @media ${QUERIES.tabletMini} {
+    padding: 0rem 2.9rem;
+  }
 `;
 export const FormSectionHeading = styled.h3`
   margin: 2rem 0rem 1rem 0rem;
@@ -16,14 +20,17 @@ export const FormSection = styled.div`
   /* background-color: pink; */
 `;
 export const FormInputWrap = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   /* gap: 1rem */
 
-  & > * {
-    flex: 1 100% 100%;
-    /* width: 100%; */
+  @media ${QUERIES.tabletMini} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    & > * {
+      flex: 1 100% 100%;
+      /* width: 100%; */
+    }
   }
 `;
 export const FormInput = styled.div`
@@ -59,10 +66,26 @@ export const FormInput = styled.div`
   }
 `;
 
+export const FormLabel = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+export const FormError = styled.div`
+  font-size: 0.75rem;
+  letter-spacing: -0.013125rem;
+  margin-bottom: 0.75rem;
+  color: #cd2c2c;
+  text-align: right;
+
+  & > * {
+      flex: 1;
+  }
+`;
+
 export const FormBreak = styled.div`
   /* width: 100%; */
 
-  @media ${QUERIES.mobileMini} {
+  @media ${QUERIES.tabletMini} {
     flex: 1 50% 100%;
     gap: 1rem;
     width: 49%;
