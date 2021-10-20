@@ -31,7 +31,6 @@ const CtaSection = ({ data, trimHeight }: CtaSectionProps): JSX.Element => {
   const { heading, description, image } = data;
 
   return (
-    <div>
       <CtaContainer trimHeight={trimHeight}>
         <CtaWrap>
           <CtaContentWrap>
@@ -49,7 +48,6 @@ const CtaSection = ({ data, trimHeight }: CtaSectionProps): JSX.Element => {
           </CtaImageWrap>
         </CtaWrap>
       </CtaContainer>
-    </div>
   );
 };
 

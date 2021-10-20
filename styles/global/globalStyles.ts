@@ -138,6 +138,12 @@ export const GlobalStyles = createGlobalStyle`
 
 export const Main = styled.main`
   min-height: 100vh;
+
+  ${({ gray }) =>
+    gray &&
+    css`
+      background-color: var(--color-sec-500);
+    `}
 `;
 
 export const HiddenHeader = styled.h1`

@@ -12,7 +12,7 @@ import { ctaData } from "data/shared/ctaData";
 import { getProductsBySlug, getSlugs } from "helpers/productFilter";
 import { convertToUpperCase } from "helpers/textFormating";
 import { productSchemaGenerator } from "helpers/schemaGenerator";
-import { Main } from "styles/global/globalStyles";
+import { Main, HiddenHeader } from "styles/global/globalStyles";
 import { GetStaticProps, GetStaticPaths } from "next";
 
 const ProductDetails = ({ product }): JSX.Element => {
@@ -48,6 +48,7 @@ const ProductDetails = ({ product }): JSX.Element => {
       />
       <Main>
         <Navigator />
+        <HiddenHeader>{customProductName}</HiddenHeader>
         <ProductHero data={productData} />
         <ProductFeature data={productData} />
         <ProductGallery data={productData} />
