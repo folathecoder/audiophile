@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import {
   Form,
   FormSection,
@@ -19,7 +20,31 @@ import {
   CashOnContent,
 } from "components/checkout/checkoutForm/checkoutFormStyles";
 
-const CheckoutForm = () => {
+const CheckoutForm = (): JSX.Element => {
+  //TODO: Maintain payment mode prefrence state
+  const [paymentMode, setPaymentMode] = useState<boolean>(true);
+
+  //TODO: Handle => "Cash On Delivery" onClick
+  const handleOnDelivery = () => {
+    setPaymentMode(false);
+  };
+
+  //TODO: Handle => "E-Money" onClick
+  const handleOnEmoney = () => {
+    setPaymentMode(true);
+  };
+
+  //TODO: Handle => Extract payment mode prefrence from localStorage
+  useEffect(() => {
+    const getPaymentMode = localStorage.getItem("paymentMode");
+    setPaymentMode(JSON.parse(getPaymentMode));
+  }, []);
+
+  //TODO: Handle => Save payment mode prefrence to localStorage
+  useEffect(() => {
+    localStorage.setItem("paymentMode", JSON.stringify(paymentMode));
+  });
+  
   return (
     <Form>
       <CheckoutHeading>checkout</CheckoutHeading>
@@ -134,6 +159,7 @@ const CheckoutForm = () => {
                   name="paymentMethod"
                   id="emoney"
                   value="e-Money"
+                  onClick={handleOnEmoney}
                 />
                 <label htmlFor="emoney">e-Money</label>
               </FormPaymentInput>
@@ -143,13 +169,14 @@ const CheckoutForm = () => {
                   name="paymentMethod"
                   id="cash"
                   value="Cash on Delivery"
+                  onClick={handleOnDelivery}
                 />
                 <label htmlFor="cash">Cash on Delivery</label>
               </FormPaymentInput>
             </FormPaymentOption>
           </FormPaymentWrap>
         </FormInputWrap>
-        {true && (
+        {paymentMode && (
           <EmoneyWrap>
             <FormInputWrap className="customInput">
               <FormBreak>
@@ -183,7 +210,7 @@ const CheckoutForm = () => {
             </FormInputWrap>
           </EmoneyWrap>
         )}
-        {false && (
+        {!paymentMode && (
           <CashOnWrap>
             <CashOnImage>
               <Image

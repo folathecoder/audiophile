@@ -2,10 +2,9 @@ import styled from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
 
 export const Form = styled.form`
-  /* background-color: orange; */
   width: 100%;
   padding: 0rem 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 
   @media ${QUERIES.tabletMini} {
     padding: 0rem 2.9rem;
@@ -28,11 +27,10 @@ export const FormSectionHeading = styled.h3`
   font-size: 0.8125rem;
   color: var(--color-pry-100);
 `;
-export const FormSection = styled.div`
-  /* background-color: pink; */
-`;
+
+export const FormSection = styled.div``;
+
 export const FormInputWrap = styled.div`
-  /* gap: 1rem */
 
   @media ${QUERIES.mobile} {
     display: flex;
@@ -41,10 +39,10 @@ export const FormInputWrap = styled.div`
 
     & > * {
       flex: 1 100% 100%;
-      /* width: 100%; */
     }
   }
 `;
+
 export const FormInput = styled.div`
   display: flex;
   flex-direction: column;
@@ -82,12 +80,14 @@ export const FormLabel = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 export const FormError = styled.div`
   font-size: 0.75rem;
   letter-spacing: -0.013125rem;
   margin-bottom: 0.75rem;
   color: #cd2c2c;
   text-align: right;
+  display: none;
 
   & > * {
     flex: 1;
@@ -113,13 +113,16 @@ export const FormPaymentWrap = styled.div`
     }
   }
 `;
+
 export const FormPaymentHeading = styled.div`
   text-transform: capitalize;
   font-size: 0.75rem;
   letter-spacing: -0.013125rem;
   margin-bottom: 0.75rem;
 `;
+
 export const FormPaymentOption = styled.div``;
+
 export const FormPaymentInput = styled.div`
   min-height: 3.5rem;
   border-radius: var(--border-radius);

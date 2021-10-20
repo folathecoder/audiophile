@@ -142,7 +142,8 @@ export const Main = styled.main`
   ${({ gray }) =>
     gray &&
     css`
-      background-color: var(--color-sec-500);
+      background-color: var(--color-pry-500);
+      margin-bottom: -2rem;
     `}
 `;
 
