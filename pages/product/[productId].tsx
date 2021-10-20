@@ -3,6 +3,8 @@ import Script from "next/script";
 import Navigator from "components/shared/navigator/navigator";
 import ProductHero from "components/product/productHero/productHero";
 import ProductFeature from "components/product/productFeature/productFeature";
+import ProductGallery from "components/product/productGallery/productGallery";
+import ProductRelated from "components/product/productRelated/productRelated";
 import MenuCards from "components/shared/menuCards/menuCards";
 import CtaSection from "components/shared/ctaSection/ctaSection";
 import { menuData } from "data/shared/menuData";
@@ -12,7 +14,6 @@ import { convertToUpperCase } from "helpers/textFormating";
 import { productSchemaGenerator } from "helpers/schemaGenerator";
 import { Main } from "styles/global/globalStyles";
 import { GetStaticProps, GetStaticPaths } from "next";
-import ProductGallery from "components/product/productGallery/productGallery";
 
 const ProductDetails = ({ product }): JSX.Element => {
   //TODO: Destructure the product array
@@ -50,6 +51,7 @@ const ProductDetails = ({ product }): JSX.Element => {
         <ProductHero data={productData} />
         <ProductFeature data={productData} />
         <ProductGallery data={productData} />
+        <ProductRelated data={productData} />
         <MenuCards data={menuData} trimHeight />
         <CtaSection data={ctaData} trimHeight />
       </Main>

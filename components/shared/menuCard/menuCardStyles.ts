@@ -2,7 +2,7 @@ import { QUERIES } from "helpers/mediaQueries";
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  background-color: var(--color-pry-500);
+  background-color: var(--color-sec-600);
   height: 10.3125rem;
   max-width: 21.875rem;
   border-radius: var(--border-radius);

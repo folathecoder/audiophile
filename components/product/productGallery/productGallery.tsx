@@ -32,8 +32,12 @@ interface PhotoGalleryProps {
 }
 
 const ProductGallery = ({ data }: PhotoGalleryProps): JSX.Element => {
+  //TODO: Destructure data object
   const { name, gallery } = data;
+
+  //TODO: Custom Hook => useWindow hook monitors the screen size and returns the screen "size" value
   const { size } = useWindow();
+  
   return (
     <GalleryContainer>
       <GalleryWrap>

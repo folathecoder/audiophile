@@ -102,7 +102,6 @@ export const ProductDescription = styled.p`
 
   @media ${QUERIES.tablet} {
     max-width: 28rem;
-    max-width: 35rem;
   }
 `;
 
