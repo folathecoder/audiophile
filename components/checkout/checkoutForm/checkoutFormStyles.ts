@@ -5,6 +5,7 @@ export const Form = styled.form`
   /* background-color: orange; */
   width: 100%;
   padding: 0rem 1.5rem;
+  margin-bottom: 3rem;
 
   @media ${QUERIES.tabletMini} {
     padding: 0rem 2.9rem;
@@ -22,7 +23,7 @@ export const FormSection = styled.div`
 export const FormInputWrap = styled.div`
   /* gap: 1rem */
 
-  @media ${QUERIES.tabletMini} {
+  @media ${QUERIES.mobile} {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -83,7 +84,7 @@ export const FormError = styled.div`
 `;
 
 export const FormBreak = styled.div`
-  @media ${QUERIES.tabletMini} {
+  @media ${QUERIES.mobile} {
     flex: 1 50% 100%;
     gap: 1rem;
     width: 49%;
@@ -135,5 +136,52 @@ export const FormPaymentInput = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
+  }
+`;
+
+export const EmoneyWrap = styled.div`
+  margin-top: 2rem;
+  width: 100%;
+`;
+
+export const CashOnWrap = styled.div`
+  @media ${QUERIES.tabletMini} {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+
+    & > * {
+      flex: 1;
+    }
+  }
+`;
+
+export const CashOnImage = styled.div`
+  flex: 1;
+  position: relative;
+  object-fit: contain;
+  min-height: 3rem;
+  margin-bottom: 1rem;
+
+  @media ${QUERIES.tabletMini} {
+    margin-bottom: 0rem;
+  }
+
+  img {
+    object-fit: contain;
+    max-width: 3rem;
+    height: auto;
+  }
+`;
+export const CashOnContent = styled.div`
+  flex: 4;
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
+  font-weight: var(--font-weight-100);
+  letter-spacing: 0.05rem;
+  text-align: center;
+
+  @media ${QUERIES.tabletMini} {
+    text-align: left;
   }
 `;

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Form,
   FormSection,
@@ -11,6 +12,10 @@ import {
   FormPaymentHeading,
   FormPaymentOption,
   FormPaymentInput,
+  EmoneyWrap,
+  CashOnWrap,
+  CashOnImage,
+  CashOnContent,
 } from "components/checkout/checkoutForm/checkoutFormStyles";
 
 const CheckoutForm = () => {
@@ -142,6 +147,56 @@ const CheckoutForm = () => {
             </FormPaymentOption>
           </FormPaymentWrap>
         </FormInputWrap>
+        {true && (
+          <EmoneyWrap>
+            <FormInputWrap className="customInput">
+              <FormBreak>
+                <FormInput>
+                  <FormLabel>
+                    <label htmlFor="emoneyNumber">e-Money Number</label>
+                    <FormError>Enter e-Money Number!</FormError>
+                  </FormLabel>
+                  <input
+                    type="text"
+                    name="emoneyNumber"
+                    id="emoneyNumber"
+                    placeholder="238521993"
+                  />
+                </FormInput>
+              </FormBreak>
+              <FormBreak>
+                <FormInput>
+                  <FormLabel>
+                    <label htmlFor="emoneyPin">e-Money PIN</label>
+                    <FormError>Enter e-Money PIN!</FormError>
+                  </FormLabel>
+                  <input
+                    type="text"
+                    name="emoneyPin"
+                    id="emoneyPin"
+                    placeholder="6891"
+                  />
+                </FormInput>
+              </FormBreak>
+            </FormInputWrap>
+          </EmoneyWrap>
+        )}
+        {true && (
+          <CashOnWrap>
+            <CashOnImage>
+              <Image
+                src="/images/shared/payondelivery.png"
+                alt="pay on delivery"
+                layout="fill"
+              />
+            </CashOnImage>
+            <CashOnContent>
+              The ‘Cash on Delivery’ option enables you to pay in cash when our
+              delivery courier arrives at your residence. Just make sure your
+              address is correct so that your order will not be cancelled.
+            </CashOnContent>
+          </CashOnWrap>
+        )}
       </FormSection>
     </Form>
   );
