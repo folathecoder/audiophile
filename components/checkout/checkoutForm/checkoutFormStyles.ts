@@ -114,7 +114,7 @@ export const FormPaymentInput = styled.div`
   border: none;
   border: 0.1rem solid hsl(0, 0%, 81%);
   font-family: var(--font-pry-100);
-  padding: 0rem 1rem;
+  padding-left: 1rem;
   color: var(--color-sec-400);
   font-weight: var(--font-weight-400);
   font-size: 0.875rem;
@@ -131,5 +131,9 @@ export const FormPaymentInput = styled.div`
 
   label {
     margin-left: 1rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
 `;
