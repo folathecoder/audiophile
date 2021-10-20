@@ -28,9 +28,12 @@ interface ProductRelatedProps {
 }
 
 const ProductRelated = ({ data }: ProductRelatedProps): JSX.Element => {
+  //TODO: Destructure data object
   const { others } = data;
 
+  //TODO: Custom Hook => useWindow hook monitors the screen size and returns the screen "size" value
   const { size } = useWindow();
+  
   return (
     <RelatedContainer>
       <RelatedWrap>
