@@ -78,16 +78,58 @@ export const FormError = styled.div`
   text-align: right;
 
   & > * {
-      flex: 1;
+    flex: 1;
   }
 `;
 
 export const FormBreak = styled.div`
-  /* width: 100%; */
-
   @media ${QUERIES.tabletMini} {
     flex: 1 50% 100%;
     gap: 1rem;
     width: 49%;
+  }
+`;
+
+export const FormPaymentWrap = styled.div`
+  width: 100%;
+
+  @media ${QUERIES.tabletMini} {
+    display: flex;
+
+    & > * {
+      flex: 1;
+    }
+  }
+`;
+export const FormPaymentHeading = styled.div`
+  text-transform: capitalize;
+  font-size: 0.75rem;
+  letter-spacing: -0.013125rem;
+  margin-bottom: 0.75rem;
+`;
+export const FormPaymentOption = styled.div``;
+export const FormPaymentInput = styled.div`
+  min-height: 3.5rem;
+  border-radius: var(--border-radius);
+  border: none;
+  border: 0.1rem solid hsl(0, 0%, 81%);
+  font-family: var(--font-pry-100);
+  padding: 0rem 1rem;
+  color: var(--color-sec-400);
+  font-weight: var(--font-weight-400);
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  background-color: var(--color-sec-200);
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  &:focus,
+  &:hover {
+    outline: 0.1rem solid var(--color-pry-100);
+  }
+
+  label {
+    margin-left: 1rem;
   }
 `;

@@ -7,6 +7,10 @@ import {
   FormLabel,
   FormError,
   FormBreak,
+  FormPaymentWrap,
+  FormPaymentHeading,
+  FormPaymentOption,
+  FormPaymentInput,
 } from "components/checkout/checkoutForm/checkoutFormStyles";
 
 const CheckoutForm = () => {
@@ -111,6 +115,32 @@ const CheckoutForm = () => {
               />
             </FormInput>
           </FormBreak>
+        </FormInputWrap>
+        <FormInputWrap>
+          <FormSectionHeading>payment details</FormSectionHeading>
+          <FormPaymentWrap>
+            <FormPaymentHeading>payment method</FormPaymentHeading>
+            <FormPaymentOption>
+              <FormPaymentInput>
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  id="emoney"
+                  value="e-Money"
+                />
+                <label htmlFor="emoney">e-Money</label>
+              </FormPaymentInput>
+              <FormPaymentInput>
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  id="cash"
+                  value="Cash on Delivery"
+                />
+                <label htmlFor="cash">Cash on Delivery</label>
+              </FormPaymentInput>
+            </FormPaymentOption>
+          </FormPaymentWrap>
         </FormInputWrap>
       </FormSection>
     </Form>
