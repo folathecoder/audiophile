@@ -5,12 +5,23 @@ export const Form = styled.form`
   /* background-color: orange; */
   width: 100%;
   padding: 0rem 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 
   @media ${QUERIES.tabletMini} {
     padding: 0rem 2.9rem;
   }
 `;
+
+export const CheckoutHeading = styled.h2`
+  font-size: 1.75rem;
+  margin: 2rem 0rem;
+  text-transform: uppercase;
+
+  @media ${QUERIES.tabletMini} {
+    font-size: 2rem;
+  }
+`;
+
 export const FormSectionHeading = styled.h3`
   margin: 2rem 0rem 1rem 0rem;
   text-transform: uppercase;

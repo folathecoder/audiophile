@@ -2,6 +2,7 @@ import Image from "next/image";
 import {
   Form,
   FormSection,
+  CheckoutHeading,
   FormSectionHeading,
   FormInputWrap,
   FormInput,
@@ -21,6 +22,7 @@ import {
 const CheckoutForm = () => {
   return (
     <Form>
+      <CheckoutHeading>checkout</CheckoutHeading>
       <FormSection>
         <FormSectionHeading>billing details</FormSectionHeading>
         <FormInputWrap>
@@ -181,7 +183,7 @@ const CheckoutForm = () => {
             </FormInputWrap>
           </EmoneyWrap>
         )}
-        {true && (
+        {false && (
           <CashOnWrap>
             <CashOnImage>
               <Image

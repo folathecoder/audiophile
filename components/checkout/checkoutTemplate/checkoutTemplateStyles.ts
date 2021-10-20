@@ -31,9 +31,3 @@ export const CheckoutFormWrap = styled.div`
 export const CheckoutSummaryWrap = styled.div`
   background-color: var(--color-sec-200);
 `;
-
-export const CheckoutHeading = styled.h2`
-  font-size: 2rem;
-  margin: 2rem 2.7rem;
-  text-transform: uppercase;
-`;
