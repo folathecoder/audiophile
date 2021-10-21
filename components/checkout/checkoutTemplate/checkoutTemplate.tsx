@@ -1,4 +1,5 @@
 import CheckoutForm from "components/checkout/checkoutForm/checkoutForm";
+import CheckoutSummary from "components/checkout/checkoutSummary/checkoutSummary";
 import {
   CheckoutContainer,
   CheckoutWrap,
@@ -13,7 +14,9 @@ const CheckoutTemplate = () => {
         <CheckoutFormWrap>
           <CheckoutForm />
         </CheckoutFormWrap>
-        <CheckoutSummaryWrap>Summary</CheckoutSummaryWrap>
+        <CheckoutSummaryWrap>
+          <CheckoutSummary />
+        </CheckoutSummaryWrap>
       </CheckoutWrap>
     </CheckoutContainer>
   );

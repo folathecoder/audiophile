@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
 
 export const Form = styled.form`
-  width: 100%;
+  max-width: 100%;
   padding: 0rem 1.5rem;
   margin-bottom: 3rem;
+  background-color: var(--color-sec-200);
 
   @media ${QUERIES.tabletMini} {
     padding: 0rem 2.9rem;
@@ -87,7 +88,7 @@ export const FormError = styled.div`
   margin-bottom: 0.75rem;
   color: #cd2c2c;
   text-align: right;
-  display: none;
+  /* display: none; */
 
   & > * {
     flex: 1;
