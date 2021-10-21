@@ -9,18 +9,16 @@ import {
   CheckoutGrandTotal,
   CheckoutTotalAmount,
   CheckoutButton,
-  EmptyCart
+  EmptyCart,
 } from "components/checkout/checkoutSummary/checkoutSummaryStyles";
 import { CURRENCY_SYMBOL } from "helpers/constants";
 
-const CheckoutSummary = () => {
+const CheckoutSummary = (): JSX.Element => {
   return (
     <SummaryContainer>
       <SummaryHeading>summary</SummaryHeading>
       <SummaryWrap>
-        <EmptyCart>
-          Your cart is empty!
-        </EmptyCart>
+        <EmptyCart>Your cart is empty!</EmptyCart>
       </SummaryWrap>
       <CheckoutTotal>
         <CheckoutTotalItem>
@@ -40,7 +38,9 @@ const CheckoutSummary = () => {
           <CheckoutTotalAmount>{CURRENCY_SYMBOL} 0</CheckoutTotalAmount>
         </CheckoutGrandTotal>
         <CheckoutTotalItem>
-          <CheckoutButton>continue & pay</CheckoutButton>
+          <CheckoutButton form="checkoutForm" type="submit">
+            continue & pay
+          </CheckoutButton>
         </CheckoutTotalItem>
       </CheckoutTotal>
     </SummaryContainer>

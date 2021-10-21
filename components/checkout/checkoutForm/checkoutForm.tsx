@@ -1,4 +1,8 @@
+import React from "react";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { useState, useEffect } from "react";
 import {
   Form,
@@ -19,10 +23,27 @@ import {
   CashOnImage,
   CashOnContent,
 } from "components/checkout/checkoutForm/checkoutFormStyles";
+import { schema } from "helpers/yupSchema";
 
 const CheckoutForm = (): JSX.Element => {
+  //TODO: Maintain user details after form is submitted on checkout state
+  const [userDetails, setUserDetails] = useState<object | null>(null);
   //TODO: Maintain payment mode prefrence state
   const [paymentMode, setPaymentMode] = useState<boolean>(true);
+
+  //TODO: React-Hook-Form custom hook
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  //TODO: Function that collects all the form data
+  const submitForm = (data) => {
+    setUserDetails(data);
+  };
 
   //TODO: Handle => "Cash On Delivery" onClick
   const handleOnDelivery = () => {
@@ -34,19 +55,23 @@ const CheckoutForm = (): JSX.Element => {
     setPaymentMode(true);
   };
 
-  //TODO: Handle => Extract payment mode prefrence from localStorage
+  //TODO: Handle => Extract payment mode prefrence and user details from localStorage
   useEffect(() => {
     const getPaymentMode = localStorage.getItem("paymentMode");
     setPaymentMode(JSON.parse(getPaymentMode));
+
+    const getUserDetails = localStorage.getItem("userDetails");
+    setUserDetails(JSON.parse(getUserDetails));
   }, []);
 
-  //TODO: Handle => Save payment mode prefrence to localStorage
+  //TODO: Handle => Save payment mode prefrence and user details on checkout to localStorage
   useEffect(() => {
     localStorage.setItem("paymentMode", JSON.stringify(paymentMode));
+    localStorage.setItem("userDetails", JSON.stringify(userDetails));
   });
 
   return (
-    <Form>
+    <Form id="checkoutForm" onSubmit={handleSubmit(submitForm)}>
       <CheckoutHeading>checkout</CheckoutHeading>
       <FormSection>
         <FormSectionHeading>billing details</FormSectionHeading>
@@ -55,13 +80,14 @@ const CheckoutForm = (): JSX.Element => {
             <FormInput>
               <FormLabel>
                 <label htmlFor="name">name</label>
-                <FormError>Enter your name!</FormError>
+                <FormError>{errors.name && "Enter your name!"}</FormError>
               </FormLabel>
               <input
                 type="text"
                 name="name"
                 id="name"
                 placeholder="Alexei Ward"
+                {...register("name")}
               />
             </FormInput>
           </FormBreak>
@@ -69,13 +95,14 @@ const CheckoutForm = (): JSX.Element => {
             <FormInput>
               <FormLabel>
                 <label htmlFor="email">email address</label>
-                <FormError>Wrong email format!</FormError>
+                <FormError>{errors.email && "Wrong email format!"}</FormError>
               </FormLabel>
               <input
                 type="email"
                 name="email"
                 id="email"
                 placeholder="alexei@mail.com"
+                {...register("email")}
               />
             </FormInput>
           </FormBreak>
@@ -83,13 +110,14 @@ const CheckoutForm = (): JSX.Element => {
             <FormInput>
               <FormLabel>
                 <label htmlFor="phone">phone number</label>
-                <FormError>Enter your phone number!</FormError>
+                <FormError>{errors.phone && "Wrong phone format!"}</FormError>
               </FormLabel>
               <input
                 type="text"
                 name="phone"
                 id="phone"
                 placeholder="+1 202-555-0136"
+                {...register("phone")}
               />
             </FormInput>
           </FormBreak>
@@ -101,26 +129,30 @@ const CheckoutForm = (): JSX.Element => {
           <FormInput>
             <FormLabel>
               <label htmlFor="address">address</label>
-              <FormError>Enter your address!</FormError>
+              <FormError>{errors.address && "Enter your address!"}</FormError>
             </FormLabel>
             <input
               type="text"
               name="address"
               id="address"
               placeholder="1137 Williams Avenue"
+              {...register("address")}
             />
           </FormInput>
           <FormBreak>
             <FormInput>
               <FormLabel>
                 <label htmlFor="zipCode">zip code</label>
-                <FormError>Enter your zip code!</FormError>
+                <FormError>
+                  {errors.zipCode && "Enter your Zip Code!"}
+                </FormError>
               </FormLabel>
               <input
                 type="text"
                 name="zipCode"
                 id="zipCode"
                 placeholder="10001"
+                {...register("zipCode")}
               />
             </FormInput>
           </FormBreak>
@@ -128,22 +160,29 @@ const CheckoutForm = (): JSX.Element => {
             <FormInput>
               <FormLabel>
                 <label htmlFor="city">city</label>
-                <FormError>Enter your city!</FormError>
+                <FormError>{errors.city && "Enter your city!"}</FormError>
               </FormLabel>
-              <input type="text" name="city" id="city" placeholder="new york" />
+              <input
+                type="text"
+                name="city"
+                id="city"
+                placeholder="new york"
+                {...register("city")}
+              />
             </FormInput>
           </FormBreak>
           <FormBreak>
             <FormInput>
               <FormLabel>
                 <label htmlFor="country">country</label>
-                <FormError>Enter your country!</FormError>
+                <FormError>{errors.country && "Enter your country!"}</FormError>
               </FormLabel>
               <input
                 type="text"
                 name="country"
                 id="country"
                 placeholder="united states"
+                {...register("country")}
               />
             </FormInput>
           </FormBreak>
@@ -186,13 +225,16 @@ const CheckoutForm = (): JSX.Element => {
                 <FormInput>
                   <FormLabel>
                     <label htmlFor="emoneyNumber">e-Money Number</label>
-                    <FormError>Enter e-Money Number!</FormError>
+                    <FormError>
+                      {errors.emoneyNumber && "Enter your e-Money Number!"}
+                    </FormError>
                   </FormLabel>
                   <input
                     type="text"
                     name="emoneyNumber"
                     id="emoneyNumber"
                     placeholder="238521993"
+                    {...register("emoneyNumber")}
                   />
                 </FormInput>
               </FormBreak>
@@ -200,13 +242,16 @@ const CheckoutForm = (): JSX.Element => {
                 <FormInput>
                   <FormLabel>
                     <label htmlFor="emoneyPin">e-Money PIN</label>
-                    <FormError>Enter e-Money PIN!</FormError>
+                    <FormError>
+                      {errors.emoneyPin && "Enter your e-Money Pin!"}
+                    </FormError>
                   </FormLabel>
                   <input
                     type="text"
                     name="emoneyPin"
                     id="emoneyPin"
                     placeholder="6891"
+                    {...register("emoneyPin")}
                   />
                 </FormInput>
               </FormBreak>

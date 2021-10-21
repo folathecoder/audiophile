@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.8.2",
     "@types/react": "^17.0.27",
     "json": "^11.0.0",
     "json-server": "^0.17.0",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "^5.3.1"
+    "react-hook-form": "^7.17.5",
+    "styled-components": "^5.3.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "eslint": "7.32.0",
