@@ -44,7 +44,7 @@ const CheckoutForm = (): JSX.Element => {
   useEffect(() => {
     localStorage.setItem("paymentMode", JSON.stringify(paymentMode));
   });
-  
+
   return (
     <Form>
       <CheckoutHeading>checkout</CheckoutHeading>
@@ -160,7 +160,9 @@ const CheckoutForm = (): JSX.Element => {
                   id="emoney"
                   value="e-Money"
                   onClick={handleOnEmoney}
+                  checked={paymentMode === true ? true : false}
                 />
+
                 <label htmlFor="emoney">e-Money</label>
               </FormPaymentInput>
               <FormPaymentInput>
@@ -170,6 +172,7 @@ const CheckoutForm = (): JSX.Element => {
                   id="cash"
                   value="Cash on Delivery"
                   onClick={handleOnDelivery}
+                  checked={paymentMode === false ? true : false}
                 />
                 <label htmlFor="cash">Cash on Delivery</label>
               </FormPaymentInput>

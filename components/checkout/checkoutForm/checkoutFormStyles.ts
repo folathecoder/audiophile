@@ -128,7 +128,7 @@ export const FormPaymentInput = styled.div`
   min-height: 3.5rem;
   border-radius: var(--border-radius);
   border: none;
-  border: 0.1rem solid hsl(0, 0%, 81%);
+  border: 0.1rem solid var(--color-pry-600);
   font-family: var(--font-pry-100);
   padding-left: 1rem;
   color: var(--color-sec-400);
@@ -143,6 +143,7 @@ export const FormPaymentInput = styled.div`
   &:focus,
   &:hover {
     outline: 0.1rem solid var(--color-pry-100);
+    border-radius: var(--border-radius);
   }
 
   label {
@@ -151,6 +152,34 @@ export const FormPaymentInput = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"] + *::before {
+    content: "";
+    display: inline-block;
+    vertical-align: bottom;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.3rem;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.1rem;
+    border-color: var(--color-pry-600);
+    margin-right: 1rem;
+  }
+
+  input[type="radio"]:checked + *::before {
+    background: radial-gradient(
+      var(--color-pry-100) 0%,
+      var(--color-pry-100) 40%,
+      transparent 50%,
+      transparent
+    );
+    border-color: var(--color-pry-100);
   }
 `;
 

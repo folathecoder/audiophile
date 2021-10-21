@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
         --color-pry-300: hsl(0, 0%, 95%);
         --color-pry-400: hsl(0, 0%, 98%);
         --color-pry-500: hsl(0, 0%, 89%);
+        --color-pry-600:  hsl(0, 0%, 81%);
         --color-sec-100: hsl(21, 94%, 75%);
         --color-sec-200: hsl(0, 0%, 100%);
         --color-sec-300: hsl(0, 0%, 0%);
