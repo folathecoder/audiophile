@@ -20,7 +20,7 @@ export const SummaryContainer = styled.div`
 
 export const SummaryHeading = styled.h2`
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
 `;
 export const SummaryWrap = styled.div`
   min-height: 5rem;

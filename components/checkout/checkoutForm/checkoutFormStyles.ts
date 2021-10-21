@@ -156,6 +156,7 @@ export const FormPaymentInput = styled.div`
 
   input[type="radio"] {
     display: none;
+    transition: 1s cubic-bezier(1, 0, 0, 1);
   }
 
   input[type="radio"] + *::before {
@@ -170,9 +171,11 @@ export const FormPaymentInput = styled.div`
     border-width: 0.1rem;
     border-color: var(--color-pry-600);
     margin-right: 1rem;
+    transition: 1s cubic-bezier(1, 0, 0, 1);
   }
 
   input[type="radio"]:checked + *::before {
+    transition: 1s cubic-bezier(1, 0, 0, 1);
     background: radial-gradient(
       var(--color-pry-100) 0%,
       var(--color-pry-100) 40%,
@@ -213,7 +216,7 @@ export const CashOnImage = styled.div`
 
   img {
     object-fit: contain;
-    max-width: 3rem;
+    width: 3rem;
     height: auto;
   }
 `;
