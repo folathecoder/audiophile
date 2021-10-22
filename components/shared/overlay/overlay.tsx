@@ -7,9 +7,8 @@ const OverlayContainer = styled.div`
   left: 0;
   right: 0;
   min-height: 100vh;
-  z-index: 500;
   transition: 0.5s ease-in-out;
-  z-index: 500;
+  z-index: 50;
 
   @media screen and (min-width: 787px) {
     ${({ menuOption }) =>

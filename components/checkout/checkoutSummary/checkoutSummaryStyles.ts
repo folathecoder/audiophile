@@ -40,7 +40,7 @@ export const CheckoutTotalItem = styled.div`
 `;
 export const CheckoutDetail = styled.p`
   text-transform: uppercase;
-  font-size: 0.9375rem;
+  font-size: 0.8375rem;
   line-height: 1.5625rem;
 `;
 export const CheckoutAmount = styled.p`

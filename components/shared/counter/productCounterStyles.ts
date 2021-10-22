@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Form = styled.form`
   display: flex;
@@ -18,6 +18,14 @@ export const Form = styled.form`
     text-align: center;
     font-weight: var(--font-weight-400);
     font-family: var(--font-pry-100);
+
+    ${({ custom }) =>
+      custom &&
+      css`
+        width: 2rem;
+        height: 2rem;
+        background-color: red;
+      `}
 
     &:active,
     &:hover,
@@ -42,12 +50,20 @@ export const Form = styled.form`
 `;
 
 export const CounterWrap = styled.div`
-  max-width: 7.5;
+  max-width: 7.5rem;
   min-height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--color-sec-500);
+
+  ${({ custom }) =>
+    custom &&
+    css`
+      width: 6rem;
+      height: 2rem;
+      background-color: transparent;
+    `}
 `;
 
 export const ButtonWrap = styled.div``;
@@ -75,6 +91,13 @@ export const Button = styled.button`
     color: hsl(0, 0%, 30%);
     font-size: 0.5rem;
   }
+
+  ${({ custom }) =>
+    custom &&
+    css`
+      width: 2rem;
+      height: 2rem;
+    `}
 `;
 export const CounterInput = styled.div``;
 export const CounterButton = styled.button`
@@ -99,4 +122,10 @@ export const CounterButton = styled.button`
     background-color: var(--color-sec-100);
     color: var(--color-sec-200);
   }
+
+  ${({ custom }) =>
+    custom &&
+    css`
+      display: none;
+    `}
 `;

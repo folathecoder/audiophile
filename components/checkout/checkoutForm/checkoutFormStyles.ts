@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
 
 export const Form = styled.form`
@@ -32,7 +32,6 @@ export const FormSectionHeading = styled.h3`
 export const FormSection = styled.div``;
 
 export const FormInputWrap = styled.div`
-
   @media ${QUERIES.mobile} {
     display: flex;
     flex-wrap: wrap;

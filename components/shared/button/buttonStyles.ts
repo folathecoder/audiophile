@@ -41,4 +41,10 @@ export const ButtonContainer = styled.a`
         color: var(--color-sec-200);
       }
     `}
+
+    ${({ block }) =>
+    block &&
+    css`
+      width: 100%;
+    `}
 `;

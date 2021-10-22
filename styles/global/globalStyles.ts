@@ -63,6 +63,7 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: var(--font-weight-400);
         background-color: var(--color-sec-200);
         color: var(--color-pry-200);
+        position: relative;
     }
     ///////////////////////////////////////////////////////
     //TODO: TYPOGRAPHY

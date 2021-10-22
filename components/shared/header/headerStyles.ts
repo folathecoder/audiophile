@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 2000;
 
   @media screen and (max-width: 786px) {
     padding: 0rem;
@@ -22,12 +22,14 @@ export const HeaderContainer = styled.header`
             top: auto;
             left: auto;
             right: auto;
+            z-index: 2000;
           `
         : css`
             position: sticky;
             top: 0;
             left: 0;
             right: 0;
+            z-index: 2000;
           `}
   }
 `;
@@ -40,7 +42,7 @@ export const HeaderWrap = styled.div`
   align-items: center;
   border-bottom: 0.1rem solid var(--color-sec-400);
   background-color: var(--color-sec-300);
-  z-index: 1000;
+  z-index: 2000;
   position: relative;
 
   @media screen and (max-width: 786px) {

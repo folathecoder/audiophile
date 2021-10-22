@@ -6,6 +6,7 @@ interface ButtonProps {
   link: string;
   dark?: boolean;
   outline?: boolean;
+  block?: boolean;
 }
 
 const Button = ({
@@ -13,10 +14,11 @@ const Button = ({
   link,
   dark,
   outline,
+  block,
 }: ButtonProps): JSX.Element => {
   return (
     <Link href={link} passHref>
-      <ButtonContainer dark={dark} outline={outline}>
+      <ButtonContainer dark={dark} outline={outline} block={block}>
         {children}
       </ButtonContainer>
     </Link>

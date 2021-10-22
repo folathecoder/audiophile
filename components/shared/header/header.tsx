@@ -18,6 +18,7 @@ import {
 import MenuCard from "components/shared/menuCard/menuCard";
 import Overlay from "components/shared/overlay/overlay";
 import scrollTop from "helpers/scrollTop";
+import CartMenu from "components/shared/cart/cart";
 
 interface HeaderProps {
   data: {
@@ -50,20 +51,36 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
   //TODO: Manage the dropdown menu toggle
   const [menuToggle, setMenuToggle] = useState(false);
 
+  const [cartToggle, setCartToggle] = useState(false);
+
   //TODO: Event => Add click event to toggle the dropdown menu button
   const handleMenuToggle = () => {
     setMenuToggle(!menuToggle);
+    setCartToggle(false);
     scrollTop();
   };
 
   //TODO: Event => Remove overlay and close menu dropdown onClick
   const handleRemove = () => {
     setMenuToggle(false);
+    setCartToggle(false);
     scrollTop();
+  };
+
+  //TODO: Event => Remove overlay and close menu dropdown onClick without scrolling to top automatically
+  const handleCustomRemove = () => {
+    setMenuToggle(false);
+    setCartToggle(false);
   };
 
   //TODO: Event => Close menu dropdown onClick
   const handleMenuClose = () => {
+    setMenuToggle(false);
+  };
+
+  //TODO: Event => Add click event to toggle the cart menu
+  const handleCartToggle = () => {
+    setCartToggle(!cartToggle);
     setMenuToggle(false);
   };
 
@@ -115,8 +132,14 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
           </HeaderMenu>
           <CartWrap>
             <Cart>
-              <Image src={cart.icon} alt={cart.iconAlt} />
+              <Image
+                src={cart.icon}
+                alt={cart.iconAlt}
+                onClick={handleCartToggle}
+              />
             </Cart>
+            {cartToggle && <CartMenu />}
+            {cartToggle && <Overlay event={handleCustomRemove} />}
           </CartWrap>
         </HeaderWrap>
       </HeaderContainer>

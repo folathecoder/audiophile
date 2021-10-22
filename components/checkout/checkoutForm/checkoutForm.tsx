@@ -43,6 +43,7 @@ const CheckoutForm = (): JSX.Element => {
   //TODO: Function that collects all the form data
   const submitForm = (data) => {
     setUserDetails(data);
+    console.log(data)
   };
 
   //TODO: Handle => "Cash On Delivery" onClick

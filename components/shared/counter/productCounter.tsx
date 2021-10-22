@@ -9,7 +9,11 @@ import {
 } from "components/shared/counter/productCounterStyles";
 import { PRODUCT_CTA } from "helpers/constants";
 
-const ProductCounter = () => {
+interface ProductCounterProps {
+  custom?: boolean;
+}
+
+const ProductCounter = ({ custom }: ProductCounterProps): JSX.Element => {
   let initialInput: {
     productNumber: number;
   };
@@ -60,13 +64,27 @@ const ProductCounter = () => {
     }
   };
 
+  //TODO: Styling => Dynamically change dimension of counter input if "custom" props is passed
+  useEffect(() => {
+    if (custom) {
+      const counterInputs =
+        document.querySelectorAll<HTMLElement>("#productNumber");
+
+      counterInputs.forEach((counterInput) => {
+        counterInput.style.height = "2rem";
+        counterInput.style.width = "2rem";
+      });
+    }
+  });
+
   return (
     <Form onSubmit={handleFormSubmit}>
-      <CounterWrap>
+      <CounterWrap custom={custom}>
         <ButtonWrap>
           <Button
             aria-label="reduce number of product"
             onClick={handleDecrease}
+            custom={custom}
           >
             <i className="fas fa-minus"></i>
           </Button>
@@ -85,12 +103,13 @@ const ProductCounter = () => {
           <Button
             aria-label="increase number of product"
             onClick={handleIncrease}
+            custom={custom}
           >
             <i className="fas fa-plus"></i>
           </Button>
         </ButtonWrap>
       </CounterWrap>
-      <CounterButton>{PRODUCT_CTA}</CounterButton>
+      <CounterButton custom={custom}>{PRODUCT_CTA}</CounterButton>
     </Form>
   );
 };
