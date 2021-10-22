@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -20,6 +20,7 @@ import MenuCard from "components/shared/menuCard/menuCard";
 import Overlay from "components/shared/overlay/overlay";
 import scrollTop from "helpers/scrollTop";
 import CartMenu from "components/shared/cart/cart";
+import useWindow from "hooks/useWindow";
 
 interface HeaderProps {
   data: {
@@ -52,7 +53,10 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
   //TODO: Manage the dropdown menu toggle
   const [menuToggle, setMenuToggle] = useState(false);
 
+  //TODO: Manage the cart menu toggle
   const [cartToggle, setCartToggle] = useState(false);
+
+  const { size } = useWindow();
 
   //TODO: Event => Add click event to toggle the dropdown menu button
   const handleMenuToggle = () => {
@@ -84,6 +88,18 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
     setCartToggle(!cartToggle);
     setMenuToggle(false);
   };
+
+  useEffect(() => {
+    const main = document.querySelector("main");
+
+    if (size <= 649) {
+      if (menuToggle) {
+        main.style.display = "none";
+      } else {
+        main.style.display = "block";
+      }
+    }
+  });
 
   return (
     <>
@@ -139,7 +155,7 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
                 onClick={handleCartToggle}
               />
               <CartNumber>
-                <p>10</p>
+                <p>1</p>
               </CartNumber>
             </Cart>
             {cartToggle && <CartMenu setCartToggle={setCartToggle} />}
