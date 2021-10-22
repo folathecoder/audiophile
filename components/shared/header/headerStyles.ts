@@ -15,8 +15,8 @@ export const HeaderContainer = styled.header`
   }
 
   @media screen and (max-width: 650px) {
-    ${({ menuToggle }) =>
-      menuToggle
+    ${({ menuToggle, cartToggle }) =>
+      menuToggle || cartToggle
         ? css`
             position: relative;
             top: auto;

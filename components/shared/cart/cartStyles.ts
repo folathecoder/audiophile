@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { QUERIES } from "helpers/mediaQueries";
 
 export const CartContainer = styled.section`
   width: 23.5625rem;
@@ -14,7 +13,7 @@ export const CartContainer = styled.section`
   z-index: 100;
 
   @media screen and (max-width: 786px) {
-    margin-top: 7rem;
+    margin: 7rem 0rem;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -10%);

@@ -86,7 +86,7 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
 
   return (
     <>
-      <HeaderContainer menuToggle={menuToggle}>
+      <HeaderContainer menuToggle={menuToggle} cartToggle={cartToggle}>
         <HeaderWrap>
           <MobileNav>
             <MobileToggle onClick={handleMenuToggle}>
@@ -138,8 +138,8 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
                 onClick={handleCartToggle}
               />
             </Cart>
-            {cartToggle && <CartMenu />}
-            {cartToggle && <Overlay event={handleCustomRemove} />}
+            {cartToggle && <CartMenu setCartToggle={setCartToggle} />}
+            {cartToggle && <Overlay event={handleRemove} />}
           </CartWrap>
         </HeaderWrap>
       </HeaderContainer>
