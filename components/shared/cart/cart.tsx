@@ -5,6 +5,7 @@ import {
   CartHeading,
   CartRemoveButton,
   Cart,
+  CartInnerWrap,
   EmptyCart,
   CheckoutTotalItem,
   CartDetail,
@@ -14,17 +15,12 @@ import {
 import Button from "components/shared/button/button";
 import CartItem from "components/shared/cartItem/cartItem";
 
-// interface CartMenuProps {
-//   setCartToggle?:
-// }
-
-const CartMenu = (setCartToggle) => {
-
+const CartMenu = ({ setCartToggle }): JSX.Element => {
   //TODO: Event => Close cart menu when checkout button is clicked
   const handleCartClose = () => {
     setCartToggle(false);
   };
-  
+
   return (
     <CartContainer>
       <CartWrap>
@@ -33,11 +29,38 @@ const CartMenu = (setCartToggle) => {
           <CartRemoveButton>Remove all</CartRemoveButton>
         </CartHeader>
         <Cart>
-          <CartItem editable/>
-          <CartItem editable/>
-          <CartItem editable/>
-          <CartItem editable/>
-          <CartItem editable/>
+          <CartInnerWrap>
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+            <CartItem editable />
+          </CartInnerWrap>
 
           {/* <EmptyCart>
                 Your cart is empty!

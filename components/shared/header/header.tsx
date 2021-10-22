@@ -56,6 +56,7 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
   //TODO: Manage the cart menu toggle
   const [cartToggle, setCartToggle] = useState(false);
 
+  //TODO: Custom hook that monitors window size
   const { size } = useWindow();
 
   //TODO: Event => Add click event to toggle the dropdown menu button
@@ -89,15 +90,26 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
     setMenuToggle(false);
   };
 
+  //TODO: Hide the main layout of the page when the mobile menu is clicked
   useEffect(() => {
     const main = document.querySelector("main");
+    const footer = document.querySelector("footer");
+    const body = document.body;
 
     if (size <= 649) {
       if (menuToggle) {
         main.style.display = "none";
+        footer.style.display = "none";
       } else {
         main.style.display = "block";
+        footer.style.display = "block";
       }
+    }
+
+    if (cartToggle) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "auto";
     }
   });
 
@@ -155,11 +167,11 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
                 onClick={handleCartToggle}
               />
               <CartNumber>
-                <p>1</p>
+                <p>10</p>
               </CartNumber>
             </Cart>
             {cartToggle && <CartMenu setCartToggle={setCartToggle} />}
-            {cartToggle && <Overlay event={handleRemove} />}
+            {cartToggle && <Overlay event={handleCustomRemove} />}
           </CartWrap>
         </HeaderWrap>
       </HeaderContainer>

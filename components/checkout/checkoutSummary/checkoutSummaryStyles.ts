@@ -23,12 +23,31 @@ export const SummaryHeading = styled.h2`
   font-size: 1.125rem;
 `;
 export const SummaryWrap = styled.div`
-  min-height: 5rem;
+  height: 15rem;
   max-width: 100%;
   /* background-color: var(--color-sec-600); */
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--color-pry-500) var(--color-sec-200);
+
+  &::-webkit-scrollbar {
+    width: thin;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: var(--border-radius);
+    background-color: var(--color-pry-100);
+  }
 `;
+
+export const CartInnerWrap = styled.div``; 
 
 export const CheckoutTotal = styled.div`
   margin-top: 1rem;

@@ -135,6 +135,7 @@ export const CartNumber = styled.div`
     font-size: 0.6rem;
     line-height: 0rem;
     font-weight: var(--font-pry-100);
+    letter-spacing: 0rem;
   }
 `;
 

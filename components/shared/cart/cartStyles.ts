@@ -4,7 +4,7 @@ export const CartContainer = styled.section`
   width: 23.5625rem;
   background-color: var(--color-sec-200);
   position: absolute;
-  margin-top: 6rem;
+  margin-top: 7rem;
   top: 0;
   right: 0;
   border-radius: var(--border-radius);
@@ -13,7 +13,6 @@ export const CartContainer = styled.section`
   z-index: 100;
 
   @media screen and (max-width: 786px) {
-    margin: 7rem 0rem;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -10%);
@@ -50,13 +49,32 @@ export const CartRemoveButton = styled.button`
 `;
 
 export const Cart = styled.div`
-  min-height: 5rem;
-  max-width: 100%;
+  height: 15rem;
+  width: 100%;
   margin: 1rem 0rem;
   /* background-color: var(--color-sec-600); */
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--color-pry-500) var(--color-sec-200);
+
+  &::-webkit-scrollbar {
+    width: thin;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: var(--border-radius);
+    background-color: var(--color-pry-100);
+  }
 `;
+
+export const CartInnerWrap = styled.div``
 
 export const EmptyCart = styled.div`
   width: 100%;
@@ -77,6 +95,8 @@ export const CartDetail = styled.p`
   text-transform: uppercase;
   font-size: 0.8375rem;
   line-height: 1.5625rem;
+  font-weight: var(--font-weight-400);
+  color: var(--color-sec-700);
 `;
 export const CartAmount = styled.p`
   font-weight: var(--font-weight-400);

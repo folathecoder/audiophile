@@ -39,6 +39,10 @@ export const GlobalStyles = createGlobalStyle`
     }
     ///////////////////////////////////////////////////////
     //TODO: DEFAULT STYLE RESETS
+
+    html {
+        scrollbar-width: none;
+    }
     * {
         margin: 0;
         padding: 0;
@@ -56,6 +60,10 @@ export const GlobalStyles = createGlobalStyle`
     title {
         text-transform: capitalize;
     }
+
+    ::-webkit-scrollbar {
+        display: none !important;
+    }
     ///////////////////////////////////////////////////////
     //TODO: BASE STYLES
     body {
@@ -65,6 +73,7 @@ export const GlobalStyles = createGlobalStyle`
         background-color: var(--color-sec-200);
         color: var(--color-pry-200);
         position: relative;
+        --ms-overflow-style: none
     }
     ///////////////////////////////////////////////////////
     //TODO: TYPOGRAPHY
