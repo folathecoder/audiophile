@@ -114,6 +114,28 @@ export const Cart = styled.button`
   cursor: pointer;
   border: none;
   background-color: transparent;
+  position: relative;
+`;
+
+export const CartNumber = styled.div`
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--color-pry-100);
+  color: var(--color-sec-200);
+  position: absolute;
+  border-radius: 100%;
+  border: none;
+  margin: -1.7rem 0rem 0rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  p {
+    font-size: 0.7rem;
+    line-height: 0rem;
+    font-weight: var(--font-pry-100);
+  }
 `;
 
 export const MobileNav = styled.nav`

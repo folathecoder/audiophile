@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const CartItemWrap = styled.div`
   height: 5rem;
@@ -37,10 +37,31 @@ export const CartItemDetail = styled.div`
     font-size: 0.8rem;
     line-height: 1.5625rem;
     font-weight: var(--font-weight-400);
-    color: var(--color-sec-400);
+    color: var(--color-sec-700);
   }
 `;
 export const CartItemCounter = styled.div`
   display: flex;
   justify-content: flex-end;
+
+  ${({ summary }) =>
+    summary &&
+    css`
+      display: none;
+    `}
+`;
+
+export const CartItemNumber = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+  p {
+    font-weight: var(--font-weight-400);
+    color: var(--color-sec-700);
+  }
+  ${({ editable }) =>
+    editable &&
+    css`
+      display: none;
+    `}
 `;

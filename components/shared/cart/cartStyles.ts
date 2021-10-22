@@ -4,7 +4,7 @@ export const CartContainer = styled.section`
   width: 23.5625rem;
   background-color: var(--color-sec-200);
   position: absolute;
-  margin-top: 7rem;
+  margin-top: 6rem;
   top: 0;
   right: 0;
   border-radius: var(--border-radius);

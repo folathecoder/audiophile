@@ -12,13 +12,20 @@ import {
   EmptyCart,
 } from "components/checkout/checkoutSummary/checkoutSummaryStyles";
 import { CURRENCY_SYMBOL } from "helpers/constants";
+import CartItem from "components/shared/cartItem/cartItem";
 
 const CheckoutSummary = (): JSX.Element => {
   return (
     <SummaryContainer>
       <SummaryHeading>summary</SummaryHeading>
       <SummaryWrap>
-        <EmptyCart>Your cart is empty!</EmptyCart>
+        <CartItem summary />
+        <CartItem summary />
+        <CartItem summary />
+        <CartItem summary />
+        <CartItem summary />
+        <CartItem summary />
+        {/* <EmptyCart>Your cart is empty!</EmptyCart> */}
       </SummaryWrap>
       <CheckoutTotal>
         <CheckoutTotalItem>

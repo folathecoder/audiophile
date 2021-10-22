@@ -25,8 +25,9 @@ export const SummaryHeading = styled.h2`
 export const SummaryWrap = styled.div`
   min-height: 5rem;
   max-width: 100%;
-  background-color: var(--color-sec-600);
+  /* background-color: var(--color-sec-600); */
   display: flex;
+  flex-direction: column;
 `;
 
 export const CheckoutTotal = styled.div`
@@ -40,8 +41,10 @@ export const CheckoutTotalItem = styled.div`
 `;
 export const CheckoutDetail = styled.p`
   text-transform: uppercase;
-  font-size: 0.8375rem;
+  font-size: 0.8rem;
   line-height: 1.5625rem;
+  font-weight: var(--font-weight-400);
+  color: var(--color-sec-700);
 `;
 export const CheckoutAmount = styled.p`
   font-weight: var(--font-weight-400);

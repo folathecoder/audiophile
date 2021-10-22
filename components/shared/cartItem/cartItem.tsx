@@ -4,10 +4,16 @@ import {
   CartItemImage,
   CartItemDetail,
   CartItemCounter,
+  CartItemNumber,
 } from "components/shared/cartItem/cartItemStyles";
 import ProductCounter from "components/shared/counter/productCounter";
 
-const CartItem = () => {
+interface CartItemProps {
+  summary?: boolean;
+  editable?: boolean;
+}
+
+const CartItem = ({ summary, editable }: CartItemProps): JSX.Element => {
   return (
     <CartItemWrap>
       <CartItemImage>
@@ -17,9 +23,12 @@ const CartItem = () => {
         <h4>xx99 mk II</h4>
         <p>$ 2,999</p>
       </CartItemDetail>
-      <CartItemCounter>
-          <ProductCounter custom/>
+      <CartItemCounter summary={summary}>
+        <ProductCounter custom />
       </CartItemCounter>
+      <CartItemNumber editable={editable}>
+        <p>x1</p>
+      </CartItemNumber>
     </CartItemWrap>
   );
 };

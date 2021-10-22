@@ -33,11 +33,11 @@ const CartMenu = (setCartToggle) => {
           <CartRemoveButton>Remove all</CartRemoveButton>
         </CartHeader>
         <Cart>
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          <CartItem editable/>
+          <CartItem editable/>
+          <CartItem editable/>
+          <CartItem editable/>
+          <CartItem editable/>
 
           {/* <EmptyCart>
                 Your cart is empty!

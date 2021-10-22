@@ -14,6 +14,7 @@ import {
   MenuWrapItem,
   CartWrap,
   Cart,
+  CartNumber,
 } from "components/shared/header/headerStyles";
 import MenuCard from "components/shared/menuCard/menuCard";
 import Overlay from "components/shared/overlay/overlay";
@@ -137,6 +138,9 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
                 alt={cart.iconAlt}
                 onClick={handleCartToggle}
               />
+              <CartNumber>
+                <p>10</p>
+              </CartNumber>
             </Cart>
             {cartToggle && <CartMenu setCartToggle={setCartToggle} />}
             {cartToggle && <Overlay event={handleRemove} />}
