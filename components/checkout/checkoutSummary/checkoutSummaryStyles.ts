@@ -47,7 +47,7 @@ export const SummaryWrap = styled.div`
   }
 `;
 
-export const CartInnerWrap = styled.div``; 
+export const CartInnerWrap = styled.div``;
 
 export const CheckoutTotal = styled.div`
   margin-top: 1rem;

@@ -21,7 +21,7 @@ const OverlayContainer = styled.div`
   ${({ maxOverlay }) =>
     maxOverlay &&
     css`
-      z-index: 2000;
+      z-index: 200;
     `}
 `;
 

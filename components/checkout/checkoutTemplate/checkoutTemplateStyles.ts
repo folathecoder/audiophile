@@ -6,6 +6,8 @@ export const CheckoutContainer = styled.section`
   max-width: 100%;
   padding: 0rem 1rem 5rem 1rem;
   margin: 2rem 0rem;
+  z-index: 0;
+
   @media ${QUERIES.tabletMini} {
     padding: 0rem 2rem 3rem 0rem;
     margin: 2rem 0rem 2rem 2rem;

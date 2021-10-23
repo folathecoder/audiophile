@@ -1,9 +1,7 @@
 import Head from "next/head";
 import Navigator from "components/shared/navigator/navigator";
 import CheckoutTemplate from "components/checkout/checkoutTemplate/checkoutTemplate";
-import CheckoutModal from "components/checkout/checkoutModal/checkoutModal";
 import { Main } from "styles/global/globalStyles";
-import Overlay from "components/shared/overlay/overlay";
 
 const Checkout = () => {
   return (
@@ -18,8 +16,6 @@ const Checkout = () => {
       <Main gray>
         <Navigator />
         <CheckoutTemplate />
-        <CheckoutModal />
-        <Overlay maxOverlay/>
       </Main>
     </>
   );

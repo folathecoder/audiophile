@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect } from "react";
 import {
   ModalContainer,
   ModalWrap,
@@ -17,6 +18,15 @@ import Button from "components/shared/button/button";
 import CartItem from "components/shared/cartItem/cartItem";
 
 const CheckoutModal = (): JSX.Element => {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+  });
+
+  const handleStyleRestore = () => {
+    document.body.style.overflow = "auto";
+    document.querySelector("header").style.zIndex = "2000";
+  };
+
   return (
     <ModalContainer>
       <ModalWrap>
@@ -47,7 +57,7 @@ const CheckoutModal = (): JSX.Element => {
           </ModalSummaryTotal>
         </ModalSummary>
         <ModalButtonWrap>
-          <Button link="/" block>
+          <Button link="/" block event={handleStyleRestore}>
             back to home
           </Button>
         </ModalButtonWrap>

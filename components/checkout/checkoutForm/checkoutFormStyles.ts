@@ -6,6 +6,7 @@ export const Form = styled.form`
   padding: 0rem 1.5rem;
   margin-bottom: 3rem;
   background-color: var(--color-sec-200);
+  z-index: auto;
 
   @media ${QUERIES.tabletMini} {
     padding: 0rem 2.9rem;
