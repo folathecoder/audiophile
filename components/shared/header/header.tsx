@@ -151,7 +151,11 @@ const Header = ({
             <HeaderLogo>
               <Link href={logo.link}>
                 <a>
-                  <Image src={logo.image} alt={logo.imageAlt} />
+                  <Image
+                    src={logo.image}
+                    alt={logo.imageAlt}
+                    onClick={handleCustomRemove}
+                  />
                 </a>
               </Link>
             </HeaderLogo>
