@@ -18,10 +18,12 @@ import Button from "components/shared/button/button";
 import CartItem from "components/shared/cartItem/cartItem";
 
 const CheckoutModal = (): JSX.Element => {
+  //TODO: Automatically hide overlay when modal is activated
   useEffect(() => {
     document.body.style.overflow = "hidden";
   });
 
+  //TODO: Restore default style when modal is exited
   const handleStyleRestore = () => {
     document.body.style.overflow = "auto";
     document.querySelector("header").style.zIndex = "2000";

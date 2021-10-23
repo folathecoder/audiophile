@@ -1,9 +1,15 @@
 import Head from "next/head";
+import { useState } from "react";
 import Navigator from "components/shared/navigator/navigator";
 import CheckoutTemplate from "components/checkout/checkoutTemplate/checkoutTemplate";
 import { Main } from "styles/global/globalStyles";
+import CheckoutModal from "components/checkout/checkoutModal/checkoutModal";
+import Overlay from "components/shared/overlay/overlay";
 
 const Checkout = () => {
+  //TODO: Maintain checkout modal state
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <Head>
@@ -15,8 +21,10 @@ const Checkout = () => {
       </Head>
       <Main gray>
         <Navigator />
-        <CheckoutTemplate />
+        <CheckoutTemplate setShowModal={setShowModal} />
       </Main>
+      {showModal && <CheckoutModal />}
+      {showModal && <Overlay maxOverlay />}
     </>
   );
 };

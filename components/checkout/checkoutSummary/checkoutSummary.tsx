@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   SummaryContainer,
   SummaryHeading,
@@ -15,15 +14,12 @@ import {
 } from "components/checkout/checkoutSummary/checkoutSummaryStyles";
 import { CURRENCY_SYMBOL } from "helpers/constants";
 import CartItem from "components/shared/cartItem/cartItem";
-import CheckoutModal from "components/checkout/checkoutModal/checkoutModal";
-import Overlay from "components/shared/overlay/overlay";
 
-const CheckoutSummary = (): JSX.Element => {
-  const [showModal, setShowModal] = useState(false);
+const CheckoutSummary = ({ setShowModal }): JSX.Element => {
 
+  //TODO: Activate modal by setting showModal state to true onClick
   const handleActivateModal = () => {
     setShowModal(true);
-    document.querySelector("header").style.zIndex = "1";
   };
 
   return (
@@ -76,8 +72,6 @@ const CheckoutSummary = (): JSX.Element => {
           </CheckoutTotalItem>
         </CheckoutTotal>
       </SummaryContainer>
-      {showModal && <CheckoutModal />}
-      {showModal && <Overlay maxOverlay />}
     </>
   );
 };

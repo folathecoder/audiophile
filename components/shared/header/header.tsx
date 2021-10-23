@@ -44,9 +44,15 @@ interface HeaderProps {
       iconAlt: string;
     };
   };
+  setShowOverlay;
+  showOverlay;
 }
 
-const Header = ({ data }: HeaderProps): JSX.Element => {
+const Header = ({
+  data,
+  setShowOverlay,
+  showOverlay,
+}: HeaderProps): JSX.Element => {
   //TODO: Destructure the "data" object
   const { logo, menu, cart } = data;
 
@@ -88,14 +94,15 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
   const handleCartToggle = () => {
     setCartToggle(!cartToggle);
     setMenuToggle(false);
+    setShowOverlay(!showOverlay);
   };
 
-  //TODO: Hide the main layout of the page when the mobile menu is clicked
   useEffect(() => {
     const main = document.querySelector("main");
     const footer = document.querySelector("footer");
     const body = document.body;
 
+    //TODO: Hide the main layout of the page when the mobile menu is clicked
     if (size <= 649) {
       if (menuToggle) {
         main.style.display = "none";
@@ -105,11 +112,12 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
         footer.style.display = "block";
       }
     }
-
+    //TODO: Hide overflow when cartToggle state is changed
     if (cartToggle) {
       body.style.overflow = "hidden";
     } else {
       body.style.overflow = "auto";
+      setShowOverlay(false);
     }
   });
 
@@ -152,7 +160,7 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
             <MenuWrap>
               {menu.map((menuItem, index) => {
                 return (
-                  <MenuWrapItem key={index}>
+                  <MenuWrapItem key={index} onClick={handleCustomRemove}>
                     <Link href={menuItem.link}>{menuItem.title}</Link>
                   </MenuWrapItem>
                 );
@@ -171,7 +179,6 @@ const Header = ({ data }: HeaderProps): JSX.Element => {
               </CartNumber>
             </Cart>
             {cartToggle && <CartMenu setCartToggle={setCartToggle} />}
-            {cartToggle && <Overlay event={handleCustomRemove} />}
           </CartWrap>
         </HeaderWrap>
       </HeaderContainer>
