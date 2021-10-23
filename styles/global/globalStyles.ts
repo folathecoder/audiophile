@@ -42,6 +42,7 @@ export const GlobalStyles = createGlobalStyle`
 
     html {
         scrollbar-width: none;
+          overflow-y: hidden;
     }
     * {
         margin: 0;

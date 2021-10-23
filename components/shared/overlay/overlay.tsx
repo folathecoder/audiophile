@@ -17,15 +17,32 @@ const OverlayContainer = styled.div`
         display: none;
       `}
   }
+
+  ${({ maxOverlay }) =>
+    maxOverlay &&
+    css`
+      z-index: 2000;
+    `}
 `;
 
 interface OverlayProps {
   event?: () => void;
   menuOption?: boolean;
+  maxOverlay?: boolean;
 }
 
-const Overlay = ({ event, menuOption }: OverlayProps): JSX.Element => {
-  return <OverlayContainer onClick={event} menuOption={menuOption} />;
+const Overlay = ({
+  event,
+  menuOption,
+  maxOverlay,
+}: OverlayProps): JSX.Element => {
+  return (
+    <OverlayContainer
+      onClick={event}
+      menuOption={menuOption}
+      maxOverlay={maxOverlay}
+    />
+  );
 };
 
 export default Overlay;
