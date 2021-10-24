@@ -1,5 +1,7 @@
 import type { AppProps /*, AppContext */ } from "next/app";
 import { useState } from "react";
+import { Provider } from "react-redux";
+import store from "redux/store";
 import { GlobalStyles } from "styles/global/globalStyles";
 import { menuData } from "data/shared/menuData";
 import Header from "components/shared/header/header";
@@ -8,9 +10,11 @@ import ScrollToTop from "components/shared/scrollToTop/scrollToTop";
 import Overlay from "components/shared/overlay/overlay";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  //TODO: Hide the overlay component initially
   const [showOverlay, setShowOverlay] = useState(false);
+
   return (
-    <>
+    <Provider store={store}>
       <GlobalStyles />
       <Header
         data={menuData}
@@ -21,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Footer data={menuData} />
       <ScrollToTop />
       {showOverlay && <Overlay />}
-    </>
+    </Provider>
   );
 }
 

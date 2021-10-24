@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -21,6 +22,8 @@ import Overlay from "components/shared/overlay/overlay";
 import scrollTop from "helpers/scrollTop";
 import CartMenu from "components/shared/cart/cart";
 import useWindow from "hooks/useWindow";
+import { RootState } from "redux/store";
+import { toggleCartMenu } from "redux/cartMenu";
 
 interface HeaderProps {
   data: {
@@ -53,6 +56,8 @@ const Header = ({
   setShowOverlay,
   showOverlay,
 }: HeaderProps): JSX.Element => {
+  const dispatch = useDispatch();
+
   //TODO: Destructure the "data" object
   const { logo, menu, cart } = data;
 
@@ -60,7 +65,7 @@ const Header = ({
   const [menuToggle, setMenuToggle] = useState(false);
 
   //TODO: Manage the cart menu toggle
-  const [cartToggle, setCartToggle] = useState(false);
+  const cartToggle = useSelector((state: RootState) => state.cartMenu.value);
 
   //TODO: Custom hook that monitors window size
   const { size } = useWindow();
@@ -68,21 +73,21 @@ const Header = ({
   //TODO: Event => Add click event to toggle the dropdown menu button
   const handleMenuToggle = () => {
     setMenuToggle(!menuToggle);
-    setCartToggle(false);
+    dispatch(toggleCartMenu(false));
     scrollTop();
   };
 
   //TODO: Event => Remove overlay and close menu dropdown onClick
   const handleRemove = () => {
     setMenuToggle(false);
-    setCartToggle(false);
+    dispatch(toggleCartMenu(false));
     scrollTop();
   };
 
   //TODO: Event => Remove overlay and close menu dropdown onClick without scrolling to top automatically
   const handleCustomRemove = () => {
     setMenuToggle(false);
-    setCartToggle(false);
+    dispatch(toggleCartMenu(false));
   };
 
   //TODO: Event => Close menu dropdown onClick
@@ -92,7 +97,7 @@ const Header = ({
 
   //TODO: Event => Add click event to toggle the cart menu
   const handleCartToggle = () => {
-    setCartToggle(!cartToggle);
+    dispatch(toggleCartMenu(!cartToggle));
     setMenuToggle(false);
     setShowOverlay(!showOverlay);
   };
@@ -182,7 +187,7 @@ const Header = ({
                 <p>10</p>
               </CartNumber>
             </Cart>
-            {cartToggle && <CartMenu setCartToggle={setCartToggle} />}
+            {cartToggle && <CartMenu />}
           </CartWrap>
         </HeaderWrap>
       </HeaderContainer>

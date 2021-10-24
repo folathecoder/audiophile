@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import {
   CartContainer,
   CartWrap,
@@ -14,11 +15,14 @@ import {
 } from "components/shared/cart/cartStyles";
 import Button from "components/shared/button/button";
 import CartItem from "components/shared/cartItem/cartItem";
+import { toggleCartMenu } from "redux/cartMenu";
 
-const CartMenu = ({ setCartToggle }): JSX.Element => {
+const CartMenu = (): JSX.Element => {
+  const dispatch = useDispatch();
+
   //TODO: Event => Close cart menu when checkout button is clicked
   const handleCartClose = () => {
-    setCartToggle(false);
+    dispatch(toggleCartMenu(false));
   };
 
   return (
