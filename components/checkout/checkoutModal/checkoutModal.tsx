@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import {
   ModalContainer,
   ModalWrap,
@@ -16,8 +17,18 @@ import {
 } from "components/checkout/checkoutModal/CheckoutModalStyles";
 import Button from "components/shared/button/button";
 import CartItem from "components/shared/cartItem/cartItem";
+import { RootState } from "redux/store";
+import { convertToUpperCase } from "helpers/textFormating";
 
 const CheckoutModal = (): JSX.Element => {
+  //TODO: Access the checkout form data
+  const userData = useSelector(
+    (state: RootState) => state.checkoutFormData.value
+  );
+
+  //TODO: Automatically transform first alphabet of the user's name to uppercase before being rendered
+  const username = convertToUpperCase(userData.name);
+
   //TODO: Automatically hide overlay when modal is activated
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -40,7 +51,7 @@ const CheckoutModal = (): JSX.Element => {
           <br /> for your order
         </ModalHeader>
         <ModalMessage>
-          You will receive an email confirmation shortly.
+          {username}, you will receive an email confirmation shortly.
         </ModalMessage>
         <ModalSummary>
           <ModalSummaryDetails>

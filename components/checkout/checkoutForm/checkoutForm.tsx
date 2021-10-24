@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import {
   Form,
   FormSection,
@@ -24,10 +24,16 @@ import {
   CashOnContent,
 } from "components/checkout/checkoutForm/checkoutFormStyles";
 import { schema } from "helpers/yupSchema";
+import { checkoutFormData } from "redux/checkoutForm";
 
 const CheckoutForm = (): JSX.Element => {
+  const dispatch = useDispatch();
+
   //TODO: Maintain user details after form is submitted on checkout state
   const [userDetails, setUserDetails] = useState<object | null>(null);
+  //TODO: Push the updated form data to the main state
+  dispatch(checkoutFormData(userDetails));
+
   //TODO: Maintain payment mode prefrence state
   const [paymentMode, setPaymentMode] = useState<boolean>(true);
 
@@ -43,7 +49,6 @@ const CheckoutForm = (): JSX.Element => {
   //TODO: Function that collects all the form data
   const submitForm = (data) => {
     setUserDetails(data);
-    console.log(data)
   };
 
   //TODO: Handle => "Cash On Delivery" onClick
