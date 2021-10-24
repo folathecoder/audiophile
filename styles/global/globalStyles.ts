@@ -57,9 +57,24 @@ export const GlobalStyles = createGlobalStyle`
         list-style: none;
     }
 
-    title {
-        text-transform: capitalize;
+    button:focus {
+        outline: 0.1rem solid var(--color-pry-100);
     }
+
+    // Remove all animations and transitions for people that prefer not to see them
+    @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+    scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
 
     ::-webkit-scrollbar {
         display: none !important;
@@ -96,6 +111,10 @@ export const GlobalStyles = createGlobalStyle`
         &:active {
             transition: var(--transition);
             color: var(--color-pry-100);
+        }
+        
+        &:focus {
+            outline: 0.1rem solid var(--color-pry-100);
         }
     }
 
