@@ -126,6 +126,22 @@ const Header = ({
     }
   });
 
+  //TODO: Handle => Function that removes all menu dropdowns when "Escape" key is pressed
+  const removeMenuOnEscape = (e) => {
+    if (e.key === "Escape") {
+      handleCustomRemove();
+    }
+  };
+
+  //TODO: Event => Close all menu dropdowns when "Escape" key is pressed
+  useEffect(() => {
+    window.addEventListener("keydown", removeMenuOnEscape);
+
+    return () => {
+      window.removeEventListener("keydown", removeMenuOnEscape);
+    };
+  });
+
   return (
     <>
       <HeaderContainer menuToggle={menuToggle} cartToggle={cartToggle}>

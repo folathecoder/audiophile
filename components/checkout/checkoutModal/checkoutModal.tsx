@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import {
   ModalContainer,
   ModalWrap,
@@ -39,6 +40,23 @@ const CheckoutModal = (): JSX.Element => {
     document.body.style.overflow = "auto";
     document.querySelector("header").style.zIndex = "2000";
   };
+
+  //TODO: Handle => Function that redirects user to homepage when "Escape" key is pressed
+  const router = useRouter();
+  const redirectOnEscape = (e) => {
+    if (e.key === "Escape") {
+      router.push("/");
+    }
+  };
+
+  //TODO: Event => Redirect user to homepage when "Escape" key is pressed
+  useEffect(() => {
+    window.addEventListener("keydown", redirectOnEscape);
+
+    return () => {
+      window.removeEventListener("keydown", redirectOnEscape);
+    };
+  }, [router]);
 
   return (
     <ModalContainer>
