@@ -24,6 +24,7 @@ import CartMenu from "components/shared/cart/cart";
 import useWindow from "hooks/useWindow";
 import { RootState } from "redux/store";
 import { toggleCartMenu } from "redux/cartMenu";
+import ActiveLink from "components/shared/activeLink/activeLink";
 
 interface HeaderProps {
   data: {
@@ -186,7 +187,7 @@ const Header = ({
               {menu.map((menuItem, index) => {
                 return (
                   <MenuWrapItem key={index} onClick={handleCustomRemove}>
-                    <Link href={menuItem.link}>{menuItem.title}</Link>
+                    <ActiveLink href={menuItem.link}>{menuItem.title}</ActiveLink>
                   </MenuWrapItem>
                 );
               })}

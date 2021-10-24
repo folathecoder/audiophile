@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   CartItemWrap,
   CartItemImage,
@@ -16,9 +17,15 @@ interface CartItemProps {
 const CartItem = ({ summary, editable }: CartItemProps): JSX.Element => {
   return (
     <CartItemWrap>
-      <CartItemImage>
-        <Image src="/images/cart/image-zx9-speaker.jpg" alt=" " layout="fill" />
-      </CartItemImage>
+      <Link href="/headphones" prefetch>
+        <CartItemImage>
+          <Image
+            src="/images/cart/image-zx9-speaker.jpg"
+            alt=" "
+            layout="fill"
+          />
+        </CartItemImage>
+      </Link>
       <CartItemDetail>
         <h4>xx99 mk II</h4>
         <p>$ 2,999</p>

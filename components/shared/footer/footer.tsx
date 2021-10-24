@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import ActiveLink from "components/shared/activeLink/activeLink";
 import {
   FooterContainer,
   FooterWrap,
@@ -75,7 +76,7 @@ const Footer = ({ data }: FooterProps): JSX.Element => {
               {menu.map((menuItem, index) => {
                 return (
                   <MenuWrapItem key={index}>
-                    <Link href={menuItem.link}>{menuItem.title}</Link>
+                    <ActiveLink href={menuItem.link}>{menuItem.title}</ActiveLink>
                   </MenuWrapItem>
                 );
               })}
