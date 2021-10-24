@@ -29,11 +29,6 @@ import { checkoutFormData } from "redux/checkoutForm";
 const CheckoutForm = (): JSX.Element => {
   const dispatch = useDispatch();
 
-  //TODO: Maintain user details after form is submitted on checkout state
-  const [userDetails, setUserDetails] = useState<object | null>(null);
-  //TODO: Push the updated form data to the main state
-  dispatch(checkoutFormData(userDetails));
-
   //TODO: Maintain payment mode prefrence state
   const [paymentMode, setPaymentMode] = useState<boolean>(true);
 
@@ -46,9 +41,9 @@ const CheckoutForm = (): JSX.Element => {
     resolver: yupResolver(schema),
   });
 
-  //TODO: Function that collects all the form data
+  //TODO: Function that collects all the form data and push the updated form data to the main state
   const submitForm = (data) => {
-    setUserDetails(data);
+    dispatch(checkoutFormData(data));
   };
 
   //TODO: Handle => "Cash On Delivery" onClick
@@ -65,15 +60,11 @@ const CheckoutForm = (): JSX.Element => {
   useEffect(() => {
     const getPaymentMode = localStorage.getItem("paymentMode");
     setPaymentMode(JSON.parse(getPaymentMode));
-
-    const getUserDetails = localStorage.getItem("userDetails");
-    setUserDetails(JSON.parse(getUserDetails));
   }, []);
 
   //TODO: Handle => Save payment mode prefrence and user details on checkout to localStorage
   useEffect(() => {
     localStorage.setItem("paymentMode", JSON.stringify(paymentMode));
-    localStorage.setItem("userDetails", JSON.stringify(userDetails));
   });
 
   return (
