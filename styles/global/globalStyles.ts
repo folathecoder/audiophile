@@ -82,7 +82,6 @@ export const GlobalStyles = createGlobalStyle`
     ///////////////////////////////////////////////////////
     //TODO: BASE STYLES
     body {
-        max-width: 100%;
         font-family: var(--font-pry-100);
         font-weight: var(--font-weight-400);
         background-color: var(--color-sec-200);

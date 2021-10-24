@@ -187,7 +187,9 @@ const Header = ({
               {menu.map((menuItem, index) => {
                 return (
                   <MenuWrapItem key={index} onClick={handleCustomRemove}>
-                    <ActiveLink href={menuItem.link}>{menuItem.title}</ActiveLink>
+                    <ActiveLink href={menuItem.link}>
+                      {menuItem.title}
+                    </ActiveLink>
                   </MenuWrapItem>
                 );
               })}
@@ -197,7 +199,8 @@ const Header = ({
             <Cart>
               <Image
                 src={cart.icon}
-                alt={cart.iconAlt}
+                alt=""
+                aria-hidden="true"
                 onClick={handleCartToggle}
               />
               <CartNumber>

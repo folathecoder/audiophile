@@ -72,7 +72,7 @@ export const FooterLogoWrap = styled.div`
 `;
 
 export const FooterLogo = styled.div``;
-export const FooterMenu = styled.div``;
+export const FooterMenu = styled.nav``;
 
 export const MenuWrap = styled.ul`
   text-align: center;

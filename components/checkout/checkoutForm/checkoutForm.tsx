@@ -77,7 +77,9 @@ const CheckoutForm = (): JSX.Element => {
             <FormInput>
               <FormLabel>
                 <label htmlFor="name">name</label>
-                <FormError>{errors.name && "Enter your name!"}</FormError>
+                <FormError role="alert">
+                  {errors.name && "Enter your name!"}
+                </FormError>
               </FormLabel>
               <input
                 type="text"
@@ -92,7 +94,9 @@ const CheckoutForm = (): JSX.Element => {
             <FormInput>
               <FormLabel>
                 <label htmlFor="email">email address</label>
-                <FormError>{errors.email && "Wrong email format!"}</FormError>
+                <FormError role="alert">
+                  {errors.email && "Wrong email format!"}
+                </FormError>
               </FormLabel>
               <input
                 type="email"
@@ -107,7 +111,9 @@ const CheckoutForm = (): JSX.Element => {
             <FormInput>
               <FormLabel>
                 <label htmlFor="phone">phone number</label>
-                <FormError>{errors.phone && "Wrong phone format!"}</FormError>
+                <FormError role="alert">
+                  {errors.phone && "Wrong phone format!"}
+                </FormError>
               </FormLabel>
               <input
                 type="text"
@@ -126,7 +132,9 @@ const CheckoutForm = (): JSX.Element => {
           <FormInput>
             <FormLabel>
               <label htmlFor="address">address</label>
-              <FormError>{errors.address && "Enter your address!"}</FormError>
+              <FormError role="alert">
+                {errors.address && "Enter your address!"}
+              </FormError>
             </FormLabel>
             <input
               type="text"
@@ -140,7 +148,7 @@ const CheckoutForm = (): JSX.Element => {
             <FormInput>
               <FormLabel>
                 <label htmlFor="zipCode">zip code</label>
-                <FormError>
+                <FormError role="alert">
                   {errors.zipCode && "Enter your Zip Code!"}
                 </FormError>
               </FormLabel>
@@ -157,7 +165,9 @@ const CheckoutForm = (): JSX.Element => {
             <FormInput>
               <FormLabel>
                 <label htmlFor="city">city</label>
-                <FormError>{errors.city && "Enter your city!"}</FormError>
+                <FormError role="alert">
+                  {errors.city && "Enter your city!"}
+                </FormError>
               </FormLabel>
               <input
                 type="text"
@@ -172,7 +182,9 @@ const CheckoutForm = (): JSX.Element => {
             <FormInput>
               <FormLabel>
                 <label htmlFor="country">country</label>
-                <FormError>{errors.country && "Enter your country!"}</FormError>
+                <FormError role="alert">
+                  {errors.country && "Enter your country!"}
+                </FormError>
               </FormLabel>
               <input
                 type="text"
@@ -222,7 +234,7 @@ const CheckoutForm = (): JSX.Element => {
                 <FormInput>
                   <FormLabel>
                     <label htmlFor="emoneyNumber">e-Money Number</label>
-                    <FormError>
+                    <FormError role="alert">
                       {errors.emoneyNumber && "Enter your e-Money Number!"}
                     </FormError>
                   </FormLabel>
@@ -239,7 +251,7 @@ const CheckoutForm = (): JSX.Element => {
                 <FormInput>
                   <FormLabel>
                     <label htmlFor="emoneyPin">e-Money PIN</label>
-                    <FormError>
+                    <FormError role="alert">
                       {errors.emoneyPin && "Enter your e-Money Pin!"}
                     </FormError>
                   </FormLabel>

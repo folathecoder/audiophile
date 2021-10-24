@@ -62,7 +62,7 @@ const CheckoutModal = (): JSX.Element => {
     <ModalContainer>
       <ModalWrap>
         <ModalIconWrap>
-          <Image src="/images/shared/success.svg" alt="success" layout="fill" />
+          <Image src="/images/shared/success.svg" alt="" aria-hidden="true" layout="fill" />
         </ModalIconWrap>
         <ModalHeader>
           thank you

@@ -16,12 +16,13 @@ const ActiveLink = ({ router, href, children }): JSX.Element => {
 
   //TODO: Check if the current path is the same as the router path
   const isCurrentPath = router.pathname === href || router.asPath === href;
-  
+
   return (
     <>
       <a
         href={href}
         onClick={handleClick}
+        {...isCurrentPath && `aria-current="page"`}
         style={{
           textDecoration: "none",
           margin: "0",
