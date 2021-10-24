@@ -77,6 +77,16 @@ const ProductCounter = ({ custom }: ProductCounterProps): JSX.Element => {
     }
   });
 
+  // useEffect(() => {
+  //   const counterInput = document.getElementById(
+  //     "productNumber"
+  //   ) as HTMLInputElement;
+
+  //   counterInput.addEventListener("keydown", (e) => {
+  //     e.preventDefault();
+  //   });
+  // });
+
   return (
     <Form onSubmit={handleFormSubmit}>
       <CounterWrap custom={custom}>
@@ -97,6 +107,7 @@ const ProductCounter = ({ custom }: ProductCounterProps): JSX.Element => {
             id="productNumber"
             value={productNumber}
             onChange={handleFormChange}
+            onKeyDown={(e) => e.preventDefault}
           />
         </CounterInput>
         <ButtonWrap>

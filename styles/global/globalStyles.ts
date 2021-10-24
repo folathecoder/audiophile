@@ -57,9 +57,9 @@ export const GlobalStyles = createGlobalStyle`
         list-style: none;
     }
 
-    button:focus {
+    /* button:focus {
         outline: 0.1rem solid var(--color-pry-100);
-    }
+    } */
 
     // Remove all animations and transitions for people that prefer not to see them
     @media (prefers-reduced-motion: reduce) {
@@ -113,9 +113,9 @@ export const GlobalStyles = createGlobalStyle`
             color: var(--color-pry-100);
         }
         
-        &:focus {
+        /* &:focus {
             outline: 0.1rem solid var(--color-pry-100);
-        }
+        } */
     }
 
     p {
