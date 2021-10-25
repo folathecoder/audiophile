@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { useDispatch } from "react-redux";
-import { toggleCartMenu } from "redux/cartMenu";
+import { useAppDispatch } from "redux/types/reduxTypes";
+import { toggleCartMenu } from "redux/slices/cartMenuSlice";
 
 const OverlayContainer = styled.div`
   background-color: hsla(0, 0%, 0%, 0.616);
@@ -38,7 +38,7 @@ const Overlay = ({
   menuOption,
   maxOverlay,
 }: OverlayProps): JSX.Element => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   //TODO: Event => Close cart menu when overlay is clicked
   const handleCartClose = () => {

@@ -7,28 +7,10 @@ import {
   ThirdImageWrap,
 } from "components/product/productGallery/productGalleryStyles";
 import useWindow from "hooks/useWindow";
+import type { ProductType } from "data/types/productType";
 
 interface PhotoGalleryProps {
-  data: {
-    name: string;
-    gallery: {
-      first: {
-        mobile: string;
-        tablet: string;
-        desktop: string;
-      };
-      second: {
-        mobile: string;
-        tablet: string;
-        desktop: string;
-      };
-      third: {
-        mobile: string;
-        tablet: string;
-        desktop: string;
-      };
-    };
-  };
+  data: ProductType;
 }
 
 const ProductGallery = ({ data }: PhotoGalleryProps): JSX.Element => {
@@ -37,7 +19,7 @@ const ProductGallery = ({ data }: PhotoGalleryProps): JSX.Element => {
 
   //TODO: Custom Hook => useWindow hook monitors the screen size and returns the screen "size" value
   const { size } = useWindow();
-  
+
   return (
     <GalleryContainer>
       <GalleryWrap>

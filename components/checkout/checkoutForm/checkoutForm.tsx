@@ -24,7 +24,8 @@ import {
   CashOnContent,
 } from "components/checkout/checkoutForm/checkoutFormStyles";
 import { schema } from "helpers/yupSchema";
-import { checkoutFormData } from "redux/checkoutForm";
+import { checkoutFormData } from "redux/slices/checkoutFormSlice";
+import type { InputDataType } from "data/types/checkoutInputType";
 
 const CheckoutForm = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const CheckoutForm = (): JSX.Element => {
   });
 
   //TODO: Function that collects all the form data and push the updated form data to the main state
-  const submitForm = (data) => {
+  const submitForm = (data: InputDataType) => {
     dispatch(checkoutFormData(data));
   };
 

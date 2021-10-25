@@ -1,7 +1,7 @@
 import type { AppProps /*, AppContext */ } from "next/app";
 import { useState } from "react";
 import { Provider } from "react-redux";
-import store from "redux/store";
+import { store } from "redux/store";
 import { GlobalStyles } from "styles/global/globalStyles";
 import { menuData } from "data/shared/menuData";
 import Header from "components/shared/header/header";
@@ -11,7 +11,7 @@ import Overlay from "components/shared/overlay/overlay";
 
 function MyApp({ Component, pageProps }: AppProps) {
   //TODO: Hide the overlay component initially
-  const [showOverlay, setShowOverlay] = useState(false);
+  const [showOverlay, setShowOverlay] = useState<boolean>(false);
 
   return (
     <Provider store={store}>

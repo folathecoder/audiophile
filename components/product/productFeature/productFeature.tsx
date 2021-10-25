@@ -11,15 +11,10 @@ import {
   FeatureQuantity,
   FeatureQuantityText,
 } from "components/product/productFeature/productFeatureStyles";
+import type { ProductType } from "data/types/productType";
 
 interface ProductFeatureProps {
-  data: {
-    features: string;
-    includes: {
-      quantity: number;
-      item: string;
-    }[];
-  };
+  data: ProductType;
 }
 
 const ProductFeature = ({ data }: ProductFeatureProps): JSX.Element => {

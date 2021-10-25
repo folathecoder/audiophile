@@ -9,8 +9,17 @@ import ProductViews from "components/category/productViews/productViews";
 import { ctaData } from "data/shared/ctaData";
 import { getProductsByCategory, getCategory } from "helpers/productFilter";
 import { convertToUpperCase } from "helpers/textFormating";
+import type { ProductType } from "data/types/productType";
 
-const ProductCategory = ({ products, category }): JSX.Element => {
+interface ProductCategoryTypes {
+  products: ProductType[];
+  category: string;
+}
+
+const ProductCategory = ({
+  products,
+  category,
+}: ProductCategoryTypes): JSX.Element => {
   //TODO: Format "category" text
   const customCategory = convertToUpperCase(category);
 
@@ -54,7 +63,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   //* STEP B=> Confirm if the endpoint is active
   if (response.ok) {
     //* STEP C => Convert fetched data to JSON
-    const data = await response.json();
+    const data = (await response.json()) as ProductType[];
 
     //* STEP D => Extract all category value in the products object and avoid repeated value using getCategory function
     const paths = getCategory(data).map((category) => {
@@ -83,7 +92,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   //* STEP C => Confirm if the endpoint is active
   if (response.ok) {
     //* STEP D => Convert fetched data to JSON
-    const data = await response.json();
+    const data = (await response.json()) as ProductType[];
 
     //* STEP E => Filter out all products associated to a specific product category
     const categoryData = getProductsByCategory(category, data);

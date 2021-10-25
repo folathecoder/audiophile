@@ -14,8 +14,13 @@ import { convertToUpperCase } from "helpers/textFormating";
 import { productSchemaGenerator } from "helpers/schemaGenerator";
 import { Main, HiddenHeader } from "styles/global/globalStyles";
 import { GetStaticProps, GetStaticPaths } from "next";
+import type { ProductType } from "data/types/productType";
 
-const ProductDetails = ({ product }): JSX.Element => {
+interface ProductDetailsType {
+  product: ProductType[];
+}
+
+const ProductDetails = ({ product }: ProductDetailsType): JSX.Element => {
   //TODO: Destructure the product array
   const [productData] = product;
 
@@ -42,7 +47,7 @@ const ProductDetails = ({ product }): JSX.Element => {
       </Head>
 
       <Script
-        id={id}
+        id={`${id}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
@@ -69,7 +74,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   //* STEP B=> Confirm if the endpoint is active
   if (response.ok) {
     //* STEP C => Convert fetched data to JSON
-    const data = await response.json();
+    const data = (await response.json()) as ProductType[];
 
     //* STEP D => Extract all slug values in the products object and avoid repeated value using getSlugs function
     const paths = getSlugs(data).map((slug) => {
@@ -98,7 +103,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   //* STEP C => Confirm if the endpoint is active
   if (response.ok) {
     //* STEP D => Convert fetched data to JSON
-    const data = await response.json();
+    const data = (await response.json()) as ProductType[];
 
     //* STEP E => Filter out only the product associated to a specific product slug
     const productData = getProductsBySlug(slug, data);

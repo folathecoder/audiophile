@@ -22,7 +22,7 @@ const ActiveLink = ({ router, href, children }): JSX.Element => {
       <a
         href={href}
         onClick={handleClick}
-        {...isCurrentPath && `aria-current="page"`}
+        {...(isCurrentPath && `aria-current="page"`)}
         style={{
           textDecoration: "none",
           margin: "0",

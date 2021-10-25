@@ -1,14 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartMenuReducer from "redux/cartMenu";
-import checkoutDataReducer from "redux/checkoutForm";
+import cartMenuReducer from "redux/slices/cartMenuSlice";
+import checkoutDataReducer from "redux/slices/checkoutFormSlice";
+import productsReducer from "redux/slices/productsSlice";
 
 //TODO: Manage the universal state of the application
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     cartMenu: cartMenuReducer,
     checkoutFormData: checkoutDataReducer,
+    products: productsReducer,
   },
 });
 
+// store.dispatch(productsFetch());
+
 export type RootState = ReturnType<typeof store.getState>;
-export default store;
+export type AppDispatch = typeof store.dispatch;

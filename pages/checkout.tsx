@@ -8,7 +8,7 @@ import Overlay from "components/shared/overlay/overlay";
 
 const Checkout = () => {
   //TODO: Maintain checkout modal state
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   return (
     <>

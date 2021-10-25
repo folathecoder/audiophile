@@ -12,19 +12,10 @@ import {
 } from "components/product/productRelated/productRelatedStyles";
 import Button from "components/shared/button/button";
 import useWindow from "hooks/useWindow";
+import type { ProductType } from "data/types/productType";
 
 interface ProductRelatedProps {
-  data: {
-    others: {
-      slug: string;
-      name: string;
-      image: {
-        mobile: string;
-        tablet: string;
-        desktop: any;
-      };
-    }[];
-  };
+  data: ProductType;
 }
 
 const ProductRelated = ({ data }: ProductRelatedProps): JSX.Element => {
@@ -33,7 +24,7 @@ const ProductRelated = ({ data }: ProductRelatedProps): JSX.Element => {
 
   //TODO: Custom Hook => useWindow hook monitors the screen size and returns the screen "size" value
   const { size } = useWindow();
-  
+
   return (
     <RelatedContainer>
       <RelatedWrap>

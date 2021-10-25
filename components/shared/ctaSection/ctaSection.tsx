@@ -9,6 +9,7 @@ import {
   CtaHeadingHighlight,
   CtaDescription,
 } from "components/shared/ctaSection/ctaSectionStyles";
+import type { ProductType } from "data/types/productType";
 
 interface CtaSectionProps {
   data: {

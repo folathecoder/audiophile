@@ -4,9 +4,10 @@ import {
   ProductWrap,
 } from "components/category/productViews/productViewsStyles";
 import ProductView from "../productView/productView";
+import type { ProductType } from "data/types/productType";
 
 interface ProductViewsProps {
-  data: [];
+  data: ProductType[];
 }
 
 const ProductViews = ({ data }: ProductViewsProps): JSX.Element => {

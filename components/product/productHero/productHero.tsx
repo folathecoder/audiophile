@@ -12,23 +12,14 @@ import {
   ProductDescription,
   ProductPrice,
   ProductOrderWrap,
-  ProductOrder
+  ProductOrder,
 } from "components/product/productHero/productHeroStyles";
 import { CURRENCY_SYMBOL, PRODUCT_TYPE } from "helpers/constants";
 import ProductCounter from "components/shared/counter/productCounter";
+import type { ProductType } from "data/types/productType";
 
 interface ProductHeroProps {
-  data: {
-    name: string;
-    image: {
-      mobile: any;
-      tablet: any;
-      desktop: any;
-    };
-    new: boolean;
-    price: number;
-    description: string;
-  };
+  data: ProductType;
 }
 
 const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
@@ -56,9 +47,7 @@ const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
         </ProductImageWrap>
         <ProductContentWrap>
           <ProductContent>
-            {data.new && (
-              <ProductSubHeading>{PRODUCT_TYPE}</ProductSubHeading>
-            )}
+            {data.new && <ProductSubHeading>{PRODUCT_TYPE}</ProductSubHeading>}
             <ProductHeading>{name}</ProductHeading>
             <ProductDescription>{description}</ProductDescription>
             <ProductPrice>

@@ -14,22 +14,11 @@ import {
   ProductButton,
 } from "components/category/productView/productViewStyles";
 import { PRODUCT_TYPE } from "helpers/constants";
+import { ProductType } from "data/types/productType";
 
 interface ProductViewProps {
   flip?: boolean;
-  data: {
-    id: number;
-    slug: string;
-    name: string;
-    category: string;
-    categoryImage: {
-      mobile: any;
-      tablet: any;
-      desktop: any;
-    };
-    new: boolean;
-    description: string;
-  };
+  data: ProductType;
 }
 
 const ProductView = ({ flip, data }: ProductViewProps): JSX.Element => {

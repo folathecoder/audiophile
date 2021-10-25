@@ -1,20 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
+import type { InputDataType } from "data/types/checkoutInputType";
 
 //TODO: Manage the checkout form input data state
-
-interface InputDataType {
-  name: string;
-  email: string;
-  phone: number;
-  address: string;
-  zipCode: number;
-  city: string;
-  country: string;
-  emoneyNumber: number;
-  emoneyPin: number;
-}
-
 const initialStateValue: InputDataType = {
   name: "",
   email: "",

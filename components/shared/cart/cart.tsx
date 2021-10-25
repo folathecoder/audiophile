@@ -15,7 +15,7 @@ import {
 } from "components/shared/cart/cartStyles";
 import Button from "components/shared/button/button";
 import CartItem from "components/shared/cartItem/cartItem";
-import { toggleCartMenu } from "redux/cartMenu";
+import { toggleCartMenu } from "redux/slices/cartMenuSlice";
 
 const CartMenu = (): JSX.Element => {
   const dispatch = useDispatch();

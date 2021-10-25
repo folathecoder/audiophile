@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from "redux/types/reduxTypes";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -23,7 +23,7 @@ import scrollTop from "helpers/scrollTop";
 import CartMenu from "components/shared/cart/cart";
 import useWindow from "hooks/useWindow";
 import { RootState } from "redux/store";
-import { toggleCartMenu } from "redux/cartMenu";
+import { toggleCartMenu } from "redux/slices/cartMenuSlice";
 import ActiveLink from "components/shared/activeLink/activeLink";
 
 interface HeaderProps {
@@ -57,7 +57,7 @@ const Header = ({
   setShowOverlay,
   showOverlay,
 }: HeaderProps): JSX.Element => {
-  const dispatch = useDispatch();
+   const dispatch = useAppDispatch();
 
   //TODO: Destructure the "data" object
   const { logo, menu, cart } = data;
@@ -66,7 +66,7 @@ const Header = ({
   const [menuToggle, setMenuToggle] = useState(false);
 
   //TODO: Manage the cart menu toggle
-  const cartToggle = useSelector((state: RootState) => state.cartMenu.value);
+  const cartToggle = useAppSelector((state: RootState) => state.cartMenu.value);
 
   //TODO: Custom hook that monitors window size
   const { size } = useWindow();

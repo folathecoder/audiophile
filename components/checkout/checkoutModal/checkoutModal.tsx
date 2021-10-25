@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "redux/types/reduxTypes";
 import { useRouter } from "next/router";
 import {
   ModalContainer,
@@ -23,7 +23,7 @@ import { convertToUpperCase } from "helpers/textFormating";
 
 const CheckoutModal = (): JSX.Element => {
   //TODO: Access the checkout form data
-  const userData = useSelector(
+  const userData = useAppSelector(
     (state: RootState) => state.checkoutFormData.value
   );
 
