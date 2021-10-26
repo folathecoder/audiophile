@@ -34,36 +34,7 @@ const CartMenu = (): JSX.Element => {
         </CartHeader>
         <Cart>
           <CartInnerWrap>
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
-            <CartItem editable />
+            {/* <CartItem editable /> */}
           </CartInnerWrap>
 
           {/* <EmptyCart>

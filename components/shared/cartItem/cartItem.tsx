@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useAppSelector } from "redux/types/reduxTypes";
 import {
   CartItemWrap,
   CartItemImage,
@@ -31,7 +32,7 @@ const CartItem = ({ summary, editable }: CartItemProps): JSX.Element => {
         <p>$ 2,999</p>
       </CartItemDetail>
       <CartItemCounter summary={summary}>
-        <ProductCounter custom />
+        {/* <ProductCounter custom /> */}
       </CartItemCounter>
       <CartItemNumber editable={editable}>
         <p>x1</p>
