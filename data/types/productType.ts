@@ -1,6 +1,7 @@
 //TODO: Type => Product Data Types
 export interface ProductType {
   id: number;
+  cartQuantity: number;
   slug: string;
   name: string;
   image: ImagesTypes;

@@ -10,6 +10,7 @@ import { ctaData } from "data/shared/ctaData";
 import { getProductsByCategory, getCategory } from "helpers/productFilter";
 import { convertToUpperCase } from "helpers/textFormating";
 import type { ProductType } from "data/types/productType";
+import { useAppSelector } from "redux/types/reduxTypes";
 
 interface ProductCategoryTypes {
   products: ProductType[];
@@ -80,6 +81,34 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
   }
 };
+
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   //* STEP A => Extract the slug of the URL (This value will be matched with possible product categories, if it exists)
+//   const { params } = context;
+//   const category = params.categoryId;
+
+//   //* STEP B => Fetch all products data from the Heroku server
+//   const response = await fetch("https://audiophile-api.herokuapp.com/products");
+
+//   //* STEP C => Confirm if the endpoint is active
+//   if (response.ok) {
+//     //* STEP D => Convert fetched data to JSON
+//     const data = (await response.json()) as ProductType[];
+
+//     const products = useAppSelector(state => state.products.items)
+
+//     //* STEP E => Filter out all products associated to a specific product category
+//     const categoryData = getProductsByCategory(category, data);
+
+//     return {
+//       props: {
+//         products: categoryData,
+//         category: category,
+//       },
+//     };
+//   }
+// };
+
 
 export const getStaticProps: GetStaticProps = async (context) => {
   //* STEP A => Extract the slug of the URL (This value will be matched with possible product categories, if it exists)

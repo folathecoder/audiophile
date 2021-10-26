@@ -55,7 +55,7 @@ const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
             </ProductPrice>
             <ProductOrderWrap>
               <ProductOrder>
-                <ProductCounter />
+                <ProductCounter data={data} />
               </ProductOrder>
             </ProductOrderWrap>
           </ProductContent>

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useAppDispatch } from "redux/types/reduxTypes";
+import { addItemToCart } from "redux/slices/cartSlice";
 import {
   CounterWrap,
   Form,
@@ -8,15 +10,18 @@ import {
   CounterButton,
 } from "components/shared/counter/productCounterStyles";
 import { PRODUCT_CTA } from "helpers/constants";
+import type { ProductType } from "data/types/productType";
 
 interface ProductCounterProps {
   custom?: boolean;
+  data: ProductType;
 }
 
-const ProductCounter = ({ custom }: ProductCounterProps): JSX.Element => {
-  let initialInput: {
-    productNumber: number;
-  };
+const ProductCounter = ({ custom, data }: ProductCounterProps): JSX.Element => {
+  const dispatch = useAppDispatch();
+  // let initialInput: {
+  //   productNumber: number;
+  // };
 
   //TODO: Manage form input state
   const [formInputs, setFormInputs] = useState({
@@ -77,15 +82,10 @@ const ProductCounter = ({ custom }: ProductCounterProps): JSX.Element => {
     }
   });
 
-  // useEffect(() => {
-  //   const counterInput = document.getElementById(
-  //     "productNumber"
-  //   ) as HTMLInputElement;
-
-  //   counterInput.addEventListener("keydown", (e) => {
-  //     e.preventDefault();
-  //   });
-  // });
+  //TODO: Redux Event => Add product data to cart
+  const addProductToCart = () => {
+    dispatch(addItemToCart(data));
+  };
 
   return (
     <Form onSubmit={handleFormSubmit}>
@@ -120,7 +120,9 @@ const ProductCounter = ({ custom }: ProductCounterProps): JSX.Element => {
           </Button>
         </ButtonWrap>
       </CounterWrap>
-      <CounterButton custom={custom}>{PRODUCT_CTA}</CounterButton>
+      <CounterButton custom={custom} onClick={addProductToCart}>
+        {PRODUCT_CTA}
+      </CounterButton>
     </Form>
   );
 };
