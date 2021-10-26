@@ -1,3 +1,4 @@
+import { useAppDispatch, useAppSelector } from "redux/types/reduxTypes";
 import {
   SummaryContainer,
   SummaryHeading,
@@ -16,6 +17,10 @@ import { CURRENCY_SYMBOL } from "helpers/constants";
 import CartItem from "components/shared/cartItem/cartItem";
 
 const CheckoutSummary = ({ setShowModal }): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const cartItems = useAppSelector((state) => state.cart.cartItems);
+
+  console.log(cartItems);
 
   //TODO: Activate modal by setting showModal state to true onClick
   const handleActivateModal = () => {
@@ -28,19 +33,9 @@ const CheckoutSummary = ({ setShowModal }): JSX.Element => {
         <SummaryHeading>summary</SummaryHeading>
         <SummaryWrap>
           <CartInnerWrap>
-            <CartItem summary />
-            <CartItem summary />
-            <CartItem summary />
-            <CartItem summary />
-            <CartItem summary />
-            <CartItem summary />
-            <CartItem summary />
-            <CartItem summary />
-            <CartItem summary />
-            <CartItem summary />
-            <CartItem summary />
-            <CartItem summary />
-            <CartItem summary />
+            {cartItems.map((cartItem) => {
+              return <CartItem key={cartItem.id} data={cartItem} summary />;
+            })}
           </CartInnerWrap>
           {/* <EmptyCart>Your cart is empty!</EmptyCart> */}
         </SummaryWrap>

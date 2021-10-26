@@ -2,6 +2,8 @@
 export interface ProductType {
   id: number;
   cartQuantity: number;
+  shortName: string;
+  cartIcon: string;
   slug: string;
   name: string;
   image: ImagesTypes;
