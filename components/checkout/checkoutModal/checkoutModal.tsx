@@ -74,7 +74,7 @@ const CheckoutModal = (): JSX.Element => {
         <ModalSummary>
           <ModalSummaryDetails>
             <CartItemWrap>
-              <CartItem summary />
+              {/* <CartItem summary /> */}
             </CartItemWrap>
             <CartItemMore>
               <p>and 2 other item(s)</p>
