@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { ProductType } from "data/types/productType";
 import { toast } from "react-toastify";
+import { RootState } from "redux/store";
 
 interface CartSliceType {
   cartItems: ProductType[];
@@ -47,11 +48,22 @@ const cartSlice = createSlice({
     },
     increaseQuantity(state, action) {},
     decreaseQuantity(state, action) {},
-    clearCart: () => {
-      return initialState
+    clearCart(state, action) {
+      if (action.payload === true) {
+        state.cartItems = [];
+        state.cartTotalAmount = 0;
+        state.cartTotalQuantity = 0;
+      }
+      localStorage.removeItem("cartItems");
     },
   },
 });
+
+//TODO: Clear that cart and restore the initial state
+
+// export const clearCart = (state: RootState) => {
+//   state.cart = initialState;
+// };
 
 export const { addItemToCart, increaseQuantity, decreaseQuantity, clearCart } =
   cartSlice.actions;

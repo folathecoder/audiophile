@@ -47,7 +47,11 @@ export const SummaryWrap = styled.div`
   }
 `;
 
-export const CartInnerWrap = styled.div``;
+export const CartInnerWrap = styled.div`
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+`;
 
 export const CheckoutTotal = styled.div`
   margin-top: 1rem;
@@ -106,7 +110,8 @@ export const CheckoutButton = styled.button`
 
 export const EmptyCart = styled.div`
   width: 100%;
-  min-height: 100%;
-  align-self: center;
-  text-align: center;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

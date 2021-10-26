@@ -29,7 +29,7 @@ const CartMenu = (): JSX.Element => {
   };
 
   const handleClearCart = () => {
-    clearCart();
+    dispatch(clearCart(true));
   };
 
   return (
@@ -37,18 +37,20 @@ const CartMenu = (): JSX.Element => {
       <CartWrap>
         <CartHeader>
           <CartHeading>cart (0)</CartHeading>
-          <CartRemoveButton onClick={handleClearCart}>Remove all</CartRemoveButton>
+          <CartRemoveButton onClick={handleClearCart}>
+            Remove all
+          </CartRemoveButton>
         </CartHeader>
         <Cart>
           <CartInnerWrap>
-            {cartItems.map((cartItem) => {
-              return <CartItem key={cartItem.id} data={cartItem} editable />;
-            })}
+            {cartItems.length === 0 && (
+              <EmptyCart>Your cart is empty!</EmptyCart>
+            )}
+            {cartItems.length > 0 &&
+              cartItems?.map((cartItem) => {
+                return <CartItem key={cartItem.id} data={cartItem} editable />;
+              })}
           </CartInnerWrap>
-
-          {/* <EmptyCart>
-                Your cart is empty!
-            </EmptyCart> */}
         </Cart>
         <CheckoutTotalItem>
           <CartDetail>total</CartDetail>

@@ -20,8 +20,6 @@ const CheckoutSummary = ({ setShowModal }): JSX.Element => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.cartItems);
 
-  console.log(cartItems);
-
   //TODO: Activate modal by setting showModal state to true onClick
   const handleActivateModal = () => {
     setShowModal(true);
@@ -33,11 +31,14 @@ const CheckoutSummary = ({ setShowModal }): JSX.Element => {
         <SummaryHeading>summary</SummaryHeading>
         <SummaryWrap>
           <CartInnerWrap>
-            {cartItems.map((cartItem) => {
-              return <CartItem key={cartItem.id} data={cartItem} summary />;
-            })}
+            {cartItems.length === 0 && (
+              <EmptyCart>Your cart is empty!</EmptyCart>
+            )}
+            {cartItems.length > 0 &&
+              cartItems?.map((cartItem) => {
+                return <CartItem key={cartItem.id} data={cartItem} summary />;
+              })}
           </CartInnerWrap>
-          {/* <EmptyCart>Your cart is empty!</EmptyCart> */}
         </SummaryWrap>
         <CheckoutTotal>
           <CheckoutTotalItem>
