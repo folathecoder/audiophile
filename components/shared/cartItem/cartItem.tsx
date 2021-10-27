@@ -32,7 +32,7 @@ const CartItem = ({
       <CartItemDetail>
         <h4>{data.shortName}</h4>
         <p>
-          {CURRENCY_SYMBOL} {data.subTotal}
+          {CURRENCY_SYMBOL} {data.subTotal.toLocaleString("en-US")}
         </p>
       </CartItemDetail>
       <CartItemCounter summary={summary}>

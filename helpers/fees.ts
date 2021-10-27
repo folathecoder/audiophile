@@ -10,7 +10,7 @@ export const vatFee = (amount: number) => {
   return parseInt(fee.toFixed(0));
 };
 
-//TODO: Calculate the grand total fee
+//TODO: Calculate the grand fee
 export const grandTotal = (total: number, shipping: number, vat: number) => {
   const fee = total + shipping + vat;
   return parseInt(fee.toFixed(0));

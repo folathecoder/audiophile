@@ -6,8 +6,6 @@ import { RootState } from "redux/store";
 //TODO: cartSlice interface
 interface CartSliceType {
   cartItems: ProductType[];
-  cartTotalQuantity: number;
-  cartTotalAmount: number;
 }
 
 //TODO: Declare the initial state of the cartSlice (Get cartItems data from the localStorage)
@@ -17,8 +15,6 @@ const initialState: CartSliceType = {
     (localStorage.getItem("cartItems")
       ? JSON.parse(localStorage.getItem("cartItems"))
       : []),
-  cartTotalQuantity: 0,
-  cartTotalAmount: 0,
 };
 
 const cartSlice = createSlice({
@@ -124,8 +120,6 @@ const cartSlice = createSlice({
     clearCart(state, action) {
       if (action.payload === true) {
         state.cartItems = [];
-        state.cartTotalAmount = 0;
-        state.cartTotalQuantity = 0;
       }
 
       //localStorage: Clear localStorage

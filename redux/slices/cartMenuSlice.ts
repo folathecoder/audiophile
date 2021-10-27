@@ -9,7 +9,6 @@ export const cartMenuSlice = createSlice({
   initialState: { value: initialStateValue },
   reducers: {
     toggleCartMenu: (state, action: PayloadAction<boolean>) => {
-      // action.payload = true
       state.value = action.payload;
     },
   },

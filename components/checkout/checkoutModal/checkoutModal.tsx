@@ -116,17 +116,13 @@ const CheckoutModal = (): JSX.Element => {
             <ModalTotal>
               <h3>grand total</h3>
               <p>
-                {CURRENCY_SYMBOL} {grand}
+                {CURRENCY_SYMBOL} {grand.toLocaleString("en-US")}
               </p>
             </ModalTotal>
           </ModalSummaryTotal>
         </ModalSummary>
         <ModalButtonWrap onClick={handleClearCart}>
-          <Button
-            link="/"
-            block
-            event={handleStyleRestore}
-          >
+          <Button link="/" block event={handleStyleRestore}>
             back to home
           </Button>
         </ModalButtonWrap>

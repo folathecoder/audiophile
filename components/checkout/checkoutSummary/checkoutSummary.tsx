@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "redux/types/reduxTypes";
+import { useAppSelector } from "redux/types/reduxTypes";
 import {
   SummaryContainer,
   SummaryHeading,
@@ -54,7 +54,7 @@ const CheckoutSummary = ({ setShowModal }): JSX.Element => {
           <CheckoutTotalItem>
             <CheckoutDetail>total</CheckoutDetail>
             <CheckoutAmount>
-              {CURRENCY_SYMBOL} {total}
+              {CURRENCY_SYMBOL} {total.toLocaleString("en-US")}
             </CheckoutAmount>
           </CheckoutTotalItem>
           <CheckoutTotalItem>
@@ -66,13 +66,13 @@ const CheckoutSummary = ({ setShowModal }): JSX.Element => {
           <CheckoutTotalItem>
             <CheckoutDetail>vat (included)</CheckoutDetail>
             <CheckoutAmount>
-              {CURRENCY_SYMBOL} {vat}
+              {CURRENCY_SYMBOL} {vat.toLocaleString("en-US")}
             </CheckoutAmount>
           </CheckoutTotalItem>
           <CheckoutGrandTotal>
             <CheckoutDetail>grand total</CheckoutDetail>
             <CheckoutTotalAmount>
-              {CURRENCY_SYMBOL} {grand}
+              {CURRENCY_SYMBOL} {grand.toLocaleString("en-US")}
             </CheckoutTotalAmount>
           </CheckoutGrandTotal>
           <CheckoutTotalItem>

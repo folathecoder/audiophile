@@ -61,7 +61,7 @@ const CartMenu = (): JSX.Element => {
         <CheckoutTotalItem>
           <CartDetail>total</CartDetail>
           <CartAmount>
-            {CURRENCY_SYMBOL} {total}
+            {CURRENCY_SYMBOL} {total.toLocaleString("en-US")}
           </CartAmount>
         </CheckoutTotalItem>
         <CartButtonWrap>
