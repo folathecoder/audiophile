@@ -27,6 +27,9 @@ const CheckoutModal = (): JSX.Element => {
     (state: RootState) => state.checkoutFormData.value
   );
 
+  //TODO: Extract cart data
+  const cartItems = useAppSelector((state: RootState) => state.cart.cartItems);
+
   //TODO: Automatically transform first alphabet of the user's name to uppercase before being rendered
   const username = convertToUpperCase(userData.name);
 
@@ -62,7 +65,12 @@ const CheckoutModal = (): JSX.Element => {
     <ModalContainer>
       <ModalWrap>
         <ModalIconWrap>
-          <Image src="/images/shared/success.svg" alt="" aria-hidden="true" layout="fill" />
+          <Image
+            src="/images/shared/success.svg"
+            alt=""
+            aria-hidden="true"
+            layout="fill"
+          />
         </ModalIconWrap>
         <ModalHeader>
           thank you
@@ -74,10 +82,12 @@ const CheckoutModal = (): JSX.Element => {
         <ModalSummary>
           <ModalSummaryDetails>
             <CartItemWrap>
-              {/* <CartItem summary /> */}
+              {cartItems.map((cartItem) => {
+                return <CartItem key={cartItem.id} data={cartItem} summary />;
+              }).slice(0, 1)}
             </CartItemWrap>
             <CartItemMore>
-              <p>and 2 other item(s)</p>
+              <p>and {cartItems.length - 1} other item(s)</p>
             </CartItemMore>
           </ModalSummaryDetails>
           <ModalSummaryTotal>

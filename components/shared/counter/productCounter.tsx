@@ -1,6 +1,11 @@
-import { useState, useEffect } from "react";
-import { useAppDispatch } from "redux/types/reduxTypes";
-import { addItemToCart } from "redux/slices/cartSlice";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "redux/types/reduxTypes";
+import {
+  addItemToCart,
+  decreaseQuantity,
+  increaseQuantity,
+  totalQuantity,
+} from "redux/slices/cartSlice";
 import {
   CounterWrap,
   Form,
@@ -14,59 +19,30 @@ import type { ProductType } from "data/types/productType";
 
 interface ProductCounterProps {
   custom?: boolean;
-  data: ProductType;
+  data?: ProductType;
 }
 
 const ProductCounter = ({ custom, data }: ProductCounterProps): JSX.Element => {
   const dispatch = useAppDispatch();
-  // let initialInput: {
-  //   productNumber: number;
-  // };
+  const cartState = useAppSelector((state) => state.cart);
 
-  //TODO: Manage form input state
-  const [formInputs, setFormInputs] = useState({
-    productNumber: null,
-  });
-
-  //TODO: Manage product number state
-  const [productNumber, setProductNumber] = useState(1);
-
-  //TODO: Handle => Extract the form input value(s)
-  const handleFormChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.valueAsNumber;
-    setFormInputs({ ...formInputs, [name]: value });
-  };
+  useEffect(() => {
+    dispatch(totalQuantity());
+  }, [cartState]);
 
   //TODO: Handle => Submit form value when certain conditions are met
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
-    if (
-      formInputs &&
-      Number.isInteger(formInputs.productNumber) &&
-      formInputs.productNumber >= 1
-    ) {
-      setProductNumber(formInputs.productNumber);
-      // const productCountInput = document.getElementById("productNumber") as HTMLInputElement;
-      // productCountInput.valueAsNumber = productNumber
-    }
   };
 
   //TODO: Handle => Increase product number onClick
   const handleIncrease = () => {
-    setProductNumber((prevPoductNumber) => {
-      return prevPoductNumber + 1;
-    });
+    dispatch(increaseQuantity(data));
   };
 
   //TODO: Handle => Decrease product number onClick
   const handleDecrease = () => {
-    if (productNumber > 1) {
-      setProductNumber((prevPoductNumber) => {
-        return prevPoductNumber - 1;
-      });
-    }
+    dispatch(decreaseQuantity(data));
   };
 
   //TODO: Styling => Dynamically change dimension of counter input if "custom" props is passed
@@ -105,8 +81,7 @@ const ProductCounter = ({ custom, data }: ProductCounterProps): JSX.Element => {
             type="number"
             name="productNumber"
             id="productNumber"
-            value={productNumber}
-            onChange={handleFormChange}
+            value={data.cartQuantity}
             onKeyDown={(e) => e.preventDefault}
           />
         </CounterInput>

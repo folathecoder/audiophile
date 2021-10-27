@@ -1,5 +1,6 @@
 import Image from "next/image";
 import useWindow from "hooks/useWindow";
+import { useAppSelector } from "redux/types/reduxTypes";
 import {
   ProductContainer,
   ProductWrap,
@@ -24,7 +25,21 @@ interface ProductHeroProps {
 
 const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
   //TODO: Destructure data object
-  const { name, image, price, description } = data;
+  const { id, name, image, price, description } = data;
+
+  //TODO: Extract cart data from state
+  const cartItems = useAppSelector((state) => state.cart.cartItems);
+  const cartItemsArray = Array.from(cartItems);
+
+  //TODO: Find the cart item that tallies with the product id
+  const singleCartItem = cartItemsArray?.filter(
+    (cartItem) => cartItem.id === id
+  );
+
+  const [productData] = singleCartItem
+
+
+  // console.log(singleCartItem);
 
   //TODO: Custom Hook => useWindow hook monitors the screen size and returns the screen "size" value
   const { size } = useWindow();

@@ -25,6 +25,7 @@ import useWindow from "hooks/useWindow";
 import { RootState } from "redux/store";
 import { toggleCartMenu } from "redux/slices/cartMenuSlice";
 import ActiveLink from "components/shared/activeLink/activeLink";
+import CartCounter from "components/shared/cartCounter/cartCounter";
 
 interface HeaderProps {
   data: {
@@ -57,7 +58,7 @@ const Header = ({
   setShowOverlay,
   showOverlay,
 }: HeaderProps): JSX.Element => {
-   const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   //TODO: Destructure the "data" object
   const { logo, menu, cart } = data;
@@ -204,7 +205,7 @@ const Header = ({
                 onClick={handleCartToggle}
               />
               <CartNumber>
-                <p>10</p>
+                <CartCounter />
               </CartNumber>
             </Cart>
             {cartToggle && <CartMenu />}

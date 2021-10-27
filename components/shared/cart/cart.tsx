@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from "redux/types/reduxTypes";
+import { useEffect } from "react";
 import {
   CartContainer,
   CartWrap,
@@ -36,7 +37,7 @@ const CartMenu = (): JSX.Element => {
     <CartContainer>
       <CartWrap>
         <CartHeader>
-          <CartHeading>cart (0)</CartHeading>
+          <CartHeading>cart ({cartItems.length})</CartHeading>
           <CartRemoveButton onClick={handleClearCart}>
             Remove all
           </CartRemoveButton>
