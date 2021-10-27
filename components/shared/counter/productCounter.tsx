@@ -1,10 +1,9 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "redux/types/reduxTypes";
+import { useAppDispatch } from "redux/types/reduxTypes";
 import {
   addItemToCart,
   decreaseQuantity,
   increaseQuantity,
-  totalQuantity,
 } from "redux/slices/cartSlice";
 import {
   CounterWrap,
@@ -24,11 +23,6 @@ interface ProductCounterProps {
 
 const ProductCounter = ({ custom, data }: ProductCounterProps): JSX.Element => {
   const dispatch = useAppDispatch();
-  const cartState = useAppSelector((state) => state.cart);
-
-  useEffect(() => {
-    dispatch(totalQuantity());
-  }, [cartState]);
 
   //TODO: Handle => Submit form value when certain conditions are met
   const handleFormSubmit = (e) => {

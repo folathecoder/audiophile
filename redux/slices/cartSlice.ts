@@ -33,6 +33,14 @@ const cartSlice = createSlice({
 
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
+
+        //Calculate the subtotal price of each "multiple" product
+        const subTotal =
+          state.cartItems[itemIndex].price *
+          state.cartItems[itemIndex].cartQuantity;
+        state.cartItems[itemIndex].subTotal = subTotal;
+        
+        //Notification: Alert an increase in product quantity
         toast.success(`${action.payload.name} added to cart`, {
           position: "top-left",
         });
@@ -54,12 +62,22 @@ const cartSlice = createSlice({
         (cartItem) => cartItem.id === action.payload.id
       );
 
-      if (state.cartItems[itemIndex].cartQuantity > 1) {
+      if (state.cartItems[itemIndex].cartQuantity >= 1) {
         state.cartItems[itemIndex].cartQuantity += 1;
+
+        //Calculate the subtotal price of each "multiple" product
+        const subTotal =
+          state.cartItems[itemIndex].price *
+          state.cartItems[itemIndex].cartQuantity;
+        state.cartItems[itemIndex].subTotal = subTotal;
+
+        //Notification: Alert an increase in product quantity
         toast.success(`Increased ${action.payload.name} quantity`, {
           position: "top-left",
         });
       }
+
+      //localStorage: Update state and push to localStorage
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     //TODO: Reducer => Decrease the number of products in the cart (with toastify alerts)
@@ -70,16 +88,33 @@ const cartSlice = createSlice({
 
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
+
+        //Calculate the subtotal price of each "multiple" product
+        const subTotal =
+          state.cartItems[itemIndex].price *
+          state.cartItems[itemIndex].cartQuantity;
+        state.cartItems[itemIndex].subTotal = subTotal;
+
+        //localStorage: Update state and push to localStorage
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+
+        //Notification: Alert a decrease in product quantity
         toast.error(`Decreased ${action.payload.name} quantity`, {
           position: "top-left",
         });
-      } else if (state.cartItems[itemIndex].cartQuantity === 1) {
+      }
+
+      //!: Delete the product from cart if the count is below 1
+      else if (state.cartItems[itemIndex].cartQuantity === 1) {
         const nextCartItems = state.cartItems.filter(
           (cartItem) => cartItem.id !== action.payload.id
         );
         state.cartItems = nextCartItems;
+
+        //localStorage: Update state and push to localStorage
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+
+        //Notification: Alert a product remove in product quantity
         toast.error(`Removed ${action.payload.name} form cart`, {
           position: "top-left",
         });
@@ -92,45 +127,36 @@ const cartSlice = createSlice({
         state.cartTotalAmount = 0;
         state.cartTotalQuantity = 0;
       }
+
+      //localStorage: Clear localStorage
       localStorage.removeItem("cartItems");
+
+      //Notification: Alert an all-cleared product cart
       toast.error(`Your cart is cleared`, {
         position: "top-left",
       });
     },
-
-    totalQuantity(state, action: PayloadAction<number>) {
-      let { total, quantity } = (state.cartItems || []).reduce(
-        (cartTotal, cartItem) => {
-          const { price, cartQuantity } = cartItem;
-          const itemTotal = price * cartQuantity;
-          cartTotal.total += itemTotal;
-          cartTotal.quantity += cartQuantity;
-          return cartTotal;
-        },
-        { total: 0, quantity: 0 }
-      );
-
-      state.cartTotalQuantity = quantity;
-      state.cartTotalAmount = total;
-    },
   },
 });
 
-export const subTotal = (state: RootState) => {
+//TODO: Calculate the total number of item(s) in the cart
+export const totalCartQuantity = (state: RootState) => {
   const total = (state.cart.cartItems || [])
     .map((cartItem) => cartItem.cartQuantity)
     .reduce((acc, curr) => acc + curr, 0);
-
-  console.log(total);
   return total;
 };
 
-export const {
-  addItemToCart,
-  increaseQuantity,
-  decreaseQuantity,
-  clearCart,
-  totalQuantity,
-} = cartSlice.actions;
+//TODO: Calculate the total number price of products in the cart
+export const productTotal = (state: RootState) => {
+  const total = (state.cart.cartItems || [])
+    .map((cartItem) => cartItem.subTotal)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  return total;
+};
+
+export const { addItemToCart, increaseQuantity, decreaseQuantity, clearCart } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;

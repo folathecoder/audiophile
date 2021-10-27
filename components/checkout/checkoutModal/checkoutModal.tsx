@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useEffect } from "react";
-import { useAppSelector } from "redux/types/reduxTypes";
+import { useAppSelector, useAppDispatch } from "redux/types/reduxTypes";
 import { useRouter } from "next/router";
 import {
   ModalContainer,
@@ -20,14 +20,22 @@ import Button from "components/shared/button/button";
 import CartItem from "components/shared/cartItem/cartItem";
 import { RootState } from "redux/store";
 import { convertToUpperCase } from "helpers/textFormating";
+import { productTotal, clearCart } from "redux/slices/cartSlice";
+import { shippingFee, vatFee, grandTotal } from "helpers/fees";
+import { CURRENCY_SYMBOL } from "helpers/constants";
 
 const CheckoutModal = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+
   //TODO: Access the checkout form data
   const userData = useAppSelector(
     (state: RootState) => state.checkoutFormData.value
   );
 
-  //TODO: Extract cart data
+  //TODO: State => Get the total price of cart products from the state
+  const total = useAppSelector(productTotal);
+
+  //TODO: State => Extract cart data from state
   const cartItems = useAppSelector((state: RootState) => state.cart.cartItems);
 
   //TODO: Automatically transform first alphabet of the user's name to uppercase before being rendered
@@ -61,6 +69,16 @@ const CheckoutModal = (): JSX.Element => {
     };
   }, [router]);
 
+  //TODO: Pricing => Calculate cart fees
+  const shipping = shippingFee(total);
+  const vat = vatFee(total);
+  const grand = grandTotal(total, shipping, vat);
+
+  //TODO: State => Clear all the cart items and update the state
+  const handleClearCart = () => {
+    dispatch(clearCart(true));
+  };
+
   return (
     <ModalContainer>
       <ModalWrap>
@@ -82,23 +100,33 @@ const CheckoutModal = (): JSX.Element => {
         <ModalSummary>
           <ModalSummaryDetails>
             <CartItemWrap>
-              {cartItems.map((cartItem) => {
-                return <CartItem key={cartItem.id} data={cartItem} summary />;
-              }).slice(0, 1)}
+              {cartItems
+                .map((cartItem) => {
+                  return <CartItem key={cartItem.id} data={cartItem} summary />;
+                })
+                .slice(0, 1)}
             </CartItemWrap>
-            <CartItemMore>
-              <p>and {cartItems.length - 1} other item(s)</p>
-            </CartItemMore>
+            {cartItems.length > 1 && (
+              <CartItemMore>
+                <p>and {cartItems.length - 1} other item(s)</p>
+              </CartItemMore>
+            )}
           </ModalSummaryDetails>
           <ModalSummaryTotal>
             <ModalTotal>
               <h3>grand total</h3>
-              <p>$ 5,446</p>
+              <p>
+                {CURRENCY_SYMBOL} {grand}
+              </p>
             </ModalTotal>
           </ModalSummaryTotal>
         </ModalSummary>
-        <ModalButtonWrap>
-          <Button link="/" block event={handleStyleRestore}>
+        <ModalButtonWrap onClick={handleClearCart}>
+          <Button
+            link="/"
+            block
+            event={handleStyleRestore}
+          >
             back to home
           </Button>
         </ModalButtonWrap>

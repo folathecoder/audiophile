@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useAppSelector } from "redux/types/reduxTypes";
 import {
   CartItemWrap,
   CartItemImage,
@@ -18,23 +17,22 @@ interface CartItemProps {
   data: ProductType;
 }
 
-const CartItem = ({ summary, editable, data }: CartItemProps): JSX.Element => {
-  console.log(data);
+const CartItem = ({
+  summary,
+  editable,
+  data,
+}: CartItemProps): JSX.Element => {
   return (
     <CartItemWrap>
       <Link href="/headphones" prefetch>
         <CartItemImage>
-          <Image
-            src={data.cartIcon}
-            alt={data.name}
-            layout="fill"
-          />
+          <Image src={data.cartIcon} alt={data.name} layout="fill" />
         </CartItemImage>
       </Link>
       <CartItemDetail>
         <h4>{data.shortName}</h4>
         <p>
-          {CURRENCY_SYMBOL} {data.price}
+          {CURRENCY_SYMBOL} {data.subTotal}
         </p>
       </CartItemDetail>
       <CartItemCounter summary={summary}>

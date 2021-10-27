@@ -1,5 +1,4 @@
 import { useAppDispatch, useAppSelector } from "redux/types/reduxTypes";
-import { useEffect } from "react";
 import {
   CartContainer,
   CartWrap,
@@ -17,11 +16,16 @@ import {
 import Button from "components/shared/button/button";
 import CartItem from "components/shared/cartItem/cartItem";
 import { toggleCartMenu } from "redux/slices/cartMenuSlice";
-import { clearCart } from "redux/slices/cartSlice";
+import { clearCart, productTotal } from "redux/slices/cartSlice";
+import { CURRENCY_SYMBOL } from "helpers/constants";
 
 const CartMenu = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
+  //TODO: State => Get the total price of products in the cart
+  const total = useAppSelector(productTotal);
+
+  //TODO: State => Get cart data from state
   const cartItems = useAppSelector((state) => state.cart.cartItems);
 
   //TODO: Event => Close cart menu when checkout button is clicked
@@ -29,6 +33,7 @@ const CartMenu = (): JSX.Element => {
     dispatch(toggleCartMenu(false));
   };
 
+  //TODO: State => Clear all the cart items and update the state
   const handleClearCart = () => {
     dispatch(clearCart(true));
   };
@@ -55,7 +60,9 @@ const CartMenu = (): JSX.Element => {
         </Cart>
         <CheckoutTotalItem>
           <CartDetail>total</CartDetail>
-          <CartAmount>$ 5,000</CartAmount>
+          <CartAmount>
+            {CURRENCY_SYMBOL} {total}
+          </CartAmount>
         </CheckoutTotalItem>
         <CartButtonWrap>
           <Button event={handleCartClose} link="/checkout" block>

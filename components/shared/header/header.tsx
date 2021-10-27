@@ -23,9 +23,9 @@ import scrollTop from "helpers/scrollTop";
 import CartMenu from "components/shared/cart/cart";
 import useWindow from "hooks/useWindow";
 import { RootState } from "redux/store";
+import { totalCartQuantity } from "redux/slices/cartSlice";
 import { toggleCartMenu } from "redux/slices/cartMenuSlice";
 import ActiveLink from "components/shared/activeLink/activeLink";
-import CartCounter from "components/shared/cartCounter/cartCounter";
 
 interface HeaderProps {
   data: {
@@ -68,6 +68,9 @@ const Header = ({
 
   //TODO: Manage the cart menu toggle
   const cartToggle = useAppSelector((state: RootState) => state.cartMenu.value);
+
+  //TODO: Total cart quantity from the cart state
+  const totalProductCount = useAppSelector(totalCartQuantity);
 
   //TODO: Custom hook that monitors window size
   const { size } = useWindow();
@@ -204,9 +207,13 @@ const Header = ({
                 aria-hidden="true"
                 onClick={handleCartToggle}
               />
-              <CartNumber>
-                <CartCounter />
-              </CartNumber>
+              {totalProductCount >= 1 && (
+                <CartNumber
+                  aria-label={`You have ${totalProductCount} in your cart`}
+                >
+                  <p>{totalProductCount}</p>
+                </CartNumber>
+              )}
             </Cart>
             {cartToggle && <CartMenu />}
           </CartWrap>

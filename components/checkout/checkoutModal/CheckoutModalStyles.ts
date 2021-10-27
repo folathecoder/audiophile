@@ -137,4 +137,6 @@ export const ModalTotal = styled.div`
   }
 `;
 
-export const ModalButtonWrap = styled.div``;
+export const ModalButtonWrap = styled.div`
+  background-color: red;
+`;

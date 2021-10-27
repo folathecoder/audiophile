@@ -6,6 +6,7 @@ export interface ProductType {
   cartIcon: string;
   slug: string;
   name: string;
+  subTotal: number;
   image: ImagesTypes;
   category: string;
   categoryImage: ImagesTypes;

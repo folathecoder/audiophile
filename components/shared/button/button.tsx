@@ -8,6 +8,8 @@ interface ButtonProps {
   outline?: boolean;
   block?: boolean;
   event?: () => void;
+  event1?: () => void;
+  event2?: () => void;
 }
 
 const Button = ({
@@ -17,6 +19,8 @@ const Button = ({
   outline,
   block,
   event,
+  event1,
+  event2,
 }: ButtonProps): JSX.Element => {
   return (
     <Link href={link} passHref>
@@ -24,7 +28,7 @@ const Button = ({
         dark={dark}
         outline={outline}
         block={block}
-        onClick={event}
+        onClick={event || event1 || event2}
       >
         {children}
       </ButtonContainer>
