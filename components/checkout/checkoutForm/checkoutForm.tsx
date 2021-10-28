@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "redux/types/reduxTypes";
 import {
   Form,
   FormSection,
@@ -25,10 +25,11 @@ import {
 } from "components/checkout/checkoutForm/checkoutFormStyles";
 import { schema } from "helpers/yupSchema";
 import { checkoutFormData } from "redux/slices/checkoutFormSlice";
+import {checkFormSubmit} from "redux/slices/formSubmitSlice"
 import type { InputDataType } from "data/types/checkoutInputType";
 
 const CheckoutForm = (): JSX.Element => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   //TODO: Maintain payment mode prefrence state
   const [paymentMode, setPaymentMode] = useState<boolean>(true);
@@ -44,7 +45,12 @@ const CheckoutForm = (): JSX.Element => {
 
   //TODO: Function that collects all the form data and push the updated form data to the main state
   const submitForm = (data: InputDataType) => {
-    dispatch(checkoutFormData(data));
+    if (data) {
+      dispatch(checkFormSubmit(true));
+      dispatch(checkoutFormData(data));
+    } else {
+      dispatch(checkFormSubmit(false));
+    }
   };
 
   //TODO: Handle => "Cash On Delivery" onClick

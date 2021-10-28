@@ -22,6 +22,9 @@ const CheckoutSummary = ({ setShowModal }): JSX.Element => {
   //TODO: State => Extract cart data from state
   const cartItems = useAppSelector((state) => state.cart.cartItems);
 
+  //TODO: State => Extract user data from state
+  const userData = useAppSelector((state) => state.checkoutFormData.value);
+
   //TODO: State => Get the total price of cart products from the state
   const total = useAppSelector(productTotal);
 
@@ -34,6 +37,22 @@ const CheckoutSummary = ({ setShowModal }): JSX.Element => {
   const shipping = shippingFee(total);
   const vat = vatFee(total);
   const grand = grandTotal(total, shipping, vat);
+
+  const checkFormField =
+    userData ===
+    {
+      name: "",
+      email: "",
+      phone: 0,
+      address: "",
+      zipCode: 0,
+      city: "",
+      country: "",
+      emoneyNumber: 0,
+      emoneyPin: 0,
+    }
+      ? false
+      : true;
 
   return (
     <>
@@ -79,7 +98,7 @@ const CheckoutSummary = ({ setShowModal }): JSX.Element => {
             <CheckoutButton
               form="checkoutForm"
               type="submit"
-              onClick={handleActivateModal}
+              // onClick={checkFormField === true && handleActivateModal}
             >
               continue & pay
             </CheckoutButton>

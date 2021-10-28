@@ -149,7 +149,7 @@ const Header = ({
 
   return (
     <>
-      <HeaderContainer menuToggle={menuToggle} cartToggle={cartToggle}>
+      <HeaderContainer menuToggle={menuToggle}>
         <HeaderWrap>
           <MobileNav>
             <MobileToggle onClick={handleMenuToggle}>

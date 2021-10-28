@@ -108,7 +108,7 @@ const CheckoutModal = (): JSX.Element => {
             </CartItemWrap>
             {cartItems.length > 1 && (
               <CartItemMore>
-                <p>and {cartItems.length - 1} other item(s)</p>
+                <p>and {cartItems.length - 1} other item{cartItems.length > 2 && "s"}</p>
               </CartItemMore>
             )}
           </ModalSummaryDetails>
