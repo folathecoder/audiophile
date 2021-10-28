@@ -39,7 +39,7 @@ const cartSlice = createSlice({
         //Notification: Alert an increase in product quantity
         toast.success(`${action.payload.name} added to cart`, {
           position: "top-left",
-          autoClose: 2000,
+          autoClose: 4000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
@@ -53,7 +53,7 @@ const cartSlice = createSlice({
         state.cartItems.push(tempProduct);
         toast.success(`${action.payload.name} added to cart`, {
           position: "top-left",
-          autoClose: 2000,
+          autoClose: 4000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
@@ -68,52 +68,103 @@ const cartSlice = createSlice({
         (cartItem) => cartItem.id === action.payload.id
       );
 
-      if (state.cartItems[itemIndex].cartQuantity >= 1) {
-        state.cartItems[itemIndex].cartQuantity += 1;
+      if (state.cartItems[itemIndex]) {
+        if (state.cartItems[itemIndex].cartQuantity >= 1) {
+          state.cartItems[itemIndex].cartQuantity += 1;
 
-        //Calculate the subtotal price of each "multiple" product
-        const subTotal =
-          state.cartItems[itemIndex].price *
-          state.cartItems[itemIndex].cartQuantity;
-        state.cartItems[itemIndex].subTotal = subTotal;
+          //Calculate the subtotal price of each "multiple" product
+          const subTotal =
+            state.cartItems[itemIndex].price *
+            state.cartItems[itemIndex].cartQuantity;
+          state.cartItems[itemIndex].subTotal = subTotal;
+        }
+
+        //localStorage: Update state and push to localStorage
+        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      } else {
+        toast.error(`Click on "ADD TO CART"!`, {
+          position: "top-left",
+          autoClose: 4000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
       }
-
-      //localStorage: Update state and push to localStorage
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     //TODO: Reducer => Decrease the number of products in the cart (with toastify alerts)
     decreaseQuantity(state, action) {
       const itemIndex = state.cartItems.findIndex(
         (cartItem) => cartItem.id === action.payload.id
       );
+      if (state.cartItems[itemIndex]) {
+        if (state.cartItems[itemIndex].cartQuantity > 1) {
+          state.cartItems[itemIndex].cartQuantity -= 1;
 
-      if (state.cartItems[itemIndex].cartQuantity > 1) {
-        state.cartItems[itemIndex].cartQuantity -= 1;
+          //Calculate the subtotal price of each "multiple" product
+          const subTotal =
+            state.cartItems[itemIndex].price *
+            state.cartItems[itemIndex].cartQuantity;
+          state.cartItems[itemIndex].subTotal = subTotal;
 
-        //Calculate the subtotal price of each "multiple" product
-        const subTotal =
-          state.cartItems[itemIndex].price *
-          state.cartItems[itemIndex].cartQuantity;
-        state.cartItems[itemIndex].subTotal = subTotal;
+          //localStorage: Update state and push to localStorage
+          localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+        }
 
-        //localStorage: Update state and push to localStorage
-        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      }
+        //!: Delete the product from cart if the count is below 1
+        else if (state.cartItems[itemIndex].cartQuantity === 1) {
+          const nextCartItems = state.cartItems.filter(
+            (cartItem) => cartItem.id !== action.payload.id
+          );
+          state.cartItems = nextCartItems;
 
-      //!: Delete the product from cart if the count is below 1
-      else if (state.cartItems[itemIndex].cartQuantity === 1) {
-        const nextCartItems = state.cartItems.filter(
-          (cartItem) => cartItem.id !== action.payload.id
-        );
-        state.cartItems = nextCartItems;
+          //localStorage: Update state and push to localStorage
+          localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
 
-        //localStorage: Update state and push to localStorage
-        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-
-        //Notification: Alert a product remove in product quantity
-        toast.error(`Removed ${action.payload.name} form cart`, {
+          //Notification: Alert a product remove in product quantity
+          toast.error(`Removed ${action.payload.name} form cart`, {
+            position: "top-left",
+            autoClose: 4000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        }
+      } else {
+        toast.error(`This product CANNOT BE FOUND in the cart!`, {
           position: "top-left",
-          autoClose: 2000,
+          autoClose: 4000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      }
+    },
+    //TODO: Reducer => Decrease the number of products in the cart (with toastify alerts)
+    //!: This reducer will prevent the item from deleting when the value is lesser that 1. This is used in the product page counter only!
+    customDecreaseQuantity(state, action) {
+      const itemIndex = state.cartItems.findIndex(
+        (cartItem) => cartItem.id === action.payload.id
+      );
+      if (state.cartItems[itemIndex]) {
+        if (state.cartItems[itemIndex].cartQuantity > 1) {
+          state.cartItems[itemIndex].cartQuantity -= 1;
+
+          //Calculate the subtotal price of each "multiple" product
+          const subTotal =
+            state.cartItems[itemIndex].price *
+            state.cartItems[itemIndex].cartQuantity;
+          state.cartItems[itemIndex].subTotal = subTotal;
+
+          //localStorage: Update state and push to localStorage
+          localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+        }
+      } else {
+        toast.error(`This product CANNOT BE FOUND in the cart!`, {
+          position: "top-left",
+          autoClose: 4000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
@@ -133,7 +184,7 @@ const cartSlice = createSlice({
       //Notification: Alert an all-cleared product cart
       toast.error(`Your cart is cleared`, {
         position: "top-left",
-        autoClose: 2000,
+        autoClose: 4000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
@@ -156,11 +207,15 @@ export const productTotal = (state: RootState) => {
   const total = (state.cart.cartItems || [])
     .map((cartItem) => cartItem.subTotal)
     .reduce((acc, curr) => acc + curr, 0);
-
   return total;
 };
 
-export const { addItemToCart, increaseQuantity, decreaseQuantity, clearCart } =
-  cartSlice.actions;
+export const {
+  addItemToCart,
+  increaseQuantity,
+  decreaseQuantity,
+  customDecreaseQuantity,
+  clearCart,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

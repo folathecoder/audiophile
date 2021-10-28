@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "redux/types/reduxTypes";
+import { useAppDispatch, useAppSelector } from "redux/types/reduxTypes";
 import {
   addItemToCart,
   decreaseQuantity,
   increaseQuantity,
+  customDecreaseQuantity,
 } from "redux/slices/cartSlice";
 import {
   CounterWrap,
@@ -19,10 +20,23 @@ import type { ProductType } from "data/types/productType";
 interface ProductCounterProps {
   custom?: boolean;
   data?: ProductType;
+  preventDelete?: boolean;
 }
 
-const ProductCounter = ({ custom, data }: ProductCounterProps): JSX.Element => {
+const ProductCounter = ({
+  custom,
+  data,
+  preventDelete,
+}: ProductCounterProps): JSX.Element => {
   const dispatch = useAppDispatch();
+
+  //TODO: Extract cart data from state
+  const cartItems = useAppSelector((state) => state.cart.cartItems);
+
+  //TODO: Find the cart item that tallies with the product id
+  const singleCartItem = (cartItems || []).find(
+    (cartItem) => cartItem.id === data.id
+  );
 
   //TODO: Handle => Submit form value when certain conditions are met
   const handleFormSubmit = (e) => {
@@ -36,7 +50,11 @@ const ProductCounter = ({ custom, data }: ProductCounterProps): JSX.Element => {
 
   //TODO: Handle => Decrease product number onClick
   const handleDecrease = () => {
-    dispatch(decreaseQuantity(data));
+    if (preventDelete) {
+      dispatch(customDecreaseQuantity(data));
+    } else {
+      dispatch(decreaseQuantity(data));
+    }
   };
 
   //TODO: Styling => Dynamically change dimension of counter input if "custom" props is passed
@@ -75,8 +93,11 @@ const ProductCounter = ({ custom, data }: ProductCounterProps): JSX.Element => {
             type="number"
             name="productNumber"
             id="productNumber"
-            value={data.cartQuantity}
-            onKeyDown={(e) => e.preventDefault}
+            value={
+              singleCartItem
+                ? singleCartItem.cartQuantity
+                : data.cartQuantity
+            }
           />
         </CounterInput>
         <ButtonWrap>
