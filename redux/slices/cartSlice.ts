@@ -35,10 +35,15 @@ const cartSlice = createSlice({
           state.cartItems[itemIndex].price *
           state.cartItems[itemIndex].cartQuantity;
         state.cartItems[itemIndex].subTotal = subTotal;
-        
+
         //Notification: Alert an increase in product quantity
         toast.success(`${action.payload.name} added to cart`, {
           position: "top-left",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
         });
       } else {
         const tempProduct = {
@@ -48,6 +53,11 @@ const cartSlice = createSlice({
         state.cartItems.push(tempProduct);
         toast.success(`${action.payload.name} added to cart`, {
           position: "top-left",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
         });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
@@ -66,11 +76,6 @@ const cartSlice = createSlice({
           state.cartItems[itemIndex].price *
           state.cartItems[itemIndex].cartQuantity;
         state.cartItems[itemIndex].subTotal = subTotal;
-
-        //Notification: Alert an increase in product quantity
-        toast.success(`Increased ${action.payload.name} quantity`, {
-          position: "top-left",
-        });
       }
 
       //localStorage: Update state and push to localStorage
@@ -93,11 +98,6 @@ const cartSlice = createSlice({
 
         //localStorage: Update state and push to localStorage
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-
-        //Notification: Alert a decrease in product quantity
-        toast.error(`Decreased ${action.payload.name} quantity`, {
-          position: "top-left",
-        });
       }
 
       //!: Delete the product from cart if the count is below 1
@@ -113,6 +113,11 @@ const cartSlice = createSlice({
         //Notification: Alert a product remove in product quantity
         toast.error(`Removed ${action.payload.name} form cart`, {
           position: "top-left",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
         });
       }
     },
@@ -128,6 +133,11 @@ const cartSlice = createSlice({
       //Notification: Alert an all-cleared product cart
       toast.error(`Your cart is cleared`, {
         position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
       });
     },
   },
