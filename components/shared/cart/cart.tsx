@@ -13,14 +13,18 @@ import {
   CartAmount,
   CartButtonWrap,
 } from "components/shared/cart/cartStyles";
+import { useRouter } from "next/router";
 import Button from "components/shared/button/button";
 import CartItem from "components/shared/cartItem/cartItem";
 import { toggleCartMenu } from "redux/slices/cartMenuSlice";
 import { clearCart, productTotal } from "redux/slices/cartSlice";
 import { CURRENCY_SYMBOL } from "helpers/constants";
+import { toast } from "react-toastify";
+import { toastAction } from "helpers/toastify";
 
 const CartMenu = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
   //TODO: State => Get the total price of products in the cart
   const total = useAppSelector(productTotal);
@@ -31,6 +35,16 @@ const CartMenu = (): JSX.Element => {
   //TODO: Event => Close cart menu when checkout button is clicked
   const handleCartClose = () => {
     dispatch(toggleCartMenu(false));
+
+    if (cartItems.length === 0) {
+      setTimeout(() => {
+        router.back();
+      }, 5000);
+      toast.error(
+        `Your cart is empty, you will be redirected in 5 seconds!`,
+        toastAction
+      );
+    }
   };
 
   //TODO: State => Clear all the cart items and update the state
