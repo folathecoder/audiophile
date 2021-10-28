@@ -1,4 +1,4 @@
-import { useAppSelector } from "redux/types/reduxTypes";
+import { useAppSelector, useAppDispatch } from "redux/types/reduxTypes";
 import {
   SummaryContainer,
   SummaryHeading,
@@ -16,43 +16,54 @@ import {
 import { CURRENCY_SYMBOL } from "helpers/constants";
 import CartItem from "components/shared/cartItem/cartItem";
 import { productTotal } from "redux/slices/cartSlice";
+import { modalOpen } from "redux/slices/modalSlice";
 import { shippingFee, vatFee, grandTotal } from "helpers/fees";
+import { toast } from "react-toastify";
 
-const CheckoutSummary = ({ setShowModal }): JSX.Element => {
+const CheckoutSummary = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+
   //TODO: State => Extract cart data from state
   const cartItems = useAppSelector((state) => state.cart.cartItems);
-
-  //TODO: State => Extract user data from state
-  const userData = useAppSelector((state) => state.checkoutFormData.value);
 
   //TODO: State => Get the total price of cart products from the state
   const total = useAppSelector(productTotal);
 
-  //TODO: Activate modal by setting showModal state to true onClick
-  const handleActivateModal = () => {
-    setShowModal(true);
-  };
+  //TODO: State => Get the state of the checkout form submission
+  const isFormSubmitted = useAppSelector((state) => state.formSubmit.value);
 
   //TODO: Pricing => Calculate cart fees
   const shipping = shippingFee(total);
   const vat = vatFee(total);
   const grand = grandTotal(total, shipping, vat);
 
-  const checkFormField =
-    userData ===
-    {
-      name: "",
-      email: "",
-      phone: 0,
-      address: "",
-      zipCode: 0,
-      city: "",
-      country: "",
-      emoneyNumber: 0,
-      emoneyPin: 0,
+  //TODO: Activate modal by setting showModal state to true onClick
+  const handleActivateModal = () => {
+    // Ensure that the cart is not empty
+    if (cartItems.length === 0) {
+      toast.error(`Your cart is empty!`, {
+        position: "top-left",
+        autoClose: 4000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } else {
+      if (isFormSubmitted) {
+        dispatch(modalOpen(true));
+      } else {
+        toast.error(`Complete the checkout form!`, {
+          position: "top-left",
+          autoClose: 4000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      }
     }
-      ? false
-      : true;
+  };
 
   return (
     <>
@@ -98,7 +109,7 @@ const CheckoutSummary = ({ setShowModal }): JSX.Element => {
             <CheckoutButton
               form="checkoutForm"
               type="submit"
-              // onClick={checkFormField === true && handleActivateModal}
+              onClick={handleActivateModal}
             >
               continue & pay
             </CheckoutButton>

@@ -5,10 +5,11 @@ import CheckoutTemplate from "components/checkout/checkoutTemplate/checkoutTempl
 import { Main } from "styles/global/globalStyles";
 import CheckoutModal from "components/checkout/checkoutModal/checkoutModal";
 import Overlay from "components/shared/overlay/overlay";
+import { useAppSelector } from "redux/types/reduxTypes";
 
 const Checkout = () => {
-  //TODO: Maintain checkout modal state
-  const [showModal, setShowModal] = useState<boolean>(false);
+  //TODO: State => Get modal state value from root state
+  const showModal = useAppSelector(state => state.modal.value)
 
   return (
     <>
@@ -21,7 +22,7 @@ const Checkout = () => {
       </Head>
       <Main gray>
         <Navigator />
-        <CheckoutTemplate setShowModal={setShowModal} />
+        <CheckoutTemplate />
       </Main>
       {showModal && <CheckoutModal />}
       {showModal && <Overlay maxOverlay />}

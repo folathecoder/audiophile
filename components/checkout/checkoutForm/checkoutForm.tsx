@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState, useEffect } from "react";
-import { useAppDispatch } from "redux/types/reduxTypes";
+import { useAppDispatch, useAppSelector } from "redux/types/reduxTypes";
 import {
   Form,
   FormSection,
@@ -25,11 +25,16 @@ import {
 } from "components/checkout/checkoutForm/checkoutFormStyles";
 import { schema } from "helpers/yupSchema";
 import { checkoutFormData } from "redux/slices/checkoutFormSlice";
-import {checkFormSubmit} from "redux/slices/formSubmitSlice"
+import { modalOpen } from "redux/slices/modalSlice";
+import { checkFormSubmit } from "redux/slices/formSubmitSlice";
 import type { InputDataType } from "data/types/checkoutInputType";
+import { toast } from "react-toastify";
 
 const CheckoutForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
+
+  //TODO: State => Get the cart items from state
+  const cartItems = useAppSelector((state) => state.cart.cartItems);
 
   //TODO: Maintain payment mode prefrence state
   const [paymentMode, setPaymentMode] = useState<boolean>(true);
@@ -43,13 +48,25 @@ const CheckoutForm = (): JSX.Element => {
     resolver: yupResolver(schema),
   });
 
-  //TODO: Function that collects all the form data and push the updated form data to the main state
+  //TODO: Function that collects all the form data and push the updated form data to the main state => It also opens the checkout modal and changes the state of the form (to check if the form is submitted or not)
   const submitForm = (data: InputDataType) => {
-    if (data) {
-      dispatch(checkFormSubmit(true));
-      dispatch(checkoutFormData(data));
+    if (cartItems.length === 0) {
+      toast.error(`Your cart is empty!`, {
+        position: "top-left",
+        autoClose: 4000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     } else {
-      dispatch(checkFormSubmit(false));
+      if (data) {
+        dispatch(checkoutFormData(data));
+        dispatch(checkFormSubmit(true));
+        dispatch(modalOpen(true));
+      } else {
+        dispatch(checkFormSubmit(false));
+      }
     }
   };
 

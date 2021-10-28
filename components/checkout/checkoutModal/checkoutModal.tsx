@@ -18,6 +18,7 @@ import {
 } from "components/checkout/checkoutModal/CheckoutModalStyles";
 import Button from "components/shared/button/button";
 import CartItem from "components/shared/cartItem/cartItem";
+import { modalOpen } from "redux/slices/modalSlice";
 import { RootState } from "redux/store";
 import { convertToUpperCase } from "helpers/textFormating";
 import { productTotal, clearCart } from "redux/slices/cartSlice";
@@ -74,9 +75,10 @@ const CheckoutModal = (): JSX.Element => {
   const vat = vatFee(total);
   const grand = grandTotal(total, shipping, vat);
 
-  //TODO: State => Clear all the cart items and update the state
+  //TODO: State => Clear all the cart items and update the state. Also, close the modal
   const handleClearCart = () => {
     dispatch(clearCart(true));
+    dispatch(modalOpen(false));
   };
 
   return (
@@ -108,7 +110,10 @@ const CheckoutModal = (): JSX.Element => {
             </CartItemWrap>
             {cartItems.length > 1 && (
               <CartItemMore>
-                <p>and {cartItems.length - 1} other item{cartItems.length > 2 && "s"}</p>
+                <p>
+                  and {cartItems.length - 1} other item
+                  {cartItems.length > 2 && "s"}
+                </p>
               </CartItemMore>
             )}
           </ModalSummaryDetails>

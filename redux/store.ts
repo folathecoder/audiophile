@@ -4,6 +4,7 @@ import checkoutDataReducer from "redux/slices/checkoutFormSlice";
 import productsReducer, { productsFetch } from "redux/slices/productsSlice";
 import cartReducer from "redux/slices/cartSlice";
 import formSubmitReducer from "redux/slices/formSubmitSlice";
+import modalReducer from "redux/slices/modalSlice";
 
 //TODO: Manage the universal state of the application
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
     products: productsReducer,
     cart: cartReducer,
     formSubmit: formSubmitReducer,
+    modal: modalReducer,
   },
 });
 

@@ -1,14 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
 
-const initialState: boolean = false;
+interface formSubmitSliceType {
+  value: boolean;
+}
+
+const initialState: formSubmitSliceType = {
+  value: false,
+};
 
 const formSubmitSlice = createSlice({
   name: "formSubmit",
   initialState,
   reducers: {
     checkFormSubmit: (state, action: PayloadAction<boolean>) => {
-      state = action.payload;
+      state.value = action.payload;
     },
   },
 });

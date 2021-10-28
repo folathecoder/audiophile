@@ -7,7 +7,7 @@ import {
   CheckoutSummaryWrap,
 } from "components/checkout/checkoutTemplate/checkoutTemplateStyles";
 
-const CheckoutTemplate = ({ setShowModal }):JSX.Element => {
+const CheckoutTemplate = ():JSX.Element => {
   return (
     <CheckoutContainer>
       <CheckoutWrap>
@@ -15,7 +15,7 @@ const CheckoutTemplate = ({ setShowModal }):JSX.Element => {
           <CheckoutForm />
         </CheckoutFormWrap>
         <CheckoutSummaryWrap>
-          <CheckoutSummary setShowModal={setShowModal} />
+          <CheckoutSummary />
         </CheckoutSummaryWrap>
       </CheckoutWrap>
     </CheckoutContainer>
