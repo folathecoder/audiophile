@@ -49,19 +49,6 @@ const CheckoutSummary = (): JSX.Element => {
         pauseOnHover: true,
         draggable: true,
       });
-    } else {
-      if (isFormSubmitted) {
-        dispatch(modalOpen(true));
-      } else {
-        toast.error(`Complete the checkout form!`, {
-          position: "top-left",
-          autoClose: 4000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-      }
     }
   };
 

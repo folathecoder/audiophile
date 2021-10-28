@@ -51,7 +51,7 @@ const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
             <ProductHeading>{name}</ProductHeading>
             <ProductDescription>{description}</ProductDescription>
             <ProductPrice>
-              {CURRENCY_SYMBOL} {price}
+              {CURRENCY_SYMBOL} {price.toLocaleString("en-US")}
             </ProductPrice>
             <ProductOrderWrap>
               <ProductOrder>
