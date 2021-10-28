@@ -29,6 +29,7 @@ import { modalOpen } from "redux/slices/modalSlice";
 import { checkFormSubmit } from "redux/slices/formSubmitSlice";
 import type { InputDataType } from "data/types/checkoutInputType";
 import { toast } from "react-toastify";
+import { toastAction } from "helpers/toastify";
 
 const CheckoutForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -51,14 +52,7 @@ const CheckoutForm = (): JSX.Element => {
   //TODO: Function that collects all the form data and push the updated form data to the main state => It also opens the checkout modal and changes the state of the form (to check if the form is submitted or not)
   const submitForm = (data: InputDataType) => {
     if (cartItems.length === 0) {
-      toast.error(`Your cart is empty!`, {
-        position: "top-left",
-        autoClose: 4000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
+      toast.error(`Your cart is empty!`, toastAction);
     } else {
       if (data) {
         dispatch(checkoutFormData(data));

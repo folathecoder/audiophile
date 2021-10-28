@@ -16,9 +16,9 @@ import {
 import { CURRENCY_SYMBOL } from "helpers/constants";
 import CartItem from "components/shared/cartItem/cartItem";
 import { productTotal } from "redux/slices/cartSlice";
-import { modalOpen } from "redux/slices/modalSlice";
 import { shippingFee, vatFee, grandTotal } from "helpers/fees";
 import { toast } from "react-toastify";
+import { toastAction } from "helpers/toastify";
 
 const CheckoutSummary = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -29,26 +29,15 @@ const CheckoutSummary = (): JSX.Element => {
   //TODO: State => Get the total price of cart products from the state
   const total = useAppSelector(productTotal);
 
-  //TODO: State => Get the state of the checkout form submission
-  const isFormSubmitted = useAppSelector((state) => state.formSubmit.value);
-
   //TODO: Pricing => Calculate cart fees
   const shipping = shippingFee(total);
   const vat = vatFee(total);
   const grand = grandTotal(total, shipping, vat);
 
-  //TODO: Activate modal by setting showModal state to true onClick
+  //TODO: Ensure that the cart is not empty when checking out
   const handleActivateModal = () => {
-    // Ensure that the cart is not empty
     if (cartItems.length === 0) {
-      toast.error(`Your cart is empty!`, {
-        position: "top-left",
-        autoClose: 4000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
+      toast.error(`Your cart is empty!`, toastAction);
     }
   };
 

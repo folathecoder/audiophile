@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { ProductType } from "data/types/productType";
 import { toast } from "react-toastify";
+import { toastAction } from "helpers/toastify";
 import { RootState } from "redux/store";
 
 //TODO: cartSlice interface
@@ -37,28 +38,14 @@ const cartSlice = createSlice({
         state.cartItems[itemIndex].subTotal = subTotal;
 
         //Notification: Alert an increase in product quantity
-        toast.success(`${action.payload.name} added to cart`, {
-          position: "top-left",
-          autoClose: 4000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
+        toast.success(`${action.payload.name} added to cart`, toastAction);
       } else {
         const tempProduct = {
           ...action.payload,
           cartQuantity: 1,
         };
         state.cartItems.push(tempProduct);
-        toast.success(`${action.payload.name} added to cart`, {
-          position: "top-left",
-          autoClose: 4000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
+        toast.success(`${action.payload.name} added to cart`, toastAction);
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
@@ -82,14 +69,7 @@ const cartSlice = createSlice({
         //localStorage: Update state and push to localStorage
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       } else {
-        toast.error(`Click on "ADD TO CART"!`, {
-          position: "top-left",
-          autoClose: 4000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
+        toast.error(`Click on "ADD TO CART"!`, toastAction);
       }
     },
     //TODO: Reducer => Decrease the number of products in the cart (with toastify alerts)
@@ -122,24 +102,10 @@ const cartSlice = createSlice({
           localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
 
           //Notification: Alert a product remove in product quantity
-          toast.error(`Removed ${action.payload.name} form cart`, {
-            position: "top-left",
-            autoClose: 4000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-          });
+          toast.error(`Removed ${action.payload.name} form cart`, toastAction);
         }
       } else {
-        toast.error(`This product CANNOT BE FOUND in the cart!`, {
-          position: "top-left",
-          autoClose: 4000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
+        toast.error(`This product CANNOT BE FOUND in the cart!`, toastAction);
       }
     },
     //TODO: Reducer => Decrease the number of products in the cart (with toastify alerts)
@@ -162,14 +128,7 @@ const cartSlice = createSlice({
           localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         }
       } else {
-        toast.error(`This product CANNOT BE FOUND in the cart!`, {
-          position: "top-left",
-          autoClose: 4000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
+        toast.error(`This product CANNOT BE FOUND in the cart!`, toastAction);
       }
     },
     //TODO: Reducer => Clear all products in the cart and localStorage (with toastify alerts)
@@ -182,14 +141,7 @@ const cartSlice = createSlice({
       localStorage.removeItem("cartItems");
 
       //Notification: Alert an all-cleared product cart
-      toast.error(`Your cart is cleared`, {
-        position: "top-left",
-        autoClose: 4000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
+      toast.error(`Your cart is cleared`, toastAction);
     },
   },
 });
