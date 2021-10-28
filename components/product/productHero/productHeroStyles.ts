@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
 
 export const ProductContainer = styled.section`

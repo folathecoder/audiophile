@@ -34,7 +34,7 @@ const Scroll = styled.button`
 `;
 
 //TODO: Event => Jump to the top of the page when clicked
-const ScrollToTop = () => {
+const ScrollToTop = (): JSX.Element => {
   const handleScroll = () => {
     scrollTop();
   };

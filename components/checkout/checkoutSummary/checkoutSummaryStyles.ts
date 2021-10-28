@@ -25,7 +25,6 @@ export const SummaryHeading = styled.h2`
 export const SummaryWrap = styled.div`
   height: 15rem;
   max-width: 100%;
-  /* background-color: var(--color-sec-600); */
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -47,11 +46,7 @@ export const SummaryWrap = styled.div`
   }
 `;
 
-export const CartInnerWrap = styled.div`
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-`;
+export const CartInnerWrap = styled.div``;
 
 export const CheckoutTotal = styled.div`
   margin-top: 1rem;

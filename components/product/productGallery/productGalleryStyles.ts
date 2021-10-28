@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { QUERIES } from "helpers/mediaQueries";
 
 export const GalleryContainer = styled.section`
-  /* background-color: red; */
   max-width: 100%;
   padding: 0rem 1rem;
   margin: 5rem 0rem;
@@ -16,7 +15,6 @@ export const GalleryContainer = styled.section`
   }
 `;
 export const GalleryWrap = styled.div`
-  /* background-color: yellow; */
   min-height: 37rem;
   max-width: var(--max-container);
   margin: var(--center-container);
@@ -47,7 +45,6 @@ export const GalleryWrap = styled.div`
   @media screen and (max-width: 576px) {
     grid-gap: 1.2rem;
     grid-template-columns: 1fr;
-    /* grid-template-rows: 10.875rem; */
     grid-template-areas:
       "A"
       "B"

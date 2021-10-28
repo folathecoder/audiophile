@@ -88,7 +88,6 @@ export const FormError = styled.div`
   margin-bottom: 0.75rem;
   color: #cd2c2c;
   text-align: right;
-  /* display: none; */
 
   & > * {
     flex: 1;

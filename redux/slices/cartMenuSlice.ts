@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 //TODO: Manage the cart menu toggle state
-
 const initialStateValue: boolean = false;
 
 export const cartMenuSlice = createSlice({

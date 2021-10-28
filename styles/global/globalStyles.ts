@@ -57,11 +57,7 @@ export const GlobalStyles = createGlobalStyle`
         list-style: none;
     }
 
-    /* button:focus {
-        outline: 0.1rem solid var(--color-pry-100);
-    } */
-
-    // Remove all animations and transitions for people that prefer not to see them
+    //! Remove all animations and transitions for people that prefer not to see them
     @media (prefers-reduced-motion: reduce) {
     html:focus-within {
     scroll-behavior: auto;
@@ -111,10 +107,6 @@ export const GlobalStyles = createGlobalStyle`
             transition: var(--transition);
             color: var(--color-pry-100);
         }
-        
-        /* &:focus {
-            outline: 0.1rem solid var(--color-pry-100);
-        } */
     }
 
     p {
