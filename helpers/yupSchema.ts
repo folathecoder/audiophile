@@ -8,6 +8,6 @@ export const schema = yup.object().shape({
   zipCode: yup.number().integer().min(5).required(),
   city: yup.string().required(),
   country: yup.string().required(),
-  emoneyNumber: yup.number().integer(),
-  emoneyPin: yup.number().integer(),
+  // emoneyNumber: yup.number().integer().notRequired(),
+  // emoneyPin: yup.number().integer().notRequired(),
 });

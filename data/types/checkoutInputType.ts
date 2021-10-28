@@ -7,6 +7,6 @@ export interface InputDataType {
   zipCode: number;
   city: string;
   country: string;
-  emoneyNumber: number;
-  emoneyPin: number;
+  emoneyNumber?: number;
+  emoneyPin?: number;
 }
