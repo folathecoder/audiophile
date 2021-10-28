@@ -35,13 +35,13 @@ const ProductHero = ({ data }: ProductHeroProps): JSX.Element => {
         <ProductImageWrap>
           <ProductImage>
             {size >= 992 && (
-              <Image src={image.desktop} alt={name} layout="fill" />
+              <Image src={image.desktop} alt={name} layout="fill" priority />
             )}
             {size < 992 && size >= 786 && (
-              <Image src={image.tablet} alt={name} layout="fill" />
+              <Image src={image.tablet} alt={name} layout="fill" priority />
             )}
             {size < 786 && (
-              <Image src={image.mobile} alt={name} layout="fill" />
+              <Image src={image.mobile} alt={name} layout="fill" priority />
             )}
           </ProductImage>
         </ProductImageWrap>

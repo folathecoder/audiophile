@@ -26,7 +26,7 @@ const CartItem = ({
     <CartItemWrap>
       <Link href="/headphones" prefetch>
         <CartItemImage>
-          <Image src={data.cartIcon} alt={data.name} layout="fill" />
+          <Image src={data.cartIcon} alt={data.name} layout="fill" priority />
         </CartItemImage>
       </Link>
       <CartItemDetail>

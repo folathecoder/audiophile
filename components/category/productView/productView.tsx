@@ -35,6 +35,7 @@ const ProductView = ({ flip, data }: ProductViewProps): JSX.Element => {
                 src={data.categoryImage.desktop}
                 alt={data.name}
                 layout="fill"
+                priority
               />
             )}
             {size < 992 && size > 576 && (
@@ -42,6 +43,7 @@ const ProductView = ({ flip, data }: ProductViewProps): JSX.Element => {
                 src={data.categoryImage.tablet}
                 alt={data.name}
                 layout="fill"
+                priority
               />
             )}
             {size <= 576 && (
@@ -49,6 +51,7 @@ const ProductView = ({ flip, data }: ProductViewProps): JSX.Element => {
                 src={data.categoryImage.mobile}
                 alt={data.name}
                 layout="fill"
+                priority
               />
             )}
           </ProductImage>
