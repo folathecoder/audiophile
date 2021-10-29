@@ -44,9 +44,7 @@ Start the server
 
 ## Screenshot
 
-![Homepage](./public/homepage-preview.png)
-
-![Product Page](./public/product-preview.png)
+![Audiophile website overview](./public/audiophile.gif)
 
 
 ## Lessons Learned
