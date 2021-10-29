@@ -13,17 +13,51 @@ Audiophile is a online store that sells luxury and branded audio gadgets ranging
 **Deployment:** Heroku, Netlify, & Vercel 
 
 
-## Installation
+## Run Locally
 
-Install this application into your local environment by forking the repository and enter the following commands in your local terminal
+Run this application into your local environment by forking the repository and enter the following commands in your local terminal
+
+Clone the project
 
 ```bash
-    git clone https://github.com/folathecoder/audiophile.git
-    npm install 
-    cd audiophile
+  git clone https://github.com/folathecoder/audiophile.git
 ```
-    
+
+Go to the project directory
+
+```bash
+  cd audiophile
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+
 ## Screenshot
 
-![](./homepage-preview.png)
+![](./public.homepage-preview.png)
+
+
+## 🔗 Social Links
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://folarin.dev/)
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/akinloye-folarin)
+
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/folathecoder)
+
+
+## Authors
+
+- **Coded By:** [@folathecoder](https://www.github.com/folathecoder)
+- **Designed By:** [@frontendmentor.io](https://frontendmentor.io)
 
