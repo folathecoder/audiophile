@@ -44,7 +44,14 @@ Start the server
 
 ## Screenshot
 
-![](./public.homepage-preview.png)
+![](./public/homepage-preview.png)
+
+
+## Lessons Learned
+
+This project is one of [frontendmentor.io](https://frontendmentor.io)s GURU challenges. I have been taking up challenges on their platform for almost a year, since I started my coding journey, and I remember looking at this particular project, wondering when I will be skilled enough to execute it. Well! Now I know! 😎
+
+This project is by far one of the hardest projects I have ever excuted. It was both challenging and full of learning/unlearning new TypeScript, React & Next JS concepts. 
 
 
 ## 🔗 Social Links
