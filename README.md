@@ -12,6 +12,8 @@ Audiophile is a online store that sells luxury and branded audio gadgets ranging
 
 **Deployment:** Heroku, Netlify, & Vercel 
 
+**Tools:** Google Rich Results Test, Schema Generator, PhotoShop, Canva, Lighthouse, GT Metrix, FireFox Developer Tools, Trello, Git, Redux DevTools, WAVE Accessibility Tool, & VS Code Editor  
+
 
 ## Run Locally
 
@@ -45,6 +47,49 @@ Start the server
 ## Screenshot
 
 ![Audiophile website overview](./public/audiophile.gif)
+
+
+## SEO 
+
+Schema markup were dynamically rendered on all product pages using a function that takes in the product data as an argument and returns a customized JSON-LD. 
+
+```bash
+  helpers/schemaGenerator.ts
+```
+
+```bash
+  export const productSchemaGenerator = (product): object => {
+  const productName = convertToUpperCase(product.name);
+
+  return {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    name: `${productName}`,
+    image: `https://audiophilic.vercel.app/${product.image.desktop}`,
+    description: `${product.description}`,
+    brand: "Audiophile",
+    sku: `${product.id}`,
+    offers: {
+      "@type": "Offer",
+      url: `https://audiophilic.vercel.app/product/${product.slug}`,
+      priceCurrency: "USD",
+      price: `${product.price}`,
+      priceValidUntil: "2023-08-02",
+      availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+    },
+  };
+};
+```
+
+This function is called before products are pre-rendered at build time.
+
+
+**Results of Schema markup implementation**
+
+![Audiophile website overview](./public/schema-1.png)
+
+![Audiophile website overview](./public/schema-2.png)
 
 
 ## Lessons Learned
