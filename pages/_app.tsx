@@ -1,5 +1,5 @@
 import "react-toastify/dist/ReactToastify.css";
-import type { AppProps /*, AppContext */ } from "next/app";
+import type { AppProps } from "next/app";
 import { useState } from "react";
 import { Provider } from "react-redux";
 import { store } from "redux/store";

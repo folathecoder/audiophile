@@ -98,6 +98,7 @@ const ProductCounter = ({
                 ? singleCartItem.cartQuantity
                 : data.cartQuantity
             }
+            readOnly
           />
         </CounterInput>
         <ButtonWrap>
