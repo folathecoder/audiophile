@@ -200,10 +200,10 @@ const Header = ({
             </MenuWrap>
           </HeaderMenu>
           <CartWrap>
-            <Cart>
+            <Cart aria-label="open your cart menu">
               <Image
                 src={cart.icon}
-                alt=""
+                alt=" "
                 aria-hidden="true"
                 onClick={handleCartToggle}
               />

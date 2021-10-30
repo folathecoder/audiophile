@@ -31,7 +31,12 @@ const MenuCard = ({ data, event }: MenuCardProps): JSX.Element => {
           <Image src={data.image.src} alt={data.image.alt} />
         </CardImage>
         <CardShadow className="card-shadow">
-          <Image src="/images/shared/shadow.png" alt=" " layout="fill" />
+          <Image
+            src="/images/shared/shadow.png"
+            alt=" "
+            aria-hidden="true"
+            layout="fill"
+          />
         </CardShadow>
         <CardHeading>{data.title}</CardHeading>
         <CardLinkWrap>
