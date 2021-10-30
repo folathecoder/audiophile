@@ -1,0 +1,10 @@
+# Allow all user agents.
+User-agent: *
+Allow: /
+
+# User agent "Googlebot" should not crawl the `https://audiophilic.vercel.app/nogooglebot/` folder or any of its subdirectories.
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+Disallow: /cgi-bin/
+Sitemap: https://audiophilic.vercel.app/sitemap.xml

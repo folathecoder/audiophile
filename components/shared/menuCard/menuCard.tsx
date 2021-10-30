@@ -33,8 +33,8 @@ const MenuCard = ({ data, event }: MenuCardProps): JSX.Element => {
         <CardShadow className="card-shadow">
           <Image
             src="/images/shared/shadow.png"
-            alt=" "
-            aria-hidden="true"
+            alt=""
+            role="presentation"
             layout="fill"
           />
         </CardShadow>
